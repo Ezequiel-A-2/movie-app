@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 5</title>
+    <link 
+        rel="stylesheet" 
+        href="./style.css">
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+        crossorigin="anonymous">
+</head>
+<body>
+
+    <main>
+        <!-- food section -->
+        
+        <section class="food-container">
+
+            <!-- food section (comentar esto mas tarde) -->
+            
+            
+            <div class="card mb-3 mx-3 food-card" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4 food-img-container">
+                        <img src="./resources/img/balde.png" class="food-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Balde de pochoclos</h5>
+                            <p class="card-text">
+                            1 Balde de pochoclos. 
+                            </p>
+                            <p class="card-text"><small class="text-muted">Imagen a modo ilustrativo.</small></p>
+                        
+                        
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="food-price mb-0">
+                                $<span class="price">340</span>
+                            </p>
+                            <button class="btn btn-primary" type="button" onclick="saveFood(0)">Agregar al carrito</button>
+                            
+                        </div>
+                        
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mb-3 mx-3 food-card" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4 food-img-container">
+                    <img src="./resources/img/bolsa.png" class="food-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Bolsa de Pochoclos</h5>
+                        <p class="card-text">
+                            1 Bolsa de pochoclos mediana. 
+                        </p>
+                        <p class="card-text"><small class="text-muted">Imagen a modo ilustrativo.</small></p>
+                        
+                        <div class="d-flex justify-content-between">
+                            <p class="food-price mb-0">
+                                $<span class="price">290</span>
+                            </p>
+                            <button class="btn btn-primary" type="button" onclick="saveFood(1)">Agregar al carrito</button>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <div class="card mb-3 mx-3 food-card" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4 food-img-container">
+                        <img src="./resources/img/bebida-coca.png" class="food-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                        <h5 class="card-title">Vaso de Coca Mediano</h5>
+                        <p class="card-text">
+                            1 Gaseosa tamaño medio 21 oz.
+                        </p>
+                        <p class="card-text"><small class="text-muted">Imagen a modo ilustrativo.</small></p>
+
+                        <div class="d-flex justify-content-between">
+                            <p class="food-price mb-0">
+                                $<span class="price">250</span>
+                            </p>
+                            <button class="btn btn-primary" type="button" onclick="saveFood(2)">Agregar al carrito</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+            <div class="card mb-3 mx-3 food-card" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4 food-img-container">
+                        <img src="./resources/img/bebida-coca.png" class="food-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Vaso de Coca Grande</h5>
+                        <p class="card-text">
+                            1 Gaseosa tamaño grande 24 oz. 
+                        </p>
+                        <p class="card-text"><small class="text-muted">Imagen a modo ilustrativo.</small></p>
+
+                        <div class="d-flex justify-content-between">
+                            <p class="food-price mb-0">
+                                $<span class="price">270</span>
+                            </p>
+                            <button class="btn btn-primary" type="button" onclick="saveFood(3)">Agregar al carrito</button>
+                            
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mb-3 mx-3 food-card" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4 food-img-container">
+                    <img src="./resources/img/bebida-agua.png" class="food-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Botella de Agua</h5>
+                        <p class="card-text">
+                            Valor por unidad.
+                        </p>
+                        <p class="card-text"><small class="text-muted">Imagen a modo ilustrativo. <br> *Modelo sujeto a disponibilidad.</small></p>
+
+                        <div class="d-flex justify-content-between">
+                            <p class="food-price mb-0">
+                                $<span class="price">150</span>
+                            </p>
+                            <button class="btn btn-primary" type="button" onclick="saveFood(4)">Agregar al carrito</button>
+                            
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mb-3 mx-3 food-card" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4 food-img-container">
+                    <img src="./resources/img/combo-1p.png" class="food-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Combo 1</h5>
+                        <p class="card-text">
+                            1 balde de pochoclos + 1 gaseosa grande. 
+                        </p>
+                        <p class="card-text"><small class="text-muted">Imagen a modo ilustrativo.</small></p>
+
+                        <div class="d-flex justify-content-between">
+                            <p class="food-price mb-0">
+                                <span class="tachado">$610</span>
+                                <br>PRECIO WEB: $<span class="price">520</span>
+                            </p>
+                            <button class="btn btn-primary" type="button" onclick="saveFood(5)">Agregar al carrito</button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-3 mx-3 food-card" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4 food-img-container">
+                    <img src="./resources/img/combo-2p.png" class="food-img" alt="...">
+                </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Combo 2</h5>
+                            <p class="card-text">
+                                Balde de pochoclos + 2 gaseosas grandes + 1 golosina.
+                            </p>
+                            <p class="card-text"><small class="text-muted">Imagen a modo ilustrativo.</small></p>
+
+                            <div class="d-flex justify-content-between">
+                            <p class="food-price mb-0">
+                                <span class="tachado">$890</span>
+                                <br>PRECIO WEB: $<span class="price">755</span>
+                            </p>
+                            <button class="btn btn-primary" type="button" onclick="saveFood(6)">Agregar al carrito</button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-3 mx-3 food-card" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4 food-img-container">
+                    <img src="./resources/img/combo-4p.png" class="food-img" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Combo 3</h5>
+                        <p class="card-text">
+                            2 Bolsas de pochoclos medianas + 4 gaseosas medianas + 1 golosinas.
+                        </p>
+                        <p class="card-text"><small class="text-muted">Imagen a modo ilustrativo.</small></p>
+                        
+                        <div class="d-flex justify-content-between">
+                            <p class="food-price mb-0">
+                                <span class="tachado">$990</span>
+                                <br>PRECIO WEB: $<span class="price">840</span>
+                            </p>
+                            <button class="btn btn-primary" type="button" onclick="saveFood(7)">Agregar al carrito</button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-3 mx-3 food-card" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4 food-img-container">
+                    <img src="./resources/img/combo-nachos.png" class="food-img" alt="...">
+                </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                        <h5 class="card-title">Combo 4</h5>
+                        <p class="card-text">
+                            Nachos con queso + 1 gaseosa grande. 
+                        </p>
+                        <p class="card-text"><small class="text-muted">Imagen a modo ilustrativo.</small></p>
+                        
+                        <div class="d-flex justify-content-between">
+                            <p class="food-price mb-0">
+                                <span class="tachado">$460</span>
+                                <br>PRECIO WEB: $<span class="price">390</span>
+                            </p>
+                            <button class="btn btn-primary" type="button" onclick="saveFood(8)">Agregar al carrito</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-3 mx-3 food-card" style="max-width: 540px;">
+            <div class="row g-0">
+                    <div class="col-md-4 food-img-container">
+                        <img src="./resources/img/como-pancho.png" class="food-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Combo 5</h5>
+                        <p class="card-text">
+                            1 Pancho + 1 gaseosa grande. 
+                        </p>
+                        <p class="card-text"><small class="text-muted">Imagen a modo ilustrativo.</small></p>
+                        
+                        <div class="d-flex justify-content-between">
+                            <p class="food-price mb-0">
+                                <span class="tachado">$400</span>
+                                <br>PRECIO WEB: $<span class="price">340</span>
+                            </p>
+                            <button class="btn btn-primary" type="button" onclick="saveFood(9)">Agregar al carrito</button>
+
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3 mx-3 food-card" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4 food-img-container">
+                        <img src="./resources/img/snack-alfajor.png" class="food-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Alfajor</h5>
+                            <p class="card-text">
+                             Valor por unidad. 
+                            </p>
+                            <p class="card-text"><small class="text-muted">Imagen a modo ilustrativo. <br>*Modelo sujeto a disponibilidad.</small></p>
+                            
+                            <div class="d-flex justify-content-between">
+                            <p class="food-price mb-0">
+                                $<span class="price">120</span>
+                            </p>
+                            <button class="btn btn-primary" type="button" onclick="saveFood(10)">Agregar al carrito</button>
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <div class="card mb-3 mx-3 food-card" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4 food-img-container">
+                        <img src="./resources/img/snack-milka.png" class="food-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                        <h5 class="card-title">Chocolate</h5>
+                        <p class="card-text">
+                             Valor por unidad.
+                            </p>
+                            <p class="card-text"><small class="text-muted">Imagen a modo ilustrativo.<br>*Modelo sujeto a disponibilidad.</small></p>
+                        
+                            
+                            <div class="d-flex justify-content-between">
+                                <p class="food-price mb-0">
+                                    $<span class="price">250</span>
+                                </p>
+                                <button class="btn btn-primary" type="button" onclick="saveFood(11)">Agregar al carrito</button>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3 mx-3 food-card" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4 food-img-container">
+                        <img src="./resources/img/snack-rocklets.png" class="food-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Paquete de Rocklets</h5>
+                        <p class="card-text">
+                            Valor por unidad. Envase de 150gr
+                        </p>
+                        <p class="card-text"><small class="text-muted">Imagen a modo ilustrativo.</small></p>
+                        
+                        <div class="d-flex justify-content-between">
+                            <p class="food-price mb-0">
+                                $<span class="price">360</span>
+                            </p>
+                            <button class="btn btn-primary" type="button" onclick="saveFood(12)">Agregar al carrito</button>
+                            
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mb-3 mx-3 food-card" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4 food-img-container">
+                        <img src="./resources/img/snack-sugus.png" class="food-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Paquete de Sugus</h5>
+                            <p class="card-text">
+                                Valor por unidad.
+                        </p>
+                        <p class="card-text"><small class="text-muted">Imagen a modo ilustrativo.<br>*Modelo sujeto a disponibilidad.</small></p>
+                        
+                        <div class="d-flex justify-content-between">
+                            <p class="food-price mb-0">
+                                $<span class="price">130</span>
+                            </p>
+                            <button class="btn btn-primary" type="button" onclick="saveFood(13)">Agregar al carrito</button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+        
+
+        <!-- shop-cart section (seccion en desarrollo) -->
+
+        <section>
+
+            <div class="card" style="width: 18rem;">
+
+
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Resumen del Pedido
+                    </h5>
+                    <p class="card-text">
+                        "AQUI SE COLOCARAN FUTUROS DATOS SOBRE EL CINE"
+                    </p>
+                    <p>
+                        Para testear los descuentos, puede ingresar algun cupon aqui debajo
+                    </p>
+                    
+                    <!-- // Los cupones de aqui son de prueba, no se encontraran en la version final -->
+                    
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="cupons">
+                        <option selected value="0">Cupones de prueba*</option> 
+                        <option value="1">10%</option>
+                        <option value="2">20%</option>
+                        <option value="3">25%</option>
+                    </select>
+
+
+                </div>
+                <ul class="list-group list-group-flush" id="product-list">
+                </ul>
+                <ul class="list-group hide">
+                    <li class="list-group-item">
+                        Subtotal: 
+                        <span id="subtotal-tag"></span>
+                    </li>
+                    <li class="list-group-item">
+                        Impuestos: 
+                        <span id="tax-tag"></span>
+                    </li>
+                    <li class="list-group-item">
+                        Descuento: 
+                        <span id="discount-tag"></span>
+                    </li>
+                    <li class="list-group-item">
+                        Total a pagar: 
+                        <span id="price-tag"></span>
+                    </li>
+                    </ul>
+                <div class="card-body d-flex justify-content-between">
+                    <button type="button" class="btn btn-danger" onclick="cancelar()">Cancelar</button>
+                    
+
+                    <button class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Comprar</button>
+                </div>
+                </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- Nota: ver la parte de "validacion" de boostrap para el formulario de pago -->
+    
+    <!-- payment section -->
+    <!-- agregar un modal para avisar que se completo el pago -->
+
+    <aside>
+        
+
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel" id="offcanvas">
+            <!-- <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Colored with scrolling</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <p>Try scrolling the rest of the page to see this option in action.</p>
+            </div> -->
+
+
+
+            <div class="card payment-card d-flex flex-row">
+                <img src="./resources/img/space-jam.jpg" class="card-img-top" alt="Space Jam">
+                <div class="card-body">
+                    <h5 class="card-title text-center">
+                        Metodo de pago
+                    </h5>
+                    
+                    <!-- tarjetas -->
+    
+                    
+                    <div class="container p-0">
+                        <div class="row my-2">
+                            <div class="col">
+                                <label for="" class="col-10 offset-1 etiqueta-nombre">NOMBRE</label>
+                                <input class="col-10 offset-1 input-dato" type="text">
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col">
+                                <form action="">
+                                    <div class="row text-center" >
+                                        <div class="col">
+                                            <div class="tarjeta" id="card-1"></div>
+                                            <input type="radio" name="card-options">
+                                        </div>
+                                        <div class="col">
+                                            <div class="tarjeta" id="card-2"></div>
+                                            <input type="radio" name="card-options">
+                                        </div>
+                                        <div class="col">
+                                            <div class="tarjeta" id="card-3"></div>
+                                            <input type="radio" name="card-options">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                        </div>
+                        <div class="row my-2">
+                            <div class="col">
+                                <label for="" class="col-11 offset-1 etiqueta-nombre">NUMERO DE TARJETA</label>
+                                <input class="col-10 offset-1 input-dato" type="text" placeholder="0000 - 0000 - 0000 - 0000">
+                            </div>
+                        </div>
+                        
+                        <div class="row my-2">
+                            <div class="col offset-1">
+                                <label for="" class="col-5 etiqueta-nombre">FECHA DE EXPIRACION</label>
+                                <label for="" class="col-3 offset-3 etiqueta-nombre">CVC</label>
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col offset-1">
+                                <input class="col-3 input-dato" type="text" placeholder="MM">
+                                <input class="col-3 offset-1 input-dato margen" type="text" placeholder="YY">
+                                <input class="col-3 offset-1 input-dato margen" type="text" placeholder="123">
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col d-flex justify-content-around">
+                                <button type="button" class="btn btn-danger  col-4" onclick="cancelar()">CANCELAR</button>
+                                <button type="button" class="btn btn-success col-4" onclick="confirmar()">CONFIRMAR</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="container text-center mt-4">
+                <div class="row">
+                    <div class="col">
+                        <p id="confirmacion"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </aside>
+    
+
+    <!-- agradecimientos
+        
+        <div>Iconos diseñados por <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></div> -->
+
+
+        <script 
+            src="./clase5Alarcon.js">
+        </script>
+    <!-- Bootstrap 5 -->
+    <script 
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" 
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" 
+        crossorigin="anonymous">
+    </script>
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" 
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" 
+        crossorigin="anonymous">
+    </script>
+
+    <!-- Sweet Alert -->
+    <script 
+        src="https://unpkg.com/sweetalert/dist/sweetalert.min.js">
+    </script>
+</body>
+</html>

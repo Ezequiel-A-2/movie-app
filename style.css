@@ -1,0 +1,111 @@
+body {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: space-around
+}
+
+aside .offcanvas-start {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* food section */
+
+.food-container {
+    height: 95vh;
+    overflow: auto;
+}
+
+.food-card {
+    padding-right: 10px;
+}
+
+.food-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.food-img {
+    height: 80%;
+    width: 80%;
+}
+
+.food-price {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.tachado {
+    font-size: .9rem;
+    font-weight: normal;
+    text-decoration: line-through;
+}
+
+/* shop-cart section (en desarrollo) */
+
+/* payment section */
+
+.payment-card {
+    width: 40rem;
+    height: 25rem;
+}
+
+.payment-card img {
+    width: 20rem;
+}
+
+.etiqueta-nombre {
+    font-size: .8rem;
+}
+
+.input-dato {
+    border: none;
+    border-bottom: 2px solid #878786;
+}
+
+.input-dato:focus-visible {
+    outline: none;
+    border-bottom: 2px solid #f5cf3c;
+}
+
+
+.tarjeta {
+    width: 2rem;
+    height: 2rem;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#card-1 {
+    background-image: url('./resources/svg/visa-color.svg');
+}
+
+#card-2 {
+    background-image: url('./resources/svg/mastercard-color.svg');
+}
+
+#card-3 {
+    background-image: url('./resources/svg/card-color.svg');
+}
+
+.margen {
+    margin-left: 25px !important;
+}
+
+#confirmacion {
+    font-size: 1.5rem;
+}
