@@ -1,0 +1,21 @@
+body {
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+}
+
+header {
+    background-color: lightblue;
+    height: 60px;
+}
+
+main {
+    width: 100%;
+    height: auto;
+    background-color: lightpink;
+}
+
+footer {
+    width: 100%;
+    height: 60px;
+}
