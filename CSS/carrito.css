@@ -91,15 +91,15 @@ aside .offcanvas-start {
 }
 
 #card-1 {
-    background-image: url('./resources/svg/visa-color.svg');
+    background-image: url('../resources/svg/visa-color.svg');
 }
 
 #card-2 {
-    background-image: url('./resources/svg/mastercard-color.svg');
+    background-image: url('../resources/svg/mastercard-color.svg');
 }
 
 #card-3 {
-    background-image: url('./resources/svg/card-color.svg');
+    background-image: url('../resources/svg/card-color.svg');
 }
 
 .margen {

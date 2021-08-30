@@ -9,41 +9,93 @@ const FILMS_2D = [
     { portada: "./resources/img/placeholder_img.jpg", titulos: "Pelicula 8" }, 
 ]
 
-const peliculas2D = document.getElementById("film-2d-container")
+const peliculas2D = document.getElementById("film-container")
 const peliculas3D = document.getElementById("film-3d-container")
+const viewPort = window.innerWidth
 
-for (let film of FILMS_2D) {
-    let pelicula = document.createElement("div")
-    pelicula.setAttribute("class", "cartas") //
-    pelicula.innerHTML =    `<a href="./asientos.html">
-                                <img src="${film.portada}" alt="">
-                            </a>
-                            <h2>${film.titulos}</h2>`
-    peliculas2D.appendChild(pelicula)
+if (viewPort > 780) {
+    desktop()
+} else {
+    viewPortMobile()
 }
+
+
+// Plantilla para peliculas mobile
+
+
+
+
+
+function viewPortMobile() {
+    peliculas2D.setAttribute("class","scrolling-wrapper-flexbox")
+
+    for (let film of FILMS_2D) {
+        const plantilla_Mobile = `
+        <a href="./asientos.html">
+            <img src="${film.portada}" alt="">
+        </a>
+        <h2>${film.titulos}</h2>`
+
+        let pelicula = document.createElement("div")
+        pelicula.setAttribute("class", "cartas") //
+        pelicula.innerHTML = plantilla_Mobile
+        peliculas2D.appendChild(pelicula)
+    }
+    
+    /* para despues:
+    `<a href="./asientos.html">
+        <img src="${film.portada}" alt="">
+    </a>
+    <h2>${film.titulos}</h2>`
+    */
+    
+    for (let film of FILMS_2D) { // luego generar datos de 3D
+
+        const plantilla_Mobile = `
+            <img src="${film.portada}" alt=""> 
+            <h2>
+                ${film.titulos}
+            </h2>`
+
+        let pelicula = document.createElement("div")
+        pelicula.setAttribute("class", "cartas")
+        
+        pelicula.innerHTML = plantilla_Mobile
+        peliculas3D.appendChild(pelicula)
+    }
+}
+
+function desktop() {
+    peliculas2D.setAttribute("class","")
+    peliculas2D.className = "row row-cols-auto g-4 flex-wrap pt-1"
+
+    
+    for (let film of FILMS_2D) {
+
+        const plantilla = `
+            <div class="col">
+                <div class="card">
+                    <a href="./asientos.html">
+                        <img src="${film.portada}" class="card-img-top" alt="...">
+                    </a>
+                    <div class="card-body pt-2">
+                        <h3 class="card-title text-center">
+                            ${film.titulos}
+                        </h3>
+                    </div>
+                </div>
+            </div>`
+
+        let pelicula = document.createElement("div")
+        pelicula.setAttribute("class", "cartas") //
+        pelicula.innerHTML = plantilla
+        peliculas2D.appendChild(pelicula)
+    }
+}
+
+
 
 /* 
-`<a href="./asientos.html">
-    <img src="${film.portada}" alt="">
-</a>
-<h2>${film.titulos}</h2>`
-*/
-
-for (let film of FILMS_2D) {
-    let pelicula = document.createElement("div")
-    pelicula.setAttribute("class", "cartas")
-    
-    pelicula.innerHTML = `<img src="${film.portada}" alt="">
-                            <h2>${film.titulos}</h2>`
-    peliculas3D.appendChild(pelicula)
-}
-
-
-
-
-
-
-
 
 
 
@@ -87,3 +139,8 @@ peliculas2D.addEventListener("mousemove", (event) => {
     console.log({scrollLeft, scroll})
     peliculas2D.scrollLeft = scrollLeft - scroll
 })
+
+
+
+
+ */
