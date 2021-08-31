@@ -89,3 +89,5 @@ function saveSeat() {
   window.location.href = "../carrito.html" 
 }
 
+
+
