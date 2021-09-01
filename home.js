@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream:home.js
 const FILMS_2D = [
     { portada: "./resources/img/space-jam.jpg", titulos: "Space Jam"}, 
     { portada: "./resources/img/placeholder_img.jpg", titulos: "Pelicula 2" },
@@ -8,6 +9,10 @@ const FILMS_2D = [
     { portada: "./resources/img/placeholder_img.jpg", titulos: "Pelicula 7" },
     { portada: "./resources/img/placeholder_img.jpg", titulos: "Pelicula 8" }, 
 ]
+=======
+// La base de datos se trae desde un archivo aparte
+
+>>>>>>> Stashed changes:Scripts/home.js
 
 const peliculas2D = document.getElementById("film-container")
 const peliculas3D = document.getElementById("film-3d-container")
@@ -20,11 +25,8 @@ if (viewPort > 780) {
 }
 
 
-// Plantilla para peliculas mobile
 
-
-
-
+// Pantallas Mobiles (celulares y tablets)
 
 function viewPortMobile() {
     peliculas2D.setAttribute("class","scrolling-wrapper-flexbox")
@@ -65,6 +67,10 @@ function viewPortMobile() {
     }
 }
 
+
+
+// Pantallas de Escritorio
+
 function desktop() {
     peliculas2D.setAttribute("class","")
     peliculas2D.className = "row row-cols-auto g-4 flex-wrap pt-1"
@@ -92,6 +98,14 @@ function desktop() {
         peliculas2D.appendChild(pelicula)
     }
 }
+
+
+
+
+
+
+
+
 
 
 

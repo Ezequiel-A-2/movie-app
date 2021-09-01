@@ -86,6 +86,10 @@ function saveSeat() {
   totalSelectedSeats()
   const chosenSeatsJSON = JSON.stringify(chosenSeats)
   sessionStorage.setItem("BUTACAS", chosenSeatsJSON)
+<<<<<<< Updated upstream:asientos.js
   window.location.href = "../carrito.html" 
+=======
+  window.location.href = "carrito.html" 
+>>>>>>> Stashed changes:Scripts/asientos.js
 }
 
