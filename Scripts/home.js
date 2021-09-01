@@ -1,24 +1,73 @@
 // La base de datos se trae desde un archivo aparte
 
 
-const peliculas2D = document.getElementById("film-container")
-const peliculas3D = document.getElementById("film-3d-container")
+// Declaracion de constantes 
+const headerFilter2D = document.querySelector("#only2D")
+const headerFilter3D = document.querySelector("#only3D")
+const peliculas2D = document.querySelector("#film-container")
+const peliculas3D = document.querySelector("#film-3d-container")
 const viewPort = window.innerWidth
 
-if (viewPort > 780) {
-    desktop()
-} else {
-    viewPortMobile()
+
+
+
+// Escuchadores de eventos
+headerFilter2D.addEventListener("click", showTypeFilm)
+headerFilter3D.addEventListener("click", showTypeFilm)
+
+
+
+
+// Diseño responsive usando el viewport de la pantalla (requiere actualizar para mostrar bien segun la pantalla)
+
+// Nota: La siguiente sintaxis es conocida como "Operador Ternario" que basicamente es otra forma de escribir un if
+
+// section = elemento al cual se le aplicaran las peliculas
+// arrayOfFilms =  arreglo de peliculas para mostrar en pantalla
+
+function showMovies(section, arrayOfFilms) {
+    viewPort > 780 ?  
+        desktop(section, arrayOfFilms) 
+        : 
+        viewPortMobile(section, arrayOfFilms)
 }
 
+showMovies(peliculas2D, FILMS_2D)
+showMovies(peliculas3D, FILMS_3D)
+
+function showTypeFilm(type) {
+    if (type.target.dataset.check === "true") {
+        type.target.dataset.check = false
+    } else {
+        type.target.dataset.check = true
+    }
+
+    type.target.classList.toggle("hide")
+
+    console.log(headerFilter2D.dataset.check)
+
+    console.log(headerFilter3D.dataset.check)
+
+    if (headerFilter2D.dataset.check === "true" && headerFilter3D.dataset.check === "true") {
+        peliculas2D.classList.remove("hide")
+        peliculas3D.classList.remove("hide")
+    }
+
+
+    if (type.target.dataset.check === "true") {
+        type.target.dataset.check = false
+    } else {
+        type.target.dataset.check = true
+    }
+}
 
 
 // Pantallas Mobiles (celulares y tablets)
 
-function viewPortMobile() {
-    peliculas2D.setAttribute("class","scrolling-wrapper-flexbox")
+function viewPortMobile(section, arrayOfFilms) {
+    section.setAttribute("class","scrolling-wrapper-flexbox")
 
-    for (let film of FILMS_2D) {
+    for (let film of arrayOfFilms) {
         const plantilla_Mobile = `
         <a href="./asientos.html">
             <img src="${film.portada}" alt="">
@@ -28,42 +77,18 @@ function viewPortMobile() {
         let pelicula = document.createElement("div")
         pelicula.setAttribute("class", "cartas") //
         pelicula.innerHTML = plantilla_Mobile
-        peliculas2D.appendChild(pelicula)
-    }
-    
-    /* para despues:
-    `<a href="./asientos.html">
-        <img src="${film.portada}" alt="">
-    </a>
-    <h2>${film.titulos}</h2>`
-    */
-    
-    for (let film of FILMS_2D) { // luego generar datos de 3D
-
-        const plantilla_Mobile = `
-            <img src="${film.portada}" alt=""> 
-            <h2>
-                ${film.titulos}
-            </h2>`
-
-        let pelicula = document.createElement("div")
-        pelicula.setAttribute("class", "cartas")
-        
-        pelicula.innerHTML = plantilla_Mobile
-        peliculas3D.appendChild(pelicula)
+        section.appendChild(pelicula)
     }
 }
 
-
-
 // Pantallas de Escritorio
 
-function desktop() {
-    peliculas2D.setAttribute("class","")
-    peliculas2D.className = "row row-cols-auto g-4 flex-wrap pt-1"
+function desktop(section, arrayOfFilms) {
+    section.setAttribute("class","")
+    section.className = "row row-cols-auto g-4 flex-wrap pt-1"
 
     
-    for (let film of FILMS_2D) {
+    for (let film of arrayOfFilms) {
 
         const plantilla = `
             <div class="col">
@@ -80,9 +105,9 @@ function desktop() {
             </div>`
 
         let pelicula = document.createElement("div")
-        pelicula.setAttribute("class", "cartas") //
+        pelicula.setAttribute("class", "cartas") 
         pelicula.innerHTML = plantilla
-        peliculas2D.appendChild(pelicula)
+        section.appendChild(pelicula)
     }
 }
 
