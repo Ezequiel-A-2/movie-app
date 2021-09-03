@@ -1,65 +1,19 @@
+// === Declaracion de constantes ===
+
 // La base de datos se trae desde un archivo aparte
 
+const FILMS_2D = FILMS.filter(( { film2D } ) => film2D === true)
 
-// Declaracion de constantes 
-const headerFilter2D = document.querySelector("#only2D")
-const headerFilter3D = document.querySelector("#only3D")
+const FILMS_3D = FILMS.filter(( { film3D } ) => film3D === true)
+
+
 const peliculas2D = document.querySelector("#film-container")
 const peliculas3D = document.querySelector("#film-3d-container")
 const viewPort = window.innerWidth
 
 
 
-
-// Escuchadores de eventos
-headerFilter2D.addEventListener("click", showTypeFilm)
-headerFilter3D.addEventListener("click", showTypeFilm)
-
-
-
-
-// Diseño responsive usando el viewport de la pantalla (requiere actualizar para mostrar bien segun la pantalla)
-
-// Nota: La siguiente sintaxis es conocida como "Operador Ternario" que basicamente es otra forma de escribir un if
-
-// section = elemento al cual se le aplicaran las peliculas
-// arrayOfFilms =  arreglo de peliculas para mostrar en pantalla
-
-function showMovies(section, arrayOfFilms) {
-    viewPort > 780 ?  
-        desktop(section, arrayOfFilms) 
-        : 
-        viewPortMobile(section, arrayOfFilms)
-}
-
-showMovies(peliculas2D, FILMS_2D)
-showMovies(peliculas3D, FILMS_3D)
-
-function showTypeFilm(type) {
-    if (type.target.dataset.check === "true") {
-        type.target.dataset.check = false
-    } else {
-        type.target.dataset.check = true
-    }
-
-    type.target.classList.toggle("hide")
-
-    console.log(headerFilter2D.dataset.check)
-
-    console.log(headerFilter3D.dataset.check)
-
-    if (headerFilter2D.dataset.check === "true" && headerFilter3D.dataset.check === "true") {
-        peliculas2D.classList.remove("hide")
-        peliculas3D.classList.remove("hide")
-    }
-
-
-    if (type.target.dataset.check === "true") {
-        type.target.dataset.check = false
-    } else {
-        type.target.dataset.check = true
-    }
-}
+// === Funciones ===
 
 
 // Pantallas Mobiles (celulares y tablets)
@@ -112,8 +66,25 @@ function desktop(section, arrayOfFilms) {
 }
 
 
+// === Llamado a funciones ===
 
 
+// Diseño responsive usando el viewport de la pantalla (requiere actualizar para mostrar bien segun la pantalla)
+
+// Nota: La siguiente sintaxis es conocida como "Operador Ternario" que basicamente es otra forma de escribir un if
+
+// section = elemento al cual se le aplicaran las peliculas
+// arrayOfFilms =  arreglo de peliculas para mostrar en pantalla
+
+function showMovies(section, arrayOfFilms) {
+    viewPort > 780 ?  
+        desktop(section, arrayOfFilms) 
+        : 
+        viewPortMobile(section, arrayOfFilms)
+}
+
+showMovies(peliculas2D, FILMS_2D)
+showMovies(peliculas3D, FILMS_3D)
 
 
 

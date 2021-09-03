@@ -9,7 +9,4 @@ const FILMS = [
     { portada: "../resources/img/placeholder_img.jpg", titulos: "Pelicula 8", film2D: false, film3D: true }, 
 ]
 
-const FILMS_2D = FILMS.filter(( { film2D } ) => film2D === true)
-
-const FILMS_3D = FILMS.filter(( { film3D } ) => film3D === true)
 

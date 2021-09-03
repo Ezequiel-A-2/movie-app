@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link 
         rel="stylesheet" 
-        href="./CSS/home.css">
+        href="./CSS/admi.css">
     <!-- Bootstrap CSS -->
     <link 
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
@@ -19,7 +19,7 @@
     </script>
     <script 
         defer 
-        src="./Scripts/home.js">
+        src="./Scripts/admi.js">
     </script>
     <!-- boostrap JS -->
     <script 
@@ -53,7 +53,7 @@
                 <div class="collapse navbar-collapse justify-content-lg-end" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">
+                            <a class="nav-link active" aria-current="page" href="./index.html">
                                 Home
                             </a>
                         </li>
@@ -80,28 +80,81 @@
 
     <!-- Main -->
 
-    <main class="p-3 p-lg-5">
-        <!-- Peliculas 2D -->
-        <section id="peliculas2D">
-            <h3 class="pb-2">Peliculas 2D</h3>
+    <main class="p-1 px-lg-4 mt-2">
+        
+        <h1>
+            Agregar Peliculas
+        </h1>
+
+        <p class="m-0">
+            Nota: No tenemos una base de datos porque al momento de hacer esta pagina no obtuve el conocimiento para montar una y cargarle imagenes asique si bien esto funciona, hay que hacer una parte a mano (pero se le indicara cual), disculpe las molestias!
+        </p>
+
+        <p class="text-muted">
+            Explico cual es la parte manual: Como dije antes, no hay una base de datos asique para agregar una imagen se debe agregar la imagen a la carpeta local "resources" y luego en el campo "agregar portada" colocamos el nombre de la imagen que guardamos (ejemplo: si nuestra imagen se llama "space-jam.png" simplemente agregamos "space-jam.png" en el campo portada). Se pueden obtener imagenes de peliculas desde el siguiente link: 
+            <a 
+                href="https://www.bestrandoms.com/random-movie-generator" 
+                class="text-muted" 
+                target="blank">
+                https://www.bestrandoms.com/random-movie-generator
+            </a>.
+        </p>
+        
+
+        <article>
+
+
+            <!-- agg atributo  required !! -->
+
+            <form>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Titulo:</span>
+                    <input type="text" class="form-control" placeholder="Nombre de la pelicula">
+                </div>
+
+
+                <label for="basic-url" class="form-label">
+                    Agregar una portada*
+                    </label>
+                    <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">
+                        ../resources/img/
+                    </span>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                </div>
+
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"checked>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Pelicula 2D
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Pelicula 3D
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Estreno
+                    </label>
+                </div>
+
+                <button type="button" class="btn btn-dark mt-3">
+                    Dark
+                </button>
+
+            </form>
+
             
-            <div class="row row-cols-auto g-4 flex-wrap pt-1" id="film-container">
 
-            </div>
-
-        </section>
-
-
-        <!-- Peliculas 3D -->
-        <section id="peliculas3D">
-            <h3 class="pb-2">Peliculas 3D</h3>
-            <div class="scrolling-wrapper-flexbox" id="film-3d-container">
-            </div>
-
-        </section>
-
-        <!-- Proximamente -->
-        <section id="peliculasProx"></section>
+        </article>
 
     </main>
 
@@ -109,7 +162,7 @@
 
     <footer class="">
         <div class="container-fluid">
-            <div class="row text-center py-3 ">
+            <div class="row text-center py-2">
                     <p class="m-0 h5">Enlaces Utiles</>
             </div>
             <div class="row pt-0 pb-3">
@@ -118,5 +171,8 @@
             </div>
         </div>
     </footer>
+
+
+
 </body>
 </html>
