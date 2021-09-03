@@ -14,7 +14,16 @@ class Products {
     }
 }
 
-
+/* 
+Orden de sintaxis:
+    1) id: numero identificador del producto
+    2) productName: nombre del producto delntro de la base de datos
+    3) title: nombre a mostrar al cliente en la tarjeta
+    4) type: tipo de producto para luego poder filtrar la categoria
+    5) price: precio
+    6) image: ruta a la imagen del archivo (actualmente estan en local)
+    7) description: descripcion del producto para mostrar en la tarjeta
+*/
 
 DATA_BASE.push(new Products(0, "Balde de Pochoclos", `Balde de pochoclos`, `popcorn`, 340, "../resources/img/balde.png", `1 Balde de pochoclos.`))
 
@@ -45,10 +54,14 @@ DATA_BASE.push(new Products(12, "Rocklets", `Paquete de Rocklets`, `snack`, 360,
 DATA_BASE.push(new Products(13, "Sugus", `Paquete de Sugus`, `snack`, 130, "../resources/img/snack-sugus.png", `Valor por unidad.`))
 
 
-const POPCORN = DATA_BASE.filter( ({ type }) => type === `popcorn` )
+// filtros de la base de datos
 
 const COMBOS = DATA_BASE.filter( ({ type }) => type === `combo` )
 
-const DRINKS = DATA_BASE.filter( ({ type }) => type === `drink` )
+// Los de abajo dejaron de cumplir su utilidad pero los dejo para hacer debugear
 
-const SNACKS = DATA_BASE.filter( ({ type }) => type === `snack` )
+// const POPCORN = DATA_BASE.filter( ({ type }) => type === `popcorn` )
+
+// const DRINKS = DATA_BASE.filter( ({ type }) => type === `drink` )
+
+// const SNACKS = DATA_BASE.filter( ({ type }) => type === `snack` )
