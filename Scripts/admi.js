@@ -1,11 +1,32 @@
+let nuevaPeli
+let portada
 
 
-function agregar() {
-    return FILMS.push({ portada: "../resources/img/placeholder_img.jpg", titulos: "Ejemplo", film2D: false, film3D: true })
+
+
+
+
+
+
+
+
+// Esto me dio una idea!!
+
+
+function agregarPelicula() {
+    return portada = "../resources/img/space-jam.jpg"
 }
 
-const pepe = 2
-export default pepe
+
+agregarPelicula()
+
+// Esto de abajo funciona!!!
+
+nuevaPeli = { portada, titulos: "Ejemplo", film2D: false, film3D: true }
+
+export default nuevaPeli;
+
+
 
 
 

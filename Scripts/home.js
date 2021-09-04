@@ -1,4 +1,8 @@
+// === Importacion de datos === 
 
+// Importo la base de datos desde un archivo aparte
+
+import FILMS from "./homeDB.js"
 
 
 // === Declaracion de constantes ===
@@ -6,10 +10,7 @@
 // La base de datos se trae desde un archivo aparte
 
 const FILMS_2D = FILMS.filter(( { film2D } ) => film2D === true)
-
 const FILMS_3D = FILMS.filter(( { film3D } ) => film3D === true)
-
-
 const peliculas2D = document.querySelector("#film-container")
 const peliculas3D = document.querySelector("#film-3d-container")
 const viewPort = window.innerWidth

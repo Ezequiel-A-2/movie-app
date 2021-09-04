@@ -1,3 +1,5 @@
+import nuevaPeli from "./admi.js"
+
 const FILMS = []
 
 class Film {
@@ -28,5 +30,12 @@ FILMS.push(new Film("../resources/img/placeholder_img.jpg", "Pelicula 8", true, 
 FILMS.push(new Film("../resources/img/placeholder_img.jpg", "Pelicula 9", false, true))
 
 FILMS.push(new Film("../resources/img/placeholder_img.jpg", "Pelicula 10", false, true))
+
+const {portada, titulos, film2D, film3D} = nuevaPeli 
+
+FILMS.push(new Film(`${portada}`, `${titulos}`, film2D, film3D))
+
+
+// Exportamos la base de datos para ser usada por home.js
 
 export default FILMS
