@@ -1,12 +1,32 @@
-const FILMS = [
-    { portada: "../resources/img/space-jam.jpg", titulos: "Space Jam", film2D: true, film3D: true }, 
-    { portada: "../resources/img/placeholder_img.jpg", titulos: "Pelicula 2", film2D: true, film3D: false },
-    { portada: "../resources/img/placeholder_img.jpg", titulos: "Pelicula 3", film2D: true, film3D: false },
-    { portada: "../resources/img/placeholder_img.jpg", titulos: "Pelicula 4", film2D: true, film3D: true },
-    { portada: "../resources/img/placeholder_img.jpg", titulos: "Pelicula 5", film2D: true, film3D: true },
-    { portada: "../resources/img/placeholder_img.jpg", titulos: "Pelicula 6", film2D: true, film3D: true },
-    { portada: "../resources/img/placeholder_img.jpg", titulos: "Pelicula 7", film2D: false, film3D: true },
-    { portada: "../resources/img/placeholder_img.jpg", titulos: "Pelicula 8", film2D: false, film3D: true }, 
-]
+const FILMS = []
 
+class Film {
+    constructor(portada, titulos, film2D, film3D) {
+        this.portada = portada
+        this.titulos = titulos
+        this.film2D = film2D
+        this.film3D = film3D
+    }
+}
 
+FILMS.push(new Film("../resources/img/space-jam.jpg", "Space Jam", true, true))
+
+FILMS.push(new Film("../resources/img/placeholder_img.jpg", "Pelicula 2", true, false))
+
+FILMS.push(new Film("../resources/img/placeholder_img.jpg", "Pelicula 3", true, false))
+
+FILMS.push(new Film("../resources/img/placeholder_img.jpg", "Pelicula 4", true, true))
+
+FILMS.push(new Film("../resources/img/placeholder_img.jpg", "Pelicula 5", true, true))
+
+FILMS.push(new Film("../resources/img/placeholder_img.jpg", "Pelicula 6", true, true))
+
+FILMS.push(new Film("../resources/img/placeholder_img.jpg", "Pelicula 7", true, true))
+
+FILMS.push(new Film("../resources/img/placeholder_img.jpg", "Pelicula 8", true, true))
+
+FILMS.push(new Film("../resources/img/placeholder_img.jpg", "Pelicula 9", false, true))
+
+FILMS.push(new Film("../resources/img/placeholder_img.jpg", "Pelicula 10", false, true))
+
+export default FILMS
