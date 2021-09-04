@@ -20,15 +20,7 @@
         src="./Scripts/homeDB.js">
     </script> -->
 
-    <script
-        type="module"
-        src="./Scripts/ejemplo.js">
-    </script>
-
-    <script 
-        type="module" 
-        src="./Scripts/admi.js">
-    </script>
+    
     <!-- boostrap JS -->
     <script 
         defer 
@@ -42,6 +34,22 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" 
         crossorigin="anonymous">
     </script>
+
+    <!-- jQuery -->
+    <script 
+        defer
+        src="https://code.jquery.com/jquery-3.6.0.min.js" 
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+        crossorigin="anonymous">
+    </script>
+
+    <!-- type="module" --> 
+
+    <script 
+        defer
+        src="./Scripts/admi.js">
+    </script>
+
     <title>Home</title>
 </head>
 <body>
@@ -88,7 +96,7 @@
 
     <!-- Main -->
 
-    <main class="p-1 px-lg-4 mt-2">
+    <main class="p-2 px-lg-4 mt-2">
         
         <h1>
             Agregar Peliculas
@@ -118,7 +126,7 @@
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Titulo:</span>
-                    <input type="text" class="form-control" placeholder="Nombre de la pelicula">
+                    <input type="text" class="form-control" id="title" placeholder="Nombre de la pelicula">
                 </div>
 
 
@@ -134,28 +142,28 @@
 
 
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"checked>
+                    <input class="form-check-input" type="checkbox" value="2D" id="flexCheckDefault" checked>
                     <label class="form-check-label" for="flexCheckDefault">
                         Pelicula 2D
                     </label>
                 </div>
 
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <input class="form-check-input" type="checkbox" value="3D" id="flexCheckChecked">
                     <label class="form-check-label" for="flexCheckChecked">
                         Pelicula 3D
                     </label>
                 </div>
 
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                    <input class="form-check-input" type="checkbox" value="estreno" id="flexCheckChecked">
                     <label class="form-check-label" for="flexCheckChecked">
                         Estreno
                     </label>
                 </div>
 
-                <button type="button" class="btn btn-dark mt-3">
-                    Dark
+                <button type="button" class="btn btn-dark mt-3" id="finish-button">
+                    Agregar Pelicula
                 </button>
 
             </form>
@@ -174,8 +182,12 @@
                     <p class="m-0 h5">Enlaces Utiles</>
             </div>
             <div class="row pt-0 pb-3">
-                <a href="#" class="offset-3 col-1 text-center py-1">Legales</a>
-                <a href="#" class="offset-2 offset-lg-3 col-1 text-center py-1">Reclamos</a>
+                <div class="col-6 d-flex justify-content-center">
+                    <a href="#">Legales</a>
+                </div>
+                <div class="col-6 d-flex justify-content-center">
+                    <a href="#">Reclamos</a>
+                </div>
             </div>
         </div>
     </footer>
