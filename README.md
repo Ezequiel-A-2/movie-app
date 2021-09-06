@@ -13,6 +13,26 @@ Muchas gracias por su atencion!
 
 # Tags 
 
+- Tag v0.2:
+
+    Actualizacion: 
+
+    * Se agrego el archivo admi para colocar nuevas peliculas sin la necesidad de colocarlas desde el JS
+
+    * El archivo homeDB.js dejo de ser invocado en los HTML y sera un archivo externo que solo contiene los datos para el home
+
+    * Se modifico gran parte de carrito aunque todavia falta continuar con sus mofidicaciones, las modificaciones se encuentran en los archivos de carrito2 debido a que se requeria mantener la estructura inicial para evitar los errores producidos anteriormente.
+
+- Tag v0.11:
+
+    Actualizacion: 
+    
+    * Se arreglaron los detalles de Home
+
+    * Se comenzo la modificacion de carrito por completo
+    
+
+
 - Tag v0.1:
   
     El proyecto se encuentra en etapa de desarrollo.
@@ -23,4 +43,5 @@ Muchas gracias por su atencion!
 
     El archivo carrito se ha dejado tal cual debido a que se debe mejorar MUCHO pero, se esta dejando a proposito para implementar jQuery. 
 
-    
+
+

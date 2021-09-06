@@ -1,25 +1,8 @@
-<<<<<<< HEAD
-const FILMS_2D = [
-    { portada: "../resources/img/space-jam.jpg", titulos: "Space Jam"}, 
-    { portada: "../resources/img/placeholder_img.jpg", titulos: "Pelicula 2" },
-    { portada: "../resources/img/placeholder_img.jpg", titulos: "Pelicula 3" },
-    { portada: "../resources/img/placeholder_img.jpg", titulos: "Pelicula 4" },
-    { portada: "../resources/img/placeholder_img.jpg", titulos: "Pelicula 5" },
-    { portada: "../resources/img/placeholder_img.jpg", titulos: "Pelicula 6" },
-    { portada: "../resources/img/placeholder_img.jpg", titulos: "Pelicula 7" },
-    { portada: "../resources/img/placeholder_img.jpg", titulos: "Pelicula 8" }, 
-]
-
-const peliculas2D = document.getElementById("film-container")
-const peliculas3D = document.getElementById("film-3d-container")
-const viewPort = window.innerWidth
-=======
 // === Importacion de datos === 
 
 // Importo la base de datos desde un archivo aparte
 
 import FILMS from "./homeDB.js"
->>>>>>> produccion
 
 
 // === Declaracion de constantes ===
@@ -104,9 +87,5 @@ function showMovies(section, arrayOfFilms) {
         viewPortMobile(section, arrayOfFilms)
 }
 
-<<<<<<< HEAD
- */
-=======
 showMovies(peliculas2D, FILMS_2D)
 showMovies(peliculas3D, FILMS_3D)
->>>>>>> produccion
