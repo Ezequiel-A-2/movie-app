@@ -1,5 +1,4 @@
 body {
-    /* background-image: linear-gradient(to right top, #051937, #001743, #00144d, #000f57, #05055e); */
     box-sizing: border-box;
     position: relative;
     height: 100%;
@@ -53,7 +52,20 @@ footer {
     right: 0;
 }
 
+
 footer a {
     text-decoration: none;
     color: white;
+}
+
+/* === Media Queries === */
+
+@media (min-height: 1080px ) {
+    body {
+        height: 100vh;
+    }
+
+    footer {
+        position: absolute;
+    }
 }

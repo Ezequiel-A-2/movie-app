@@ -1,7 +1,4 @@
-
-
 // === Declaracion de constantes ===
-
 
 let checkboxes = $(`:checkbox`)
 let typeOfFilms = []
@@ -36,15 +33,15 @@ function checkboxes_status() {
 
 // Obtenermos los datos para luego exportarlos
 function getData() {
+    checkboxes_status()
     _titulo = $(`#title`).val()
     _portada = `../resources/img/${$(`#basic-url`).val()}`
-    checkboxes_status()
     _film2D = typeOfFilms[0]["is2D"] // posicion 0 corresponde al valor de peliculas 2D
     _film3D = typeOfFilms[1]["is3D"] // la posicion 1 corresponde a peliculas 3D
     return data = {_titulo, _portada, _film2D, _film3D}
 }
 
-// Escuchador de eventos del boton de la pagina
+// Escuchador de eventos del boton "agregar Pelicula"
 
 $(`#add-button`).click((event) => {
     event.preventDefault
@@ -52,39 +49,9 @@ $(`#add-button`).click((event) => {
     colectData.push(data)
 })
 
+// Escuchador de eventos del boton "terminar"
+
 $(`#finish-button`).click(() => {
     sendToStorage = JSON.stringify(colectData)
     sessionStorage.setItem(`newData`, sendToStorage)
 })
-
-
-/* 
-    let sendToStorage =  JSON.stringify(sendToStorage)
-    sessionStorage.setItem(sendToStorage)
-*/
-
-
-// Esto me dio una idea!!
- 
-/* let nuevaPeli
-let portada
-
-
-function agregarPelicula() {
-    return portada = "../resources/img/space-jam.jpg"
-}
-
-
-agregarPelicula()
-
-// Esto de abajo funciona!!!
-
-nuevaPeli = { portada, titulos: "Ejemplo", film2D: false, film3D: true } */ 
-
-
-
-
-
-
-
-
