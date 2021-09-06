@@ -13,6 +13,10 @@ Muchas gracias por su atencion!
 
 # Tags 
 
+- tag v0.21:
+  
+    * No hay cambios, simplemente tuve un error al colocar el tag, simplemente queria que estuviera bien ordenado...
+
 - Tag v0.2:
 
     Actualizacion: 
