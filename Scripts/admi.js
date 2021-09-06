@@ -35,7 +35,7 @@ function checkboxes_status() {
 function getData() {
     checkboxes_status()
     _titulo = $(`#title`).val()
-    _portada = `../resources/img/${$(`#basic-url`).val()}`
+    _portada = `${$(`#basic-url`).val()}`
     _film2D = typeOfFilms[0]["is2D"] // posicion 0 corresponde al valor de peliculas 2D
     _film3D = typeOfFilms[1]["is3D"] // la posicion 1 corresponde a peliculas 3D
     return data = {_titulo, _portada, _film2D, _film3D}
