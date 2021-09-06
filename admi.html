@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Archivos CSS -->
+    <!-- CSS Propio -->
     <link 
         rel="stylesheet" 
         href="./CSS/admi.css">
+
     <!-- Bootstrap CSS -->
     <link 
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
@@ -16,11 +20,6 @@
 
     <!-- Archivos JS --> 
 
-    <!-- <script
-        src="./Scripts/homeDB.js">
-    </script> -->
-
-    
     <!-- boostrap JS -->
     <script 
         defer 
@@ -43,14 +42,13 @@
         crossorigin="anonymous">
     </script>
 
-    <!-- type="module" --> 
-
+    <!-- Archivos Propios -->
     <script 
         defer
         src="./Scripts/admi.js">
     </script>
 
-    <title>Home</title>
+    <title>Administrador</title>
 </head>
 <body>
     
@@ -96,28 +94,33 @@
 
     <!-- Main -->
 
-    <main class="p-2 px-lg-4 mt-2">
-        
-        <h1>
-            Agregar Peliculas
-        </h1>
-
-        <p class="m-0">
-            Nota: No tenemos una base de datos porque al momento de hacer esta pagina no obtuve el conocimiento para montar una y cargarle imagenes asique si bien esto funciona, hay que hacer una parte a mano (pero se le indicara cual), disculpe las molestias!
-        </p>
-
-        <p class="text-muted">
-            Explico cual es la parte manual: Como dije antes, no hay una base de datos asique para agregar una imagen se debe agregar la imagen a la carpeta local "resources" y luego en el campo "agregar portada" colocamos el nombre de la imagen que guardamos (ejemplo: si nuestra imagen se llama "space-jam.png" simplemente agregamos "space-jam.png" en el campo portada). Se pueden obtener imagenes de peliculas desde el siguiente link: 
-            <a 
-                href="https://www.bestrandoms.com/random-movie-generator" 
-                class="text-muted" 
-                target="blank">
-                https://www.bestrandoms.com/random-movie-generator
-            </a>.
-        </p>
+    <main class="px-4 px-md-4 my-2">
         
 
-        <article>
+        <section>
+
+            <h1 class="mb-3">
+                Agregar Peliculas
+            </h1>
+    
+            <p class="mb-3 description">
+                Nota: No tenemos una base de datos porque al momento de hacer esta pagina no obtuve el conocimiento para montar una y cargarle imagenes asique si bien esto funciona, hay que hacer una parte a mano (pero se le indicara cual), disculpe las molestias!
+            </p>
+    
+            <p class="text-muted description">
+                Parte manual: para agregar una imagen se debe agregar la imagen a la carpeta local "resources/img" y luego en el campo "agregar portada" colocamos el nombre de la imagen que guardamos (ejemplo: si nuestra imagen se llama "space-jam.png" simplemente agregamos "space-jam.png" en el campo portada). Se pueden obtener imagenes de peliculas desde el siguiente link: 
+                <a 
+                    href="https://www.bestrandoms.com/random-movie-generator" 
+                    class="text-muted" 
+                    target="blank">
+                    https://www.bestrandoms.com/random-movie-generator
+                </a>.
+            </p>
+
+        </section>
+        
+
+        <section>
 
 
             <!-- agg atributo  required !! -->
@@ -132,51 +135,73 @@
 
                 <label for="basic-url" class="form-label">
                     Agregar una portada*
-                    </label>
-                    <div class="input-group mb-3">
+                </label>
+                <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon3">
-                        ../resources/img/
+                        Imagen:
                     </span>
                     <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
                 </div>
 
+                <div class="container-fluid mb-2">
+                    
+                    <div class="row">
 
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="2D" id="flexCheckDefault" checked>
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Pelicula 2D
-                    </label>
+                        <div class="col-md-2 text-start form-check">
+                            <input class="form-check-input" type="checkbox" data-value="is2D" id="flexCheckDefault" checked>
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Pelicula 2D
+                            </label>
+                        </div>
+        
+                        <div class="col-md-2 form-check">
+                            <input class="form-check-input" type="checkbox" data-value="is3D" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Pelicula 3D
+                            </label>
+                        </div>
+        
+                        <div class="col-md-2 form-check">
+                            <input class="form-check-input" type="checkbox" data-value="estreno" id="flexCheckChecked">
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Estreno
+                            </label>
+                        </div>
+
+
+                    </div>
+
+                
                 </div>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="3D" id="flexCheckChecked">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Pelicula 3D
-                    </label>
-                </div>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="estreno" id="flexCheckChecked">
-                    <label class="form-check-label" for="flexCheckChecked">
-                        Estreno
-                    </label>
-                </div>
-
-                <button type="button" class="btn btn-dark mt-3" id="finish-button">
-                    Agregar Pelicula
-                </button>
 
             </form>
-
             
 
-        </article>
+        </section>
+
+
+        <div class="container-fluid p-0 m-0">
+            <div class="row p-0 m-0 g-2">
+                <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start p-0 m-0">
+                    <button type="button" class="btn btn-dark" id="add-button">
+                        Agregar Pelicula
+                    </button>
+                </div>
+
+                <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end p-0">
+                    <button type="button" class="btn btn-dark" id="finish-button">
+                        Finalizar
+                    </button>
+                </div>
+            </div>
+        </div>
+
 
     </main>
 
     <!-- Footer -->
 
-    <footer class="">
+    <footer>
         <div class="container-fluid">
             <div class="row text-center py-2">
                     <p class="m-0 h5">Enlaces Utiles</>
@@ -191,8 +216,6 @@
             </div>
         </div>
     </footer>
-
-
 
 </body>
 </html>
