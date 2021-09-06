@@ -9,25 +9,25 @@ class Film {
     }
 }
 
-FILMS.push(new Film("space-jam.JPG", "Space Jam", true, true))
+FILMS.push(new Film("space-jam.jpeg", "Space Jam", true, true))
 
-FILMS.push(new Film("placeholder_img.JPG", "Pelicula 2", true, false))
+FILMS.push(new Film("placeholder_img.jpeg", "Pelicula 2", true, false))
 
-FILMS.push(new Film("placeholder_img.JPG", "Pelicula 3", true, false))
+FILMS.push(new Film("placeholder_img.jpeg", "Pelicula 3", true, false))
 
-FILMS.push(new Film("placeholder_img.JPG", "Pelicula 4", true, true))
+FILMS.push(new Film("placeholder_img.jpeg", "Pelicula 4", true, true))
 
-FILMS.push(new Film("placeholder_img.JPG", "Pelicula 5", true, true))
+FILMS.push(new Film("placeholder_img.jpeg", "Pelicula 5", true, true))
 
-FILMS.push(new Film("placeholder_img.JPG", "Pelicula 6", true, true))
+FILMS.push(new Film("placeholder_img.jpeg", "Pelicula 6", true, true))
 
-FILMS.push(new Film("placeholder_img.JPG", "Pelicula 7", true, true))
+FILMS.push(new Film("placeholder_img.jpeg", "Pelicula 7", true, true))
 
-FILMS.push(new Film("placeholder_img.JPG", "Pelicula 8", true, true))
+FILMS.push(new Film("placeholder_img.jpeg", "Pelicula 8", true, true))
 
-FILMS.push(new Film("placeholder_img.JPG", "Pelicula 9", false, true))
+FILMS.push(new Film("placeholder_img.jpeg", "Pelicula 9", false, true))
 
-FILMS.push(new Film("placeholder_img.JPG", "Pelicula 10", false, true))
+FILMS.push(new Film("placeholder_img.jpeg", "Pelicula 10", false, true))
 
 
 // Traigo los datos de admin.js a traves del sessionStorage
