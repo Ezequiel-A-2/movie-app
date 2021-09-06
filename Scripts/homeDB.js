@@ -1,8 +1,9 @@
 const FILMS = []
 class Film {
     constructor(portada, titulos, film2D, film3D) {
-        this.portada = `./movie-app/resources/img/${portada}` 
+        this.portada = `../resources/img/${portada}` 
         // link para GitHub Pages `./movie-app/resources/img/${portada}`
+        // link para imagenes locales `../resources/img/${portada}`
         this.titulos = titulos
         this.film2D = film2D
         this.film3D = film3D
