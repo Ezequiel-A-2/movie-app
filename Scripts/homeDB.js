@@ -8,7 +8,7 @@ class Film {
     }
 }
 
-FILMS.push(new Film("./resources/img/space-jam.JPG", "Space Jam", true, true))
+FILMS.push(new Film("./movie-app/resources/img/space-jam.JPG", "Space Jam", true, true))
 
 FILMS.push(new Film("../resources/img/placeholder_img.JPG", "Pelicula 2", true, false))
 
