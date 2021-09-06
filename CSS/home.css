@@ -4,6 +4,7 @@ body {
     position: relative;
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
 }
 
 header {
@@ -12,6 +13,8 @@ header {
     height: auto;
     position: sticky;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 10;
 }
 
@@ -70,7 +73,7 @@ main section {
 
 .card {
     height: 100%;
-    width: 250px;
+    width: 240px;
     background-color: initial !important;
     border: none !important;
 }

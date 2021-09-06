@@ -1,0 +1,71 @@
+body {
+    box-sizing: border-box;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* === header === */
+
+header {
+    background-color: black;
+    color: white;
+    height: auto;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+/* === main === */
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+}
+
+main section {
+    height: auto;
+    width: auto;
+}
+
+main section .description {
+    text-align: justify;
+}
+
+/* === footer === */
+
+footer {
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: auto;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+/* === Media Queries === */
+
+@media (min-height: 1080px ) {
+    body {
+        height: 100vh;
+    }
+
+    footer {
+        position: absolute;
+    }
+}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const FILMS_2D = [
     { portada: "../resources/img/space-jam.jpg", titulos: "Space Jam"}, 
     { portada: "../resources/img/placeholder_img.jpg", titulos: "Pelicula 2" },
@@ -12,24 +13,36 @@ const FILMS_2D = [
 const peliculas2D = document.getElementById("film-container")
 const peliculas3D = document.getElementById("film-3d-container")
 const viewPort = window.innerWidth
+=======
+// === Importacion de datos === 
 
-if (viewPort > 780) {
-    desktop()
-} else {
-    viewPortMobile()
-}
+// Importo la base de datos desde un archivo aparte
 
-
-// Plantilla para peliculas mobile
+import FILMS from "./homeDB.js"
+>>>>>>> produccion
 
 
+// === Declaracion de constantes ===
+
+// La base de datos se trae desde un archivo aparte
+
+const FILMS_2D = FILMS.filter(( { film2D } ) => film2D === true)
+const FILMS_3D = FILMS.filter(( { film3D } ) => film3D === true)
+const peliculas2D = document.querySelector("#film-container")
+const peliculas3D = document.querySelector("#film-3d-container")
+const viewPort = window.innerWidth
 
 
 
-function viewPortMobile() {
-    peliculas2D.setAttribute("class","scrolling-wrapper-flexbox")
+// === Funciones ===
 
-    for (let film of FILMS_2D) {
+
+// Pantallas Mobiles (celulares y tablets)
+
+function viewPortMobile(section, arrayOfFilms) {
+    section.setAttribute("class","scrolling-wrapper-flexbox")
+
+    for (let film of arrayOfFilms) {
         const plantilla_Mobile = `
         <a href="../asientos.html">
             <img src="${film.portada}" alt="">
@@ -39,38 +52,18 @@ function viewPortMobile() {
         let pelicula = document.createElement("div")
         pelicula.setAttribute("class", "cartas") //
         pelicula.innerHTML = plantilla_Mobile
-        peliculas2D.appendChild(pelicula)
-    }
-    
-    /* para despues:
-    `<a href="./asientos.html">
-        <img src="${film.portada}" alt="">
-    </a>
-    <h2>${film.titulos}</h2>`
-    */
-    
-    for (let film of FILMS_2D) { // luego generar datos de 3D
-
-        const plantilla_Mobile = `
-            <img src="${film.portada}" alt=""> 
-            <h2>
-                ${film.titulos}
-            </h2>`
-
-        let pelicula = document.createElement("div")
-        pelicula.setAttribute("class", "cartas")
-        
-        pelicula.innerHTML = plantilla_Mobile
-        peliculas3D.appendChild(pelicula)
+        section.appendChild(pelicula)
     }
 }
 
-function desktop() {
-    peliculas2D.setAttribute("class","")
-    peliculas2D.className = "row row-cols-auto g-4 flex-wrap pt-1"
+// Pantallas de Escritorio
+
+function desktop(section, arrayOfFilms) {
+    section.setAttribute("class","")
+    section.className = "row row-cols-auto g-4 flex-wrap pt-1"
 
     
-    for (let film of FILMS_2D) {
+    for (let film of arrayOfFilms) {
 
         const plantilla = `
             <div class="col">
@@ -87,60 +80,33 @@ function desktop() {
             </div>`
 
         let pelicula = document.createElement("div")
-        pelicula.setAttribute("class", "cartas") //
+        pelicula.setAttribute("class", "cartas") 
         pelicula.innerHTML = plantilla
-        peliculas2D.appendChild(pelicula)
+        section.appendChild(pelicula)
     }
 }
 
 
-
-/* 
-
+// === Llamado a funciones ===
 
 
+// Diseño responsive usando el viewport de la pantalla (requiere actualizar para mostrar bien segun la pantalla)
 
-// const slider = document.querySelectorAll('')
-let isDown = false // para saber si estoy haciendo click o no
-let startx
-let scrollLeft
+// Nota: La siguiente sintaxis es conocida como "Operador Ternario" que basicamente es otra forma de escribir un if
 
+// section = elemento al cual se le aplicaran las peliculas
+// arrayOfFilms =  arreglo de peliculas para mostrar en pantalla
 
-peliculas2D.addEventListener("mousedown", (event) => { // event es para saber la posicion del mouse en la pantalla
-    isDown = true // cuando mantiene el mouse apretado esto cambia a true
-    peliculas2D.classList.add("active")
-    console.log(event.pageX) // nos dice exactamente la posicion del mouse en la pantalla en el eje x
-    // pero no necesitamos saber la posicion de x en la pantalla sino dentro del slider con lo cual, debemos calcular el resultado de la posicion del mouse en el slider y la posicion del div (slider) en el dom... suena raro pero es una simple resta:
-    startx = event.pageX - peliculas2D.offsetLeft 
-    // con esto sabemos la posicion inicial de X, mientras mas cercado al borde izq del contenedor "peliculas 2D" menor el resultado de starX
-    // pero ahora debemos ir hacia la izq
-    scrollLeft = peliculas2D.scrollLeft
-    
-})
+function showMovies(section, arrayOfFilms) {
+    viewPort > 780 ?  
+        desktop(section, arrayOfFilms) 
+        : 
+        viewPortMobile(section, arrayOfFilms)
+}
 
-
-peliculas2D.addEventListener("mouseleave", () => {
-    isDown = false // cuando alguien deja el mouse
-    peliculas2D.classList.remove("active")
-})
-
-peliculas2D.addEventListener("mouseup", () => {
-    isDown = false // cuando alguien suelta el mouse
-    peliculas2D.classList.remove("active")
-})
-
-peliculas2D.addEventListener("mousemove", (event) => {
-    if(!isDown) return; // parar la funcion
-    event.preventDefault() // con esto evitamos que seleccione cosas (que las ponga en azul)
-    const x = event.pageX - peliculas2D.offsetLeft
-    console.log({x, startx})
-    const scroll = x - startx
-    // esto nos puede dar un num positivo o uno neg
-    console.log({scrollLeft, scroll})
-    peliculas2D.scrollLeft = scrollLeft - scroll
-})
-
-
-
-
+<<<<<<< HEAD
  */
+=======
+showMovies(peliculas2D, FILMS_2D)
+showMovies(peliculas3D, FILMS_3D)
+>>>>>>> produccion
