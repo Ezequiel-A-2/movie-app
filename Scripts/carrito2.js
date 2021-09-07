@@ -11,10 +11,12 @@ const $show_Shop_Cart = document.getElementById("shopCart")
 const $table_Body = document.getElementById("modal-table-body")
 const $total_To_Pay = document.getElementById("totalToPay")
 const carrito = []
+let carrito_JSON = ""
 
+// === Escuchadores de eventos ===
 
-$show_Shop_Cart.addEventListener('click', modalBody)
-
+$show_Shop_Cart.addEventListener("click", modalBody)
+$total_To_Pay.addEventListener("click", saveSelection)
 
 // === Funciones === 
 
@@ -181,6 +183,12 @@ function modalBody () {
     })
 
     calcTotal()
-
 }
 
+
+// Guardamos la seleccion en el session storage
+
+function saveSelection() {
+    carrito_JSON = JSON.stringify(carrito)
+    sessionStorage.setItem('comidaEnCarrito' ,carrito_JSON)
+}
