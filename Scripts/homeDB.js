@@ -30,6 +30,9 @@ FILMS.push(new Film("placeholder_img.png", "Pelicula 9", false, true))
 
 FILMS.push(new Film("placeholder_img.png", "Pelicula 10", false, true))
 
+// Usar Regex para que si "portada" tiene algun nombre del tipo jpg, png, jpeg, etc, le agg ../resources/img/
+
+
 
 // Traigo los datos de admin.js a traves del sessionStorage
 // con estos datos genero las nuevas imagenes para mostrar en el index.html

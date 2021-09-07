@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafio 5</title>
+    <title>Comida</title>
+
+    <!-- Archivos CSS -->
+
+    <!-- Material icon -->
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Material+Icons+Round"
+        rel="stylesheet">
+        
+    <!-- Bootstrap CSS -->
+    <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+    crossorigin="anonymous">
+    
+    <!-- Archivos Propios -->
     <link 
         rel="stylesheet" 
         href="./CSS/carrito2.css">
 
-    <!-- Bootstrap CSS -->
-    <link 
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
-        rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
-        crossorigin="anonymous">
-
-    <script 
-        defer
-        src="./Scripts/carritoDB.js">
-    </script>
-    
-    <script 
-        defer
-        src="./Scripts/carrito2.js">
-    </script>
-
+    <!-- Archivos JS -->
 
     <!-- Bootstrap JS -->
     <script 
@@ -37,11 +37,27 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" 
         crossorigin="anonymous">
     </script>
-
+    
     <!-- Sweet Alert -->
     <script 
         src="https://unpkg.com/sweetalert/dist/sweetalert.min.js">
     </script>
+
+    <!-- FontAwesome -->
+
+    <!-- Archivos Propios -->
+
+    <script 
+        defer
+        src="./Scripts/carritoDB.js">
+    </script>
+    
+    <script 
+        defer
+        src="./Scripts/carrito2.js">
+    </script>
+
+
 </head>
 <body>
     
@@ -56,13 +72,13 @@
                 <div class="collapse navbar-collapse justify-content-lg-end" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Contacto</a>
+                    <a class="nav-link" href="#">Contacto (no disponible)</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Agregar algo</a>
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" id="shopCart">Carro</a>
                     </li>
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -92,7 +108,7 @@
         
         <section>
 
-        <div class="row row-cols-1 row-cols-sm-2 g-4" id="food-container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4" id="food-container">
 
             </div>
 
@@ -100,17 +116,68 @@
 
     </main>
 
-    <aside>
+    <article>
 
-        <!-- Scrollable modal -->
-        <div class="modal-dialog modal-dialog-scrollable">
-        ...
+        <!-- Modal -->
+
+        <!-- Vertically centered scrollable modal -->
+        
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-sm-down">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Resumen del Pedido:</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Precio</th>
+                                <th class="text-center" scope="col">Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody id="modal-table-body">
+                            
+                        </tbody>
+                    </table>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="totalToPay"></button>
+                </div>
+                </div>
+            </div>
         </div>
 
+        
+        
 
-    </aside>
 
+    </article>
 
+    <!-- Footer -->
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row text-center py-2">
+                    <p class="m-0 h5">Enlaces Utiles</>
+            </div>
+            <div class="row pt-0 pb-3">
+                <div class="col-6 d-flex justify-content-center">
+                    <a href="#">Legales</a>
+                </div>
+                <div class="col-6 d-flex justify-content-center">
+                    <a href="#">Reclamos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
 
