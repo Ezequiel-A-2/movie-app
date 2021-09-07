@@ -13,6 +13,8 @@ const $total_To_Pay = document.getElementById("totalToPay")
 const carrito = []
 
 
+$show_Shop_Cart.addEventListener('click', modalBody)
+
 
 // === Funciones === 
 
@@ -133,23 +135,24 @@ function calcTotal() {
 
 function resumen(id, action) {
     let $quantitySpan = document.getElementById(`quantity${id}`)
-    debugger
     const carritoItem = carrito.find( ( item ) => item.id === id)
     action === "suma" ? carritoItem.quantity++ : carritoItem.quantity--
     $quantitySpan.innerHTML = carritoItem.quantity
     calcTotal()
+    modalBody()
 }
-
 
 
 
 // Agregar contenido del modal
 
-$show_Shop_Cart.addEventListener('click', () => {
+function modalBody () {
     let tableContent = ``
     let $plusButton
     let $lessButton
 
+    removeItems(carrito)
+    
     for (item of carrito) {
         let itemTemplate = `<tr>
                 <td>${item.productName}</td>
@@ -176,10 +179,8 @@ $show_Shop_Cart.addEventListener('click', () => {
         $plusButton.addEventListener("click", (event) => resumen(id, event.target.dataset.suma))
         $lessButton.addEventListener("click", (event) => resumen(id, event.target.dataset.resta))
     })
-    
-    removeItems(carrito)
 
     calcTotal()
 
-})
+}
 
