@@ -52,7 +52,7 @@ function desktop(section, arrayOfFilms) {
             <div class="col">
                 <div class="card">
                     <a href="./asientos2.js">
-                        <img src="${film.portada}" class="card-img-top" alt="...">
+                        <img src="${film.portada}" class="card-img-top skeleton" alt="...">
                     </a>
                     <div class="card-body pt-2">
                         <h3 class="card-title text-center">

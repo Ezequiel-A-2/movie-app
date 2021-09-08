@@ -7,6 +7,8 @@ body {
     overflow-x: hidden;
 }
 
+/* === Header === */
+
 header {
     background-color: black;
     color: white;
@@ -17,6 +19,8 @@ header {
     right: 0;
     z-index: 10;
 }
+
+/* === Main === */
 
 main {
     display: flex;
@@ -34,6 +38,8 @@ main section {
     overflow: hidden;
 }
 
+/* Section peliculas mobile */
+
 .scrolling-wrapper-flexbox {
     display: flex;
     flex-wrap: nowrap;
@@ -43,7 +49,6 @@ main section {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-
 
 .scrolling-wrapper-flexbox::-webkit-scrollbar {
     display: none;
@@ -59,6 +64,8 @@ main section {
     flex-basis: auto !important;
 }
 
+/* cartas = mobile */
+
 .cartas {
     flex: 0 0 auto;
     height: 100%;
@@ -70,6 +77,7 @@ main section {
     height: 300px;
 } 
 
+/* cards = desktop */
 
 .card {
     height: 100%;
@@ -87,6 +95,7 @@ main section {
     color: #fff;
 }
 
+/* === Footer === */
 
 footer {
     background-color: black;
@@ -99,3 +108,32 @@ footer a {
     text-decoration: none;
     color: white;
 }
+
+/* === Utilidades === */
+
+*.unselectable {
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+    -ms-user-select: none;
+   user-select: none;
+}
+
+
+/* === animacion de carga === */
+
+.esqueleto {
+    /* opacity: .7; */
+    animation: esqueleto 1s linear infinite alternate;
+}
+
+@keyframes esqueleto {
+    0% {
+        background-color: hsl(200, 20%, 70%);
+    }
+
+    100% {
+        background-color: hsl(200, 20%, 95%);
+    }
+}
+
