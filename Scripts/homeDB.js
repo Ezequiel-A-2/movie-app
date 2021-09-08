@@ -35,9 +35,10 @@ FILMS.push(new Film("placeholder_img.png", "Pelicula 10", false, true))
 
 
 // Traigo los datos de admin.js a traves del sessionStorage
-// con estos datos genero las nuevas imagenes para mostrar en el index.html
+// Con estos datos genero las nuevas imagenes para mostrar en el index.html
 
 if (sessionStorage.getItem(`newData`)) {
+
     let data = JSON.parse(sessionStorage.getItem(`newData`))
     
     for (let element of data) {

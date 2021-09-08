@@ -3,10 +3,16 @@
 let checkboxes = $(`:checkbox`)
 let typeOfFilms = []
 let type
-let _titulo, _portada, _film2D, _film3D; // datos a enviar hacia HomeDB 
-let data = {}
+let data = []
 let colectData = []
 let sendToStorage = ""
+$('#loading-button').hide()
+$('#finish-button').hide()
+
+
+// Borramos cualquier registro anterior del session storage
+
+if (sessionStorage.getItem(`newData`)) sessionStorage.removeItem((`newData`))
 
 
 // === Funciones ===
@@ -31,11 +37,12 @@ function checkboxes_status() {
 // Obtenermos los datos para luego exportarlos
 function getData() {
     checkboxes_status()
+    let _titulo, _portada, _film2D, _film3D; // datos a enviar hacia HomeDB 
     _titulo = $(`#title`).val()
     _portada = `${$(`#basic-url`).val()}`
     _film2D = typeOfFilms[0]["is2D"] // posicion 0 corresponde al valor de peliculas 2D
     _film3D = typeOfFilms[1]["is3D"] // la posicion 1 corresponde a peliculas 3D
-    return data = {_titulo, _portada, _film2D, _film3D}
+    data.push({_titulo, _portada, _film2D, _film3D})
 }
 
 // Escuchador de eventos del boton "agregar Pelicula"
@@ -43,7 +50,15 @@ function getData() {
 $(`#add-button`).click((event) => {
     event.preventDefault
     getData()
-    colectData.push(data)
+    colectData = data
+    $('#add-button').hide()
+    $('#loading-button').show()
+
+        setTimeout(() => {
+        $('#loading-button').hide()
+        $('#add-button').show()
+        $('#finish-button').fadeIn(1000)
+    }, 2000)
 })
 
 // Escuchador de eventos del boton "terminar"

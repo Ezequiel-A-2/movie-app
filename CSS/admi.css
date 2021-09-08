@@ -6,7 +6,7 @@ body {
     overflow-x: hidden;
 }
 
-@media (min-height: 620px) {
+@media (min-width: 1100px) {
     body {
         overflow: hidden;
     }

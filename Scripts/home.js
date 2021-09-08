@@ -27,7 +27,7 @@ function viewPortMobile(section, arrayOfFilms) {
 
     for (let film of arrayOfFilms) {
         const plantilla_Mobile = `
-        <a href="../asientos.html">
+        <a href="../asientos2.html">
             <img src="${film.portada}" alt="">
         </a>
         <h2>${film.titulos}</h2>`
@@ -51,7 +51,7 @@ function desktop(section, arrayOfFilms) {
         const plantilla = `
             <div class="col">
                 <div class="card">
-                    <a href="./asientos2.html">
+                    <a href="./asientos2.js">
                         <img src="${film.portada}" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body pt-2">

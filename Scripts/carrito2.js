@@ -190,5 +190,5 @@ function modalBody () {
 
 function saveSelection() {
     carrito_JSON = JSON.stringify(carrito)
-    sessionStorage.setItem('comidaEnCarrito' ,carrito_JSON)
+    sessionStorage.setItem('COMIDA' ,carrito_JSON)
 }
