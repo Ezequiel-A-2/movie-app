@@ -1,109 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./CSS/asientos.css"/>
-    <script defer src="./Scripts/asientos.js"></script>
-    <title>Butacas</title>
-  </head>
-  <body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <ul class="showcase">
-      <li>
-        <div class="seat"></div>
-        <small>Disponible</small>
-      </li>
-      <li>
-        <div class="seat selected"></div>
-        <small>Seleccionado</small>
-      </li>
-      <li>
-        <div class="seat occupied"></div>
-        <small>Ocupado</small>
-      </li>
-    </ul>
-    <div class="container">
-      <div class="screen"></div>
-      <div class="row">
-        <div class="seat" id="1" data-fila="A" data-butaca="1"></div>
-        <div class="seat" id="2" data-fila="A" data-butaca="2"></div>
-        <div class="seat" id="3" data-fila="A" data-butaca="3"></div>
-        <div class="seat" id="4" data-fila="A" data-butaca="4"></div>
-        <div class="seat" id="5" data-fila="A" data-butaca="5"></div>
-        <div class="seat" id="6" data-fila="A" data-butaca="6"></div>
-        <div class="seat" id="7" data-fila="A" data-butaca="7"></div>
-        <div class="seat" id="8" data-fila="A" data-butaca="8"></div>
-      </div>
+		<!-- Archivos CSS -->
+		<!-- Archivos Propios -->
+		<link 
+			rel="stylesheet" 
+			href="./CSS/asientos.css"/>
 
+		<!-- Archivos JS -->
+		<!-- Archivos Propios -->
+		<script 
+			defer 
+			src="./Scripts/asientos.js">
+		</script>
+		<title>Butacas</title>
+	</head>
+	<body>
 
-      <div class="row">
-        <div class="seat" id="9" data-fila="B" data-butaca="1"></div>
-        <div class="seat" id="10" data-fila="B" data-butaca="2"></div>
-        <div class="seat" id="11" data-fila="B" data-butaca="3"></div>
-        <div class="seat" id="12" data-fila="B" data-butaca="4"></div> 
-        <div class="seat" id="13" data-fila="B" data-butaca="5"></div>
-        <div class="seat" id="14" data-fila="B" data-butaca="6"></div>
-        <div class="seat" id="15" data-fila="B" data-butaca="7"></div>
-        <div class="seat" id="16" data-fila="B" data-butaca="8"></div>
-      </div>
+		<!-- Header -->
+		<header>
+			<div>
+				<h3>Logo</h3>
+			</div>
+			<div>
+				<ul>
+					<li>
+						Home
+					</li>
+					<li>
+						Contacto (No disponible)
+					</li>
+					<li>
+						Reservas
+					</li>
+				</ul>
+			</div>
+		</header>
 
-
-      <div class="row">
-        <div class="seat" id="17" data-fila="C" data-butaca="1"></div>
-        <div class="seat" id="18" data-fila="C" data-butaca="2"></div>
-        <div class="seat" id="19" data-fila="C" data-butaca="3"></div>
-        <div class="seat" id="20" data-fila="C" data-butaca="4"></div>
-        <div class="seat" id="21" data-fila="C" data-butaca="5"></div>
-        <div class="seat" id="22" data-fila="C" data-butaca="6"></div>
-        <div class="seat" id="23" data-fila="C" data-butaca="7"></div>
-        <div class="seat" id="24" data-fila="C" data-butaca="8"></div>
-      </div>
-
-
-      <div class="row">
-        <div class="seat" id="25" data-fila="D" data-butaca="1"></div>
-        <div class="seat" id="26" data-fila="D" data-butaca="2"></div>
-        <div class="seat" id="27" data-fila="D" data-butaca="3"></div>
-        <div class="seat" id="28" data-fila="D" data-butaca="4"></div>
-        <div class="seat" id="29" data-fila="D" data-butaca="5"></div>
-        <div class="seat" id="30" data-fila="D" data-butaca="6"></div>
-        <div class="seat" id="31" data-fila="D" data-butaca="7"></div>
-        <div class="seat" id="32" data-fila="D" data-butaca="8"></div>
-      </div>
-      
-
-      <div class="row">
-        <div class="seat" id="33" data-fila="E" data-butaca="1"></div>
-        <div class="seat" id="34" data-fila="E" data-butaca="2"></div>
-        <div class="seat" id="35" data-fila="E" data-butaca="3"></div>
-        <div class="seat" id="36" data-fila="E" data-butaca="4"></div>
-        <div class="seat" id="37" data-fila="E" data-butaca="5"></div>
-        <div class="seat" id="38" data-fila="E" data-butaca="6"></div>
-        <div class="seat" id="39" data-fila="E" data-butaca="7"></div>
-        <div class="seat" id="40" data-fila="E" data-butaca="8"></div>
-      </div>
+		<!-- Main -->
+		
+		<main>
+			<div>
+				<ul class="showcase">
+					<li>
+						<div class="seat"></div>
+						<small>Disponible</small>
+					</li>
+					<li>
+						<div class="seat selected"></div>
+						<small>Seleccionado</small>
+					</li>
+					<li>
+						<div class="seat occupied"></div>
+						<small>Ocupado</small>
+					</li>
+				</ul>
+			</div>
+			<div class="container">
+				<div class="screen"></div>
+				<div class="row">
+					<div class="seat" id="1" data-fila="A" data-butaca="1"></div>
+					<div class="seat" id="2" data-fila="A" data-butaca="2"></div>
+					<div class="seat" id="3" data-fila="A" data-butaca="3"></div>
+					<div class="seat" id="4" data-fila="A" data-butaca="4"></div>
+					<div class="seat" id="5" data-fila="A" data-butaca="5"></div>
+					<div class="seat" id="6" data-fila="A" data-butaca="6"></div>
+					<div class="seat" id="7" data-fila="A" data-butaca="7"></div>
+					<div class="seat" id="8" data-fila="A" data-butaca="8"></div>
+				</div>
 
 
-      <div class="row">
-        <div class="seat" id="41" data-fila="F" data-butaca="1"></div>
-        <div class="seat" id="42" data-fila="F" data-butaca="2"></div>
-        <div class="seat" id="43" data-fila="F" data-butaca="3"></div>
-        <div class="seat" id="44" data-fila="F" data-butaca="4"></div>
-        <div class="seat" id="45" data-fila="F" data-butaca="5"></div>
-        <div class="seat" id="46" data-fila="F" data-butaca="6"></div>
-        <div class="seat" id="47" data-fila="F" data-butaca="7"></div>
-        <div class="seat" id="48" data-fila="F" data-butaca="8"></div>
-      </div>
-    </div>
+				<div class="row">
+					<div class="seat" id="9" data-fila="B" data-butaca="1"></div>
+					<div class="seat" id="10" data-fila="B" data-butaca="2"></div>
+					<div class="seat" id="11" data-fila="B" data-butaca="3"></div>
+					<div class="seat" id="12" data-fila="B" data-butaca="4"></div> 
+					<div class="seat" id="13" data-fila="B" data-butaca="5"></div>
+					<div class="seat" id="14" data-fila="B" data-butaca="6"></div>
+					<div class="seat" id="15" data-fila="B" data-butaca="7"></div>
+					<div class="seat" id="16" data-fila="B" data-butaca="8"></div>
+				</div>
 
-    <button type="button" class="button-finish" onclick=saveSeat()>Success</button>
 
-    <p class="text" id="text">
-    </p>
-    
-    <!-- Has seleccionado: <span id="count">0</span> asientos, el monto actual es de $<span id="total">0</span> -->
-    
-  </body>
+				<div class="row">
+					<div class="seat" id="17" data-fila="C" data-butaca="1"></div>
+					<div class="seat" id="18" data-fila="C" data-butaca="2"></div>
+					<div class="seat" id="19" data-fila="C" data-butaca="3"></div>
+					<div class="seat" id="20" data-fila="C" data-butaca="4"></div>
+					<div class="seat" id="21" data-fila="C" data-butaca="5"></div>
+					<div class="seat" id="22" data-fila="C" data-butaca="6"></div>
+					<div class="seat" id="23" data-fila="C" data-butaca="7"></div>
+					<div class="seat" id="24" data-fila="C" data-butaca="8"></div>
+				</div>
+
+
+				<div class="row">
+					<div class="seat" id="25" data-fila="D" data-butaca="1"></div>
+					<div class="seat" id="26" data-fila="D" data-butaca="2"></div>
+					<div class="seat" id="27" data-fila="D" data-butaca="3"></div>
+					<div class="seat" id="28" data-fila="D" data-butaca="4"></div>
+					<div class="seat" id="29" data-fila="D" data-butaca="5"></div>
+					<div class="seat" id="30" data-fila="D" data-butaca="6"></div>
+					<div class="seat" id="31" data-fila="D" data-butaca="7"></div>
+					<div class="seat" id="32" data-fila="D" data-butaca="8"></div>
+				</div>
+				
+
+				<div class="row">
+					<div class="seat" id="33" data-fila="E" data-butaca="1"></div>
+					<div class="seat" id="34" data-fila="E" data-butaca="2"></div>
+					<div class="seat" id="35" data-fila="E" data-butaca="3"></div>
+					<div class="seat" id="36" data-fila="E" data-butaca="4"></div>
+					<div class="seat" id="37" data-fila="E" data-butaca="5"></div>
+					<div class="seat" id="38" data-fila="E" data-butaca="6"></div>
+					<div class="seat" id="39" data-fila="E" data-butaca="7"></div>
+					<div class="seat" id="40" data-fila="E" data-butaca="8"></div>
+				</div>
+
+
+				<div class="row">
+					<div class="seat" id="41" data-fila="F" data-butaca="1"></div>
+					<div class="seat" id="42" data-fila="F" data-butaca="2"></div>
+					<div class="seat" id="43" data-fila="F" data-butaca="3"></div>
+					<div class="seat" id="44" data-fila="F" data-butaca="4"></div>
+					<div class="seat" id="45" data-fila="F" data-butaca="5"></div>
+					<div class="seat" id="46" data-fila="F" data-butaca="6"></div>
+					<div class="seat" id="47" data-fila="F" data-butaca="7"></div>
+					<div class="seat" id="48" data-fila="F" data-butaca="8"></div>
+				</div>
+			</div>
+
+			<button type="button" class="button-finish" onclick=saveSeat()>Success</button>
+
+			<p class="text" id="text">
+			</p>
+			
+			<!-- Has seleccionado: <span id="count">0</span> asientos, el monto actual es de $<span id="total">0</span> -->
+		</main>
+		
+
+		<footer>
+			<div>
+				<h3>Enlaces Utiles</h3>
+			</div>
+			<div>
+				<ul>
+					<li><a href="">Legales</a></li>
+				</ul>
+				<ul>
+					<li><a href="">Reclamos</a></li>
+				</ul>
+			</div>
+		</footer>
+	</body>
 </html>

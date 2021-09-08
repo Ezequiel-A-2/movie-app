@@ -1,8 +1,10 @@
+// === Declaracion de constantes ===
+
 const container = document.querySelector(".container")
 const seats = document.querySelectorAll(".row .seat:not(.occupied)")
-
-
 const text = document.getElementById("text")
+
+
 
 let seatPrice = 50 // este valor sera traido desde el home en el futuro
 
