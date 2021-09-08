@@ -6,6 +6,13 @@ body {
     overflow-x: hidden;
 }
 
+@media (min-height: 620px) {
+    body {
+        overflow: hidden;
+    }
+}
+
+
 /* === header === */
 
 header {

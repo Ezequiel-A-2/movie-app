@@ -3,18 +3,15 @@
 let checkboxes = $(`:checkbox`)
 let typeOfFilms = []
 let type
-let _titulo
-let _portada
-let _film2D 
-let _film3D 
+let _titulo, _portada, _film2D, _film3D; // datos a enviar hacia HomeDB 
 let data = {}
 let colectData = []
 let sendToStorage = ""
 
 
-// === funciones ===
+// === Funciones ===
 
-// buscamos los checkbox y revisamos si 
+// Buscamos los checkbox y revisamos si 
 function checkboxes_status() {
     let checkboxes_checked = []
     for (box of checkboxes) {
@@ -54,4 +51,5 @@ $(`#add-button`).click((event) => {
 $(`#finish-button`).click(() => {
     sendToStorage = JSON.stringify(colectData)
     sessionStorage.setItem(`newData`, sendToStorage)
+    window.location.href = '../index.html' 
 })

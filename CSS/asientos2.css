@@ -1,0 +1,138 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #242333 !important;
+	color: white;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	/* overflow: hidden; */
+}
+
+/* === Header === */
+
+header {
+    background-color: black;
+    color: white;
+    height: auto;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+/* === main === */
+
+main {
+	height: 90%;
+    width: 100%;
+}
+
+
+.seat {
+	background-color: #444451;
+	height: 12px;
+	width: 15px;
+	margin: 3px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.seat.selected {
+	background-color: #6feaf6;
+}
+
+.seat.occupied {
+	background-color: white;
+}
+
+.seat:nth-of-type(2) { /* eligue el segundo asiento de izq a der */
+	margin-right: 18px;
+}
+
+.seat:nth-last-of-type(2) { /* elige el anteultimo asiento de der a izq */
+	margin-left: 18px;
+}
+
+.seat:not(.occupied):hover {
+	cursor: pointer;
+	transform: scale(1.2);
+}
+
+.showcase .seat:not(.occupied):hover {
+	cursor: default;
+	transform: scale(1);
+}
+
+.showcase {
+	background-color: rgba(0, 0, 0, 0.1);
+	padding: 5px 10px !important;
+	border-radius: 5px !important;
+	color: #777;
+	list-style: none;
+    min-width: 150px;
+    max-width: 500px;
+}
+
+@media (min-width:580px) {
+    .showcase {
+        width: 50%;
+    }
+}
+
+
+.showcase li small {
+	margin-left: 2px;
+}
+
+
+
+.screen {
+	background-color: #fff;
+	height: 70px;
+	width: 45%;
+    min-width: 200px;
+    max-width: 250px;
+	margin: 15px 0;
+	transform: rotateX(-45deg);
+	box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+}
+
+.contenedor {
+	perspective: 1000px;
+}
+
+main .button-finish {
+    width: 30%;
+	max-width: 200px;
+}
+
+p.text {
+	color: white;
+	margin: 10px 10px;
+}
+
+p.text span {
+	color: #6feaf6;
+}
+
+/* === Footer === */
+
+footer {
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: auto;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}

@@ -19,10 +19,41 @@ body {
 /* === Header === */
 
 header {
+	padding: 0 30px;
 	height: 15vh;
 	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	background-color: black;
 	color: white;
+}
+
+.header-list {
+	width: 30%;
+}
+
+.header-list ul {
+	display: flex;
+	justify-content: space-between;
+}
+
+.header-list li {
+	list-style-type: none;
+}
+
+.header-list li a {
+	color: rgba(255,255,255,.75);
+	text-decoration: none;
+	font-size: 18px;
+}
+
+.header-list li:first-child a:first-child {
+	color: rgba(255,255,255,1);
+}
+
+.header-list li a:hover {
+	color: rgba(255,255,255,1);
 }
 
 
