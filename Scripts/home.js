@@ -51,7 +51,7 @@ function desktop(section, arrayOfFilms) {
         const plantilla = `
             <div class="col">
                 <div class="card">
-                    <a href="./asientos.html">
+                    <a href="./asientos2.html">
                         <img src="${film.portada}" class="card-img-top" alt="...">
                     </a>
                     <div class="card-body pt-2">

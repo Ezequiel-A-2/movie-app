@@ -13,7 +13,19 @@ Muchas gracias por su atencion!
 
 # Tags 
 
-- tag v0.21:
+- Tag v0.3:
+
+    Actualizacion: 
+
+    * Se termino de realizar la pagina carrito2 con un modal para mostrar detalles de compra e incluso botones para que el usuario pueda interactuar.
+
+    * El archivo asientos dejo de estar activo para mudarse a una nueva version del mismo llamada asientos2, en este se realizaron cambios significativos como mudar el trabajo a boostrap, colocar header como asi tambien footer y realizar comentarios para facilitar la lectura del codigo.
+
+    * Los headers y footers de los demas archivos sufrieron leves modificaciones para que sean iguales en contenido y semantica. 
+
+    * Proximamente vendran animaciones y la implementacion de APIs.
+
+- Tag v0.21:
   
     * No hay cambios, simplemente tuve un error al colocar el tag, simplemente queria que estuviera bien ordenado...
 
