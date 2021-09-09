@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Archivos CSS -->
+
+    <!-- Archivos Propios -->
+    <link 
+        rel="stylesheet" 
+        href="./CSS/home2.css">
+    <!-- Bootstrap CSS -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+        crossorigin="anonymous">
+
+    <!-- Archivos JS -->
+
+    <!-- boostrap JS -->
+    <script 
+        defer 
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" 
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" 
+        crossorigin="anonymous">
+    </script>
+    <script 
+        defer
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" 
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" 
+        crossorigin="anonymous">
+    </script>
+
+    <!-- Archivos Propios -->
+
+    <script 
+        type="module" 
+        src="./Scripts/home2.js">
+    </script>
+
+    <title>Home</title>
+</head>
+<body>
+    
+    <!-- Header -->
+
+    <header class="py-2">
+        
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid px-lg-5 me-lg-2">
+                <a class="navbar-brand" href="#">
+                    LOGO
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-lg-end" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./admi.html">
+                                Administrador
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Reservas (Todavia No disponible*)
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Contacto (Todavia No disponible*)
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main -->
+
+    <main class="p-3 p-lg-5">
+        <!-- Peliculas 2D -->
+        <section id="peliculas2D">
+            <h3 class="pb-2">Peliculas 2D</h3>
+            
+            <div id="film-container">
+
+            </div>
+
+        </section>
+
+
+        <!-- Peliculas 3D -->
+
+
+        <section id="peliculas3D">
+            <h3 class="pb-2">Peliculas 3D</h3>
+
+            <div id="film-3d-container">
+
+            </div>
+
+        </section>
+
+        <!-- Proximamente -->
+
+
+        <!-- <section id="peliculasProx"></section> -->
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row text-center py-3 ">
+                    <p class="m-0 h5">Enlaces Utiles</p>
+            </div>
+            <div class="row justify-content-around flex-column align-content-center flex-sm-row pb-3"> <!-- pt-0 pb-sm-3 -->
+                <a href="#" class="col text-center py-1 mb-1 mb-sm-0">Legales</a>
+                <a href="#" class="col text-center py-1">Reclamos</a>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
