@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comida</title>
+
+    <!-- Archivos CSS -->
+
+    <!-- Material icon -->
+    <!-- <link 
+        href="https://fonts.googleapis.com/css2?family=Material+Icons+Round"
+        rel="stylesheet"> -->
+        
+    <!-- Bootstrap CSS -->
+    <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+    crossorigin="anonymous">
+    
+    <!-- Archivos Propios -->
+    <link 
+        rel="stylesheet" 
+        href="./CSS/payment.css">
+
+    <!-- Archivos JS -->
+
+    <!-- Bootstrap JS -->
+    <script 
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" 
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" 
+        crossorigin="anonymous">
+    </script>
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" 
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" 
+        crossorigin="anonymous">
+    </script>
+    
+    <!-- Sweet Alert JS -->
+    <!-- <script 
+        src="https://unpkg.com/sweetalert/dist/sweetalert.min.js">
+    </script> -->
+
+    <!-- Archivos Propios -->
+    
+    <script 
+        defer
+        src="./Scripts/payment.js">
+    </script>
+
+</head>
+<body>
+
+    <main class="d-flex justify-content-center align-items-center h-100">
+
+
+
+        <div class="card h-85 w-75">
+
+            <!-- <img src="../resources/img/space-jam.jpg" class="d-none card-img-top" alt="Space Jam"> -->
+
+
+            <div class="card-body px-0">
+                <h5 class="card-title text-center mb-3">
+                    Metodo de pago
+                </h5>
+                
+                <!-- tarjetas -->
+                
+                <form class="container d-flex flex-column gap-3">
+                    <div class="row">
+                        <div class="col">
+                            <label for="input-name" class="etiqueta-nombre">Nombre:</label> <!-- col-10 offset-1 -->
+                            <input class="col-12 input-dato" type="text" id="input-name"> <!-- col-10 offset-1 -->
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col">
+                                <div class="row">
+                                    <div class="col d-flex flex-column justify-content-between align-items-center gap-2">
+                                        <label for="pay-option-1" id="card-1" class="tarjeta"></label>
+                                        <input type="radio" name="card-options" id="pay-option-1" checked>
+                                    </div>
+                                    <div class="col d-flex flex-column justify-content-between align-items-center gap-2">
+                                        <label for="pay-option-2" id="card-2" class="tarjeta"></label>
+                                        <input type="radio" name="card-options" id="pay-option-2">
+                                    </div>
+                                    <div class="col d-flex flex-column justify-content-between align-items-center gap-2">
+                                        <label for="pay-option-3" id="card-3" class="tarjeta"></label>
+                                        <input type="radio" name="card-options" id="pay-option-3">
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="input-cardNumber" class="col-12">Numero de Tarjeta</label>
+                            <input class="col-12 input-dato" type="text" placeholder="0000 - 0000 - 0000 - 0000" id="input-cardNumber">
+                        </div>
+                    </div>
+
+
+                    <div class="row align-items-center">
+                        <label for="" class="col-8 pe-0">Fecha de Expiracion</label>
+                        <label for="" class="col-4 text-center ps-0">CVC</label>
+                    </div>
+
+                    <div class="container d-flex flex-column ms-0 ps-0">
+                        <div class="row justify-content-evenly p-0 m-0">
+                            <input class="col-3 text-center input-dato" type="text" placeholder="MM">
+                            <input class="col-3 text-center offset-1 input-dato margen" type="text" placeholder="YY">
+                            <input class="col-3 text-center offset-1 input-dato margen" type="text" placeholder="123">
+                        </div>
+                    </div>
+
+                    <div class="row flex-column align-items-center justify-content-around gap-2">
+                        <button type="button" class="btn btn-primary col-6">CONFIRMAR</button>
+                        <button type="button" class="btn btn-outline-secondary col-6">CANCELAR</button>
+                    </div>
+                    
+
+
+
+                    <!-- <div class="row my-2">
+                        <div class="col">
+                            <label for="" class="col-11 offset-1 etiqueta-nombre">NUMERO DE TARJETA</label>
+                            <input class="col-10 offset-1 input-dato" type="text" placeholder="0000 - 0000 - 0000 - 0000">
+                        </div>
+                    </div>
+                    
+                    <div class="row my-2">
+                        <div class="col offset-1">
+                            <label for="" class="col-5 etiqueta-nombre">FECHA DE EXPIRACION</label>
+                            <label for="" class="col-3 offset-3 etiqueta-nombre">CVC</label>
+                        </div>
+                        
+                    </div> -->
+
+
+                    <!-- <div class="row">
+                        <div class="col offset-1">
+                            <input class="col-3 input-dato" type="text" placeholder="MM">
+                            <input class="col-3 offset-1 input-dato margen" type="text" placeholder="YY">
+                            <input class="col-3 offset-1 input-dato margen" type="text" placeholder="123">
+                        </div>
+                    </div> -->
+                    
+                    <!-- <div class="row mt-4">
+                        <div class="col d-flex justify-content-around">
+                            <button type="button" class="btn btn-danger  col-4">CANCELAR</button>
+                            <button type="button" class="btn btn-success col-4">CONFIRMAR</button>
+                        </div>
+                    </div> -->
+                    
+                </form>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    
+</body>
+</html>
