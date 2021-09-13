@@ -49,14 +49,23 @@ main {
 
 /* Form inputs */
 
-.input-dato {
+input {
     border: none;
+
+}
+
+.input-dato {
     border-bottom: 2px solid #878786;
 }
 
 .input-dato:focus-visible {
     outline: none;
     border-bottom: 2px solid #f5cf3c;
+}
+
+.wrong {
+    border: none;
+    border-bottom: 2px solid #878786;
 }
 
 /* Tamaño y SVG de tarjetas */
