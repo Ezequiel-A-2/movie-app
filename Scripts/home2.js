@@ -53,3 +53,8 @@ function showMovies(section, arrayOfFilms) {
 
 showMovies(peliculas2D, FILMS_2D)
 showMovies(peliculas3D, FILMS_3D)
+
+
+/* === API TEST === */
+
+const API_KEY = de72dd93dac3e3c6b2ec3687f0e1eff5
