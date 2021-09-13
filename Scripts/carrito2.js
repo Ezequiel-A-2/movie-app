@@ -191,4 +191,5 @@ function modalBody () {
 function saveSelection() {
     carrito_JSON = JSON.stringify(carrito)
     sessionStorage.setItem('COMIDA' ,carrito_JSON)
+	window.location.href = '../payment.html' 
 }

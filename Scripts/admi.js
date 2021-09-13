@@ -50,6 +50,9 @@ function getData() {
 $(`#add-button`).click((event) => {
     event.preventDefault
     getData()
+    if (_titulo === '' || _portada === '') {
+        return
+    }
     colectData = data
     $('#add-button').hide()
     $('#loading-button').show()

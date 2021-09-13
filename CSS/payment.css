@@ -1,57 +1,3 @@
-/* Parte copiada del otro archivo */
-
-/* payment section */
-
-/* .payment-card {
-    width: 50%;
-    height: 50%;
-} */
-
-/* .payment-card img {
-    width: 20rem;
-}
-
-.etiqueta-nombre {
-    font-size: .8rem;
-}
-
-.input-dato {
-    border: none;
-    border-bottom: 2px solid #878786;
-}
-
-.input-dato:focus-visible {
-    outline: none;
-    border-bottom: 2px solid #f5cf3c;
-}
-
-
-.tarjeta {
-    width: 2rem;
-    height: 2rem;
-    margin: 0 auto;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-#card-1 {
-    background-image: url('../resources/svg/visa-color.svg');
-}
-
-#card-2 {
-    background-image: url('../resources/svg/mastercard-color.svg');
-}
-
-#card-3 {
-    background-image: url('../resources/svg/card-color.svg');
-}
-
-.margen {
-    margin-left: 25px !important;
-} */
-
-/* Fin de copiado */
-
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -61,6 +7,13 @@
 body {
     height: auto;
     width: 100vw;
+    overflow-x: hidden;
+}
+
+@media (min-width: 1020px) {
+    body {
+        overflow: hidden;
+    }
 }
 
 /* === Header === */
@@ -86,6 +39,7 @@ main {
 
 .card {
     background-color: #fff;
+    max-width: 650px;
 }
 
 .container {
@@ -93,7 +47,7 @@ main {
     height: auto;
 }
 
-/* Forma inputs */
+/* Form inputs */
 
 .input-dato {
     border: none;
@@ -105,6 +59,8 @@ main {
     border-bottom: 2px solid #f5cf3c;
 }
 
+/* Tamaño y SVG de tarjetas */
+
 .tarjeta {
     width: 2rem;
     height: 2rem;
@@ -112,18 +68,17 @@ main {
     background-size: contain;
 }
 
-/* SVG de tarjetas */
 
 #card-1 {
     background-image: url('../resources/svg/visa-color.svg');
 }
 
 #card-2 {
-    background-image: url('../resources/svg/mastercard-color.svg');
+    background-image: url('../resources/svg/mastercard-logo.svg');
 }
 
 #card-3 {
-    background-image: url('../resources/svg/card-color.svg');
+    background-image: url('../resources/svg/credit-card-new.svg');
 }
 
 /* === Footer === */

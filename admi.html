@@ -129,7 +129,7 @@
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Titulo:</span>
-                    <input type="text" class="form-control" id="title" placeholder="Nombre de la pelicula">
+                    <input type="text" class="form-control" id="title" placeholder="Nombre de la pelicula" required>
                 </div>
 
 
@@ -138,9 +138,9 @@
                 </label>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon3">
-                        Imagen:
+                        Portada:
                     </span>
-                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Imagen de Portada" required>
                 </div>
 
                 <div class="container-fluid mb-2">
@@ -174,37 +174,41 @@
                 
                 </div>
 
+
+                <div class="container-fluid p-0 mx-0 mb-1 pb-1">
+                    <div class="row p-0 m-0 g-2">
+                        <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start p-0 m-0">
+                            <button type="submit" class="btn btn-secondary" id="add-button">
+                                Agregar Pelicula
+                            </button>
+
+
+                            <!-- Fusionar ambos botones en 1, simplemente agg atributos y ver de modificar el texto para mobile -->
+
+                            <button class="btn btn-secondary" type="button" id="loading-button" disabled>
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Agregando Pelicula
+                            </button>
+
+
+                        </div>
+
+                        <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end p-0 m-md-0">
+                            <button type="button" class="btn btn-primary" id="finish-button">
+                                Finalizar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </form>
             
 
         </section>
 
 
-        <div class="container-fluid p-0 mx-0 mb-1 pb-1">
-            <div class="row p-0 m-0 g-2">
-                <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start p-0 m-0">
-                    <button type="button" class="btn btn-secondary" id="add-button">
-                        Agregar Pelicula
-                    </button>
-
-
-                    <!-- Fusionar ambos botones en 1, simplemente agg atributos y ver de modificar el texto para mobile -->
-
-                    <button class="btn btn-secondary" type="button" id="loading-button" disabled>
-                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                        Agregando Pelicula
-                    </button>
-
-
-                </div>
-
-                <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end p-0 m-md-0">
-                    <button type="button" class="btn btn-primary" id="finish-button">
-                        Finalizar
-                    </button>
-                </div>
-            </div>
-        </div>
 
 
     </main>
