@@ -13,6 +13,18 @@ Muchas gracias por su atencion!
 
 # Tags 
 
+- Tag v0.4:
+
+    Actualizacion:
+
+    API de [https://www.themoviedb.org/] implementada, entrega de ultimos desafios.
+
+    Nota: Debido a la rapida implementacion de la API, la seccion de admi ha dejado de funcionar, actualmente se encuentra en arreglo. 
+
+- Tag v0.31:
+
+    Entrega de desafio
+
 - Tag v0.3:
 
     Actualizacion: 

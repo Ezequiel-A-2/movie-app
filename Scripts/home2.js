@@ -5,9 +5,7 @@ import {  generateFilms, storageMovie } from './homeDB.js'
 
 
 
-if (sessionStorage.getItem(`newData`)) {
-    storageMovie()
-}
+
 
 
 
@@ -75,4 +73,9 @@ function movieFilter(arrayDB) {
     let apiMovies = await callApi()
     let movieDB = await generateFilms(apiMovies, allMovies)
     movieFilter(movieDB)
+    console.log(allMovies)
 })()
+
+if (sessionStorage.getItem(`newData`)) {
+    storageMovie(allMovies)
+}
