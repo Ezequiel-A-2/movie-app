@@ -58,7 +58,7 @@ DATA_BASE.push(new Products(14, "Sugus", `Paquete de Sugus`, `snack`, 130, "snac
 
 const COMBOS = DATA_BASE.filter( ({ type }) => type === `combo` )
 
-// Los de abajo dejaron de cumplir su utilidad pero los dejo para hacer debugear
+// Las constants de abajo dejaron de cumplir su utilidad pero los dejo para debugear
 
 // const POPCORN = DATA_BASE.filter( ({ type }) => type === `popcorn` )
 
