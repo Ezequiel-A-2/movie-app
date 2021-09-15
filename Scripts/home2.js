@@ -4,18 +4,11 @@ import callApi from './homeDB.js'
 import {  generateFilms, storageMovie } from './homeDB.js'
 
 
-
-
-
-
-
-
-
 // === Declaracion de constantes ===
 
 let allMovies = []
-const peliculas2D = document.querySelector("#film-container")
-const peliculas3D = document.querySelector("#film-3d-container")
+const peliculas2D = document.getElementById("film-2d-container")
+const peliculas3D = document.getElementById("film-3d-container")
 
 
 // === Funciones ===
@@ -27,6 +20,7 @@ const peliculas3D = document.querySelector("#film-3d-container")
 
 function showMovies(section, arrayOfFilms) {
     let imageHTTP = 'https://image.tmdb.org/t/p/w500'
+    section.innerHTML = ''
     section.setAttribute("class","")
     section.className = "row d-flex scrolling-wrapper-flexbox flex-nowrap flex-md-wrap row-cols-auto"
 
@@ -36,7 +30,7 @@ function showMovies(section, arrayOfFilms) {
             <div class="col">
                 <div class="card">
                     <a href="../asientos2.html">
-                        <img src="${imageHTTP + film.image}" class="card-img-top skeleton" alt="..." data-movie-id=${film.id}>
+                        <img src="${imageHTTP + film.image}" class="card-img-top skeleton" alt="Portada de ${film.title}" data-movie-id=${film.id}>
                     </a>
                     <div class="card-body pt-2">
                         <h3 class="card-title text-center">
@@ -73,7 +67,6 @@ function movieFilter(arrayDB) {
     let apiMovies = await callApi()
     let movieDB = await generateFilms(apiMovies, allMovies)
     movieFilter(movieDB)
-    console.log(allMovies)
 })()
 
 if (sessionStorage.getItem(`newData`)) {

@@ -40,7 +40,7 @@ function getData() {
     let _id, _title, _image, _film2D, _film3D; // datos a enviar hacia HomeDB
     _id = parseInt(Math.random() * 100) 
     _title = $(`#title`).val()
-    _image = `${$(`#basic-url`).val()}`
+    _image = `../resources/img/${$(`#basic-url`).val()}`
     _film2D = typeOfFilms[0]["is2D"] // posicion 0 corresponde al valor de peliculas 2D
     _film3D = typeOfFilms[1]["is3D"] // la posicion 1 corresponde a peliculas 3D
     data.push({_id, _title, _image, _film2D, _film3D})

@@ -17,10 +17,12 @@ class Film {
 
 export function storageMovie(FilmDB) {
     let data = JSON.parse(sessionStorage.getItem(`newData`))
-    
+    copnsole.log(data)
+
     for (let element of data) {
-        let { _titulo, _portada, _film2D, _film3D }  = element
-        FilmDB.push(new Film(_portada, _titulo, _film2D, _film3D))
+        console.log(element)
+        let { _id, _title, _image, _film2D, _film3D }  = element
+        FilmDB.push(new Film(_id, _title, _image, _film2D, _film3D))
     }
 }
 
