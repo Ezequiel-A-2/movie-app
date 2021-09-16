@@ -37,16 +37,16 @@ function generateRandom() {
 }
 
 // Generador de instancias de la clase Film
-export function generateFilms(API_DATA, FilmDB) {
+export function generateFilms(API_DATA, FILM_DB_ARRAY) {
     for (let data of API_DATA) {
         const id = data.id
         const title = data.title
         const image = data.poster_path
         const is2D = generateRandom()
         const is3D = generateRandom()
-        FilmDB.push(new Film(id, image, title, is2D, is3D))
+        FILM_DB_ARRAY.push(new Film(id, image, title, is2D, is3D))
     }
-    return FilmDB
+    return FILM_DB_ARRAY
 }
 
 
@@ -56,8 +56,7 @@ export default async function callApi () {
     const ACTUAL_MOVIES = 'https://api.themoviedb.org/3/movie/now_playing?api_key=de72dd93dac3e3c6b2ec3687f0e1eff5'
         const response = await fetch(ACTUAL_MOVIES)
         const data = await response.json()
-        const listOfMovies = data.results
-        return listOfMovies
+        return data.results
 }
     
     

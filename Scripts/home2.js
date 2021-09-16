@@ -1,7 +1,7 @@
 // === Importacion de datos === 
 
 import callApi from './homeDB.js'
-import {  generateFilms, storageMovie } from './homeDB.js'
+import {  generateFilms } from './homeDB.js'
 
 
 // === Declaracion de constantes ===
@@ -65,9 +65,15 @@ function movieFilter(arrayDB) {
 
 (async () => {
     let apiMovies = await callApi()
-    let movieDB = await generateFilms(apiMovies, allMovies)
-    movieFilter(movieDB)
+    await generateFilms(apiMovies, allMovies)
+    movieFilter(allMovies)
 })()
+
+
+
+
+
+// Datos desde admi (En desarrollo)
 
 if (sessionStorage.getItem('newData')) {
     const storageMovies = JSON.parse(sessionStorage.getItem('newData'))
