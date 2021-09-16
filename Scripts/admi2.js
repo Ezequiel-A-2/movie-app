@@ -9,27 +9,59 @@ import {  generateFilms, storageMovie } from './homeDB.js'
 let listOfMovies = [], colectData = [], type, sendToStorage = ""
 // let checkboxes = $(`:checkbox`)
 $('#loading-button').hide()
-$('#finish-button').hide()
-
 
 // === Funciones ===
 
-async function callApi () {
-    let API_URL = 'https://api.themoviedb.org/3/search/movie?api_key=de72dd93dac3e3c6b2ec3687f0e1eff5&query='
-    let find = `${$(`#title`).val()}`
 
-    let API_SEARCH = `${API_URL + find}` 
+function showMovies(arrayOfFilms) {
+    let imageHTTP = 'https://image.tmdb.org/t/p/w500'
+    $('#film-container').empty()
+    
+    for (let film of arrayOfFilms) {
+        const plantilla = `
+            <div class="col">
+                <div class="card">
+                    <a href="#">
+                        <img src="${imageHTTP + film.image}" class="card-img-top skeleton" alt="Portada de ${film.title}" data-movie-id=${film.id}>
+                    </a>
+                    <div class="card-body pt-2">
+                        <h3 class="card-title text-center">
+                            ${film.title}
+                        </h3>
+                    </div>
+                </div>
+            </div>`
+
+        let movie = document.createElement("div")
+        movie.setAttribute("class", "cartas") 
+        movie.innerHTML = plantilla
+        $('#film-container').append(movie)
+    }
+
+}
+
+
+
+
+async function callApi (findMovie = 'furious') {
+    let API_URL = 'https://api.themoviedb.org/3/search/movie?api_key=de72dd93dac3e3c6b2ec3687f0e1eff5&query='
+    
+
+    let API_SEARCH = `${API_URL + findMovie}` 
 
         const response = await fetch(API_SEARCH)
         const data = await response.json()
+        console.log(data)
         return data.results
 }
 
-async function getData() {
+async function getData(movie) {
     let dataBase = []
-    let FUNDED_MOVIES = await callApi()
+    let FUNDED_MOVIES = await callApi(movie)
     await generateFilms(FUNDED_MOVIES, dataBase)
     console.log(dataBase)
+    
+    showMovies(dataBase)
 }
 
 
@@ -42,11 +74,9 @@ $(`#add-button`).click((event) => {
     } else {
         $(`#title`).removeClass('wrong')
     }
+    let movie = `${$(`#title`).val()}`
 
-    getData()
-
-
-    // colectData = data ???
+    getData(movie)
 
 
     $('#add-button').hide()
@@ -55,9 +85,10 @@ $(`#add-button`).click((event) => {
         setTimeout(() => {
         $('#loading-button').hide()
         $('#add-button').show()
-        $('#finish-button').fadeIn(1000)
     }, 2000)
 })
+
+getData('furious')
 
 
 
@@ -128,11 +159,6 @@ $(`#add-button`).click((event) => {
 //     sessionStorage.setItem(`newData`, sendToStorage)
 //     window.location.href = '../home2.html' 
 // }) */
-
-
-
-
-
 
 
 

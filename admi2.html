@@ -50,7 +50,7 @@
 
     <title>Administrador</title>
 </head>
-<body>
+<body class="d-flex flex-column justify-content-between">
     
     <!-- Header -->
 
@@ -94,7 +94,7 @@
 
     <!-- Main -->
 
-    <main class="px-4 px-md-4 my-2">
+    <main class="px-4 px-md-4 mt-2">
         
 
         <section>
@@ -102,25 +102,6 @@
             <h1 class="mb-3">
                 Buscar Peliculas
             </h1>
-    
-            <!-- <p class="mb-3 description">
-                Nota: No tenemos una base de datos porque al momento de hacer esta pagina no obtuve el conocimiento para montar una y cargarle imagenes asique si bien esto funciona, hay que hacer una parte a mano (pero se le indicara cual), disculpe las molestias!
-            </p>
-    
-            <p class="text-muted description">
-                Parte manual: para agregar una imagen se debe agregar la imagen a la carpeta local "resources/img" y luego en el campo "agregar portada" colocamos el nombre de la imagen que guardamos (ejemplo: si nuestra imagen se llama "space-jam.jpg" simplemente agregamos "space-jam.png" en el campo portada). Se pueden obtener imagenes de peliculas desde el siguiente link: 
-                <a 
-                    href="https://www.bestrandoms.com/random-movie-generator" 
-                    class="text-muted text-decoration-none" 
-                    target="blank">
-                    https://www.bestrandoms.com/random-movie-generator
-                </a>.
-            </p> -->
-
-        </section>
-        
-
-        <section>
 
             <form>
 
@@ -130,7 +111,56 @@
                 </div>
 
 
-                <!-- <label for="basic-url" class="form-label">
+                
+
+
+                <div class="container-fluid p-0 mx-0 mb-1 pb-1">
+                    <div class="row p-0 m-0 g-2">
+                        <div class="col-12 col-md-6 d-flex flex-row justify-content-center justify-content-md-start p-0 m-0">
+                            <button type="button" class="btn btn-secondary" id="add-button">
+                                Buscar Pelicula
+                            </button>
+
+
+                            <button class="btn btn-secondary" type="button" id="loading-button" disabled>
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Agregando Pelicula
+                            </button>
+
+
+                        </div>
+
+                        <!-- <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end p-0 m-md-0">
+                            <button type="button" class="btn btn-primary" id="finish-button">
+                                Finalizar
+                            </button>
+                        </div> -->
+                    </div>
+                </div>
+
+
+
+            </form>
+            
+
+        </section>
+
+        <section>
+
+            <div id="film-container" class="row d-flex scrolling-wrapper-flexbox flex-nowrap flex-md-wrap row-cols-auto">
+
+                
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- <label for="basic-url" class="form-label">
                     Agregar una portada*
                 </label>
                 <div class="input-group mb-3">
@@ -170,43 +200,6 @@
 
                 
                 </div> -->
-
-
-                <div class="container-fluid p-0 mx-0 mb-1 pb-1">
-                    <div class="row p-0 m-0 g-2">
-                        <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start p-0 m-0">
-                            <button type="button" class="btn btn-secondary" id="add-button">
-                                Agregar Pelicula
-                            </button>
-
-
-                            <button class="btn btn-secondary" type="button" id="loading-button" disabled>
-                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                Agregando Pelicula
-                            </button>
-
-
-                        </div>
-
-                        <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end p-0 m-md-0">
-                            <button type="button" class="btn btn-primary" id="finish-button">
-                                Finalizar
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </form>
-            
-
-        </section>
-
-
-
-
-    </main>
 
     <!-- Footer -->
 

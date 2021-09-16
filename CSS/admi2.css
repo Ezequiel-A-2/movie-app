@@ -1,8 +1,10 @@
 body {
+    background-image: linear-gradient(to right top, #051937, #001743, #00144d, #000f57, #05055e);
+    background-repeat: repeat-y;
     width: 100vw;
     height: 100vh;
     box-sizing: border-box;
-    position: relative;
+    /* position: relative; */
     overflow-x: hidden;
 }
 
@@ -32,17 +34,54 @@ main {
     gap: 10px;
 }
 
-main section {
-    height: auto;
-    width: auto;
-}
-
 main section .description {
     text-align: justify;
 }
 
 .wrong {
     box-shadow: 0 0 0 0.25rem rgb(253 110 13 / 100%);
+}
+
+@media (max-width: 760px) {
+    .scrolling-wrapper-flexbox {
+        overflow-x: auto;
+        height: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .scrolling-wrapper-flexbox::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+
+.card {
+    height: 100%;
+    width: 240px;
+    background-color: initial !important;
+    border: none !important;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 350px;
+}
+
+@media (max-width: 760px) {
+    .card {
+        height: 100%;
+        width: 200px;
+    }
+
+    .card-img-top { 
+        width: 100%;
+        height: 300px;
+    }
+}
+
+.card-body {
+    color: #fff;
 }
 
 /* === footer === */
@@ -52,10 +91,6 @@ footer {
     height: auto;
     background-color: black;
     color: white;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
 
 

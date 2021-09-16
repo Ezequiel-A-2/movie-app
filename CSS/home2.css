@@ -53,11 +53,6 @@ main section {
 }
 
 
-#film-container {
-    flex-basis: auto !important;
-}
-
-
 .card {
     height: 100%;
     width: 240px;
