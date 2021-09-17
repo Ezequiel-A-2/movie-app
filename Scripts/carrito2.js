@@ -1,9 +1,9 @@
 // Las bases de datos (arrays) vienen de otro archivo
 
-
 // === Declaracion de variables ===
 
-// Nota: las variables iniciadas con el signo $ es para diferenciar entre las variables que estan relacionadas al DOM y aquellas que no.
+// Nota: las variables iniciadas con el signo $ es para diferenciar entre las variables que 
+// estan relacionadas al DOM y aquellas que no.
 
 const $food_container = document.getElementById("food-container")
 const $category = document.querySelectorAll(".dropdown-item")
@@ -18,11 +18,11 @@ let carrito_JSON = ""
 $show_Shop_Cart.addEventListener("click", modalBody)
 $total_To_Pay.addEventListener("click", saveSelection)
 
+
+
 // === Funciones === 
 
-
-
-// = Funciones del Body =
+// === Funciones del Body ===
 
 // Agregamos el item al array carrito
 
@@ -92,7 +92,7 @@ function showProducts(list = COMBOS) {
 showProducts()
 
 
-// = Funciones del header =
+// === Funciones del header ===
 
 // Usando la drop-list del header cambio los productos en pantalla
 
@@ -104,7 +104,7 @@ $category.forEach((element) => {
 })
 
 
-// = Funciones del Modal =
+// === Funciones del Modal ===
 
 // Quitamos items del carrito si su cantidad es 0
 
@@ -133,21 +133,7 @@ function calcTotal() {
 }
 
 
-// "resumen" me permite variar la cantidad de productos desde el modal
-
-function resumen(id, action) {
-    let $quantitySpan = document.getElementById(`quantity${id}`)
-    const carritoItem = carrito.find( ( item ) => item.id === id)
-    action === "suma" ? carritoItem.quantity++ : carritoItem.quantity--
-    $quantitySpan.innerHTML = carritoItem.quantity
-    calcTotal()
-    modalBody()
-}
-
-
-
 // Agregar contenido del modal
-
 function modalBody () {
     let tableContent = ``
     let $plusButton
@@ -181,8 +167,20 @@ function modalBody () {
         $plusButton.addEventListener("click", (event) => resumen(id, event.target.dataset.suma))
         $lessButton.addEventListener("click", (event) => resumen(id, event.target.dataset.resta))
     })
-
     calcTotal()
+}
+
+
+
+// "resumen" me permite variar la cantidad de productos desde el modal
+
+function resumen(id, action) {
+    let $quantitySpan = document.getElementById(`quantity${id}`)
+    const carritoItem = carrito.find( ( item ) => item.id === id)
+    action === "suma" ? carritoItem.quantity++ : carritoItem.quantity--
+    $quantitySpan.innerHTML = carritoItem.quantity
+    calcTotal()
+    modalBody()
 }
 
 
