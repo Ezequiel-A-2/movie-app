@@ -41,7 +41,10 @@ export function generateFilms(API_DATA, FILM_DB_ARRAY) {
     for (let data of API_DATA) {
         const id = data.id
         const title = data.title
-        const image = data.poster_path
+        let image
+        (data.poster_path !== "") 
+            ? image = data.poster_path
+            : image = data.backdrop_path
         const is2D = generateRandom()
         const is3D = generateRandom()
         FILM_DB_ARRAY.push(new Film(id, image, title, is2D, is3D))

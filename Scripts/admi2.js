@@ -16,7 +16,7 @@ $('#loading-button').hide()
 function showMovies(arrayOfFilms) {
     let imageHTTP = 'https://image.tmdb.org/t/p/w500'
     $('#film-container').empty()
-    
+
     for (let film of arrayOfFilms) {
         const plantilla = `
             <div class="col">
@@ -41,6 +41,18 @@ function showMovies(arrayOfFilms) {
 }
 
 
+// Esta funcion verifica que tenga atributos no vacios (como la imagen)
+function checkData(array) {
+    let index = 0
+    while (index < array.length) {
+        if (array[index][`image`] === null) {
+            array.splice(index, 1)
+        } else {
+            index++
+        }
+    }
+    return array
+}
 
 
 async function callApi (findMovie = 'furious') {
@@ -60,7 +72,7 @@ async function getData(movie) {
     let FUNDED_MOVIES = await callApi(movie)
     await generateFilms(FUNDED_MOVIES, dataBase)
     console.log(dataBase)
-    
+    checkData(dataBase)
     showMovies(dataBase)
 }
 

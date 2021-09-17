@@ -109,15 +109,15 @@ $category.forEach((element) => {
 // Quitamos items del carrito si su cantidad es 0
 
 function removeItems(array) {
-    let index = 0;
+    let index = 0
     while (index < array.length) {
         if (array[index][`quantity`] === 0) {
-            array.splice(index, 1);
+            array.splice(index, 1)
         } else {
-            index++;
+            index++
         }
     }
-    return array;
+    return array
 }
 
 
