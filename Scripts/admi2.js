@@ -54,14 +54,14 @@ async function callApi (findMovie = 'furious') {
 
         const response = await fetch(API_SEARCH)
         const data = await response.json()
-        console.log(data)
         return data.results
-}
-
+    }
+    
 async function getData(movie) {
     let FUNDED_MOVIES = await callApi(movie)
     checkData(FUNDED_MOVIES)
     showMovies(FUNDED_MOVIES)
+    console.log(FUNDED_MOVIES)
 }
 
 

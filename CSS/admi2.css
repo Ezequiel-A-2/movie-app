@@ -71,8 +71,8 @@ main section input:focus {
 }
 
 .card-img-top {
-    width: 100%;
     height: 350px;
+    width: 100%;
 }
 
 @media (max-width: 760px) {
@@ -82,8 +82,8 @@ main section input:focus {
     }
 
     .card-img-top { 
-        width: 100%;
         height: 300px;
+        width: 200px;
     }
 }
 
@@ -111,5 +111,27 @@ footer a {
 @media (min-width: 1080px ) {
     body {
         height: 100vh;
+    }
+}
+
+/* === Animaciones === */
+
+.card-holder {
+    height: 100%;
+    width: 240px;
+    border: none !important;
+}
+
+.esqueleto {
+    animation: esqueleto 1s linear infinite alternate;
+}
+
+@keyframes esqueleto {
+    0% {
+        background-color: hsl(200, 20%, 50%);
+    }
+
+    100% {
+        background-color: hsl(200, 20%, 95%);
     }
 }
