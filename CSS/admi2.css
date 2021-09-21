@@ -97,10 +97,42 @@ main section input:focus {
     color: black;
 }
 
-.modal-body img {
-    height: 350px;
-    width: 80%;
+.modal-body #modal-img {
+    width: 200px;
     position: relative;
+}
+
+#modal-img img {
+    height: 100%;
+    width: 100%;
+}
+
+#modal-img-votes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: yellow;
+    font-weight: bold;
+    font-size: .9rem;
+}
+
+/* Regular altura de las cards */
+
+@media (min-width: 770px) {
+    .modal-body #modal-img {
+        width: 350px;
+    }
+
+    #modal-img-votes {
+        right: 5px;
+        top: -10px;
+    }
 }
 
 /* === footer === */

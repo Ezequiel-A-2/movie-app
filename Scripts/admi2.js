@@ -16,32 +16,31 @@ function showModal(movieId) {
 
     console.log(selected)
 
-
-    let modalTemplate = `<img src=${imageHTTP + selected.poster_path} alt="Portada de ${selected.title}">
+    let modalTemplate = `<div id="modal-img">
+                <div class="pb-2 pe-md-3">
+                <img src=${imageHTTP + selected.poster_path} alt="Portada de ${selected.title}">
                 <span id="modal-img-votes">
                     ${selected.vote_average}
-                    <!-- vote_average: mostrar sobre imagen -->
                 </span>
             </div>
         </div>
         <div class="modal-info">
             <p id="modal-info-text">
                 ${selected.overview}
-                <!-- overview -->
             </p>
-            <div>
+            <div class="d-flex justify-content-between">
                 <span id="modal-info-lenguage">
+                    Idioma: 
                     ${selected.original_language}
-                    <!-- original_lenguage -->
                 </span>
                 <span id="modal-info-date">
+                    Estreno: 
                     ${selected.release_date}
-                    <!-- release_date -->
                 </span>
             </div>
         </div>`
 
-        
+    $('#exampleModalLabel').text(`Detalles de la pelicula: ${selected.title}`)
     $('.modal-body').html(modalTemplate)
 }
 
