@@ -32,7 +32,7 @@ function showMovies(section, arrayOfFilms) {
             <div class="col">
                 <div class="card">
                     <a href="../asientos2.html">
-                        <img src="${imageHTTP + film.image}" class="card-img-top skeleton" alt="Portada de ${film.title}" data-movie-id=${film.id}>
+                        <img src="${imageHTTP + film.image}" class="card-img-top skeleton" alt="Portada de ${film.title}" data-movie-id=${film.id} loading="lazy">
                     </a>
                     <div class="card-body pt-2">
                         <h3 class="card-title text-center">

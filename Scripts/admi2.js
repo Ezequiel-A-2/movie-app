@@ -3,20 +3,64 @@
 // === Declaracion de constantes ===
 
 $('#loading-button').hide()
-
+const imageHTTP = 'https://image.tmdb.org/t/p/w500'
+let FUNDED_MOVIES = []
+let elements
 // === Funciones ===
 
 
+// Modal
+
+function showModal(movieId) {
+    let selected = FUNDED_MOVIES.find((el) => el["id"] === movieId)
+
+    console.log(selected)
+
+
+    let modalTemplate = `<img src=${imageHTTP + selected.poster_path} alt="Portada de ${selected.title}">
+                <span id="modal-img-votes">
+                    ${selected.vote_average}
+                    <!-- vote_average: mostrar sobre imagen -->
+                </span>
+            </div>
+        </div>
+        <div class="modal-info">
+            <p id="modal-info-text">
+                ${selected.overview}
+                <!-- overview -->
+            </p>
+            <div>
+                <span id="modal-info-lenguage">
+                    ${selected.original_language}
+                    <!-- original_lenguage -->
+                </span>
+                <span id="modal-info-date">
+                    ${selected.release_date}
+                    <!-- release_date -->
+                </span>
+            </div>
+        </div>`
+
+        
+    $('.modal-body').html(modalTemplate)
+}
+
+
+
+
+
+
+
+// Generar las peliculas
 function showMovies(arrayOfFilms) {
-    let imageHTTP = 'https://image.tmdb.org/t/p/w500'
     $('#film-container').empty()
 
     for (let film of arrayOfFilms) {
         const plantilla = `
             <div class="col">
                 <div class="card">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <img src="${imageHTTP + film.poster_path}" class="card-img-top skeleton" alt="Portada de ${film.title}" data-movie-id=${film.id}>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" data-movie-id=${film.id}>
+                        <img src="${imageHTTP + film.poster_path}" class="card-img-top skeleton" alt="Portada de ${film.title}" loading="lazy">
                     </a>
                     <div class="card-body pt-2">
                         <h3 class="card-title text-center">
@@ -58,10 +102,20 @@ async function callApi (findMovie = 'furious') {
     }
     
 async function getData(movie) {
-    let FUNDED_MOVIES = await callApi(movie)
+    FUNDED_MOVIES = await callApi(movie)
     checkData(FUNDED_MOVIES)
     showMovies(FUNDED_MOVIES)
-    console.log(FUNDED_MOVIES)
+
+
+    // console.log(FUNDED_MOVIES)
+
+    elements = document.querySelectorAll('.card a')
+    elements.forEach((el) => {
+        el.addEventListener('click', () => {
+            let id = Number(el.dataset.movieId)
+            showModal(id)
+        })
+    })
 }
 
 

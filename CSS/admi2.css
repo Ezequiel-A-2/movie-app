@@ -91,6 +91,18 @@ main section input:focus {
     color: #fff;
 }
 
+/* === Modal === */
+
+.modal-content {
+    color: black;
+}
+
+.modal-body img {
+    height: 350px;
+    width: 80%;
+    position: relative;
+}
+
 /* === footer === */
 
 footer {
