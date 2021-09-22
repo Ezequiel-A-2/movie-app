@@ -16,15 +16,13 @@ function showModal(movieId) {
 
     console.log(selected)
 
-    let modalTemplate = `<div id="modal-img">
-                <div class="pb-2 pe-md-3">
-                <img src=${imageHTTP + selected.poster_path} alt="Portada de ${selected.title}">
-                <span id="modal-img-votes">
-                    ${selected.vote_average}
-                </span>
-            </div>
+    let modalTemplate = `<div id="modal-img" class="pb-2 pe-md-3">
+            <img src=${imageHTTP + selected.poster_path} alt="Portada de ${selected.title}">
+            <span id="modal-img-votes">
+                ${selected.vote_average}
+            </span>
         </div>
-        <div class="modal-info">
+        <div class="container">
             <p id="modal-info-text">
                 ${selected.overview}
             </p>

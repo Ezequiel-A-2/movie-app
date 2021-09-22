@@ -98,7 +98,7 @@ main section input:focus {
 }
 
 .modal-body #modal-img {
-    width: 200px;
+    max-width: 35%;
     position: relative;
 }
 
@@ -107,25 +107,10 @@ main section input:focus {
     width: 100%;
 }
 
-#modal-img-votes {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: yellow;
-    font-weight: bold;
-    font-size: .9rem;
-}
-
 /* Regular altura de las cards */
 
-@media (min-width: 770px) {
-    .modal-body #modal-img {
+@media (min-width: 760px) {
+    #modal-img {
         width: 350px;
     }
 
@@ -133,6 +118,25 @@ main section input:focus {
         right: 5px;
         top: -10px;
     }
+
+    .modal-body .container {
+        max-width: 65%;
+    }
+}
+
+#modal-img-votes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    width: 50px;
+    height: 50px;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    background-color: yellow;
+    font-weight: bold;
+    font-size: .8rem;
 }
 
 /* === footer === */
