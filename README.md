@@ -13,6 +13,15 @@ Muchas gracias por su atencion!
 
 # Tags 
 
+- Tag v0.5:
+
+    Actualizacion:
+
+    Luego de la implementacion de la API, se hicieron algunos cambios, ahora admi dejo de llevar datos hacia home y se convirtio en un buscador con lo cual se procede a cambiarle el nombre a 'buscador', el home ahora muestra un modal al igual que la ventana de buscar.
+
+    Se implementara a futuro la API de mercado pago y se eliminara la ventana de payment, la cual sera reemplazada por una ventana de confirmacion anterior al llamado de Mercado Pago. 
+
+
 - Tag v0.4:
 
     Actualizacion:

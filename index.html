@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- === Archivos CSS === -->
+
+    <!-- Archivos Propios -->
     <link 
         rel="stylesheet" 
         href="./CSS/home.css">
+
     <!-- Bootstrap CSS -->
     <link 
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
@@ -14,7 +19,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
         crossorigin="anonymous">
 
-    <!-- Archivos JS -->
+    <!-- === Archivos JS === -->
 
     <!-- boostrap JS -->
     <script 
@@ -33,13 +38,8 @@
     <!-- Archivos Propios -->
 
     <script 
-        type="module" 
+        type="module"
         src="./Scripts/home.js">
-    </script>
-
-    <script 
-        type="module" 
-        src="./Scripts/homeDB.js">
     </script>
 
     <title>Home</title>
@@ -50,7 +50,7 @@
 
     <header class="py-2">
         
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark pe-2">
             <div class="container-fluid px-lg-5 me-lg-2">
                 <a class="navbar-brand" href="#">
                     LOGO
@@ -66,18 +66,18 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./admi.html">
-                                Administrador
+                            <a class="nav-link" href="./buscar.html">
+                                Buscar Peliculas
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                Reservas (Todavia No disponible*)
+                                Reservas (No disponible*)
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                                Contacto (Todavia No disponible*)
+                                Contacto (No disponible*)
                             </a>
                         </li>
                     </ul>
@@ -90,10 +90,55 @@
 
     <main class="p-3 p-lg-5">
         <!-- Peliculas 2D -->
-        <section id="peliculas2D">
+        <section>
             <h3 class="pb-2">Peliculas 2D</h3>
             
-            <div class="row row-cols-auto g-4 flex-wrap pt-1" id="film-container">
+            <div id="film-2d-container" class="row d-flex scrolling-wrapper-flexbox flex-nowrap flex-md-wrap row-cols-auto">
+
+                <div class="cartas">
+                    <div class="col">
+                        <div class="card-holder">
+                            <div class="card-img-top esqueleto"></div>
+                            <div class="card-body pt-2">
+                                <div class="title-skeleton esqueleto"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cartas">
+                    <div class="col">
+                        <div class="card-holder">
+                            <div class="card-img-top esqueleto"></div>
+                            <div class="card-body pt-2">
+                                <div class="title-skeleton esqueleto"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cartas">
+                    <div class="col">
+                        <div class="card-holder">
+                            <div class="card-img-top esqueleto"></div>
+                            <div class="card-body pt-2">
+                                <div class="title-skeleton esqueleto"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cartas">
+                    <div class="col">
+                        <div class="card-holder">
+                            <div class="card-img-top esqueleto"></div>
+                            <div class="card-body pt-2">
+                                <div class="title-skeleton esqueleto"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
 
@@ -101,15 +146,105 @@
 
 
         <!-- Peliculas 3D -->
-        <section id="peliculas3D">
+
+
+        <section>
             <h3 class="pb-2">Peliculas 3D</h3>
-            <div class="scrolling-wrapper-flexbox" id="film-3d-container">
+
+            <div id="film-3d-container" class="row d-flex scrolling-wrapper-flexbox flex-nowrap flex-md-wrap row-cols-auto">
+
+                
+                <div class="cartas">
+                    <div class="col">
+                        <div class="card-holder">
+                            <div class="card-img-top esqueleto"></div>
+                            <div class="card-body pt-2">
+                                <div class="title-skeleton esqueleto"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cartas">
+                    <div class="col">
+                        <div class="card-holder">
+                            <div class="card-img-top esqueleto"></div>
+                            <div class="card-body pt-2">
+                                <div class="title-skeleton esqueleto"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cartas">
+                    <div class="col">
+                        <div class="card-holder">
+                            <div class="card-img-top esqueleto"></div>
+                            <div class="card-body pt-2">
+                                <div class="title-skeleton esqueleto"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cartas">
+                    <div class="col">
+                        <div class="card-holder">
+                            <div class="card-img-top esqueleto"></div>
+                            <div class="card-body pt-2">
+                                <div class="title-skeleton esqueleto"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </section>
 
         <!-- Proximamente -->
-        <section id="peliculasProx"></section>
+
+
+        <!-- <section id="peliculasProx"></section> -->
+
+
+        <article>
+
+        <!-- Modal -->
+
+        <!-- Vertically centered scrollable modal -->
+        
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-sm-down">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-title">
+                            Detalles de la pelicula:
+                        </h5> 
+                        <!-- Nota: cambiar color de letra del modal ya que esta en blanco! -->
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex flex-column flex-md-row align-items-center" id="modal-body">
+                        
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button id="buy-tickets" type="button" class="btn btn-primary">Reservar</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+        
+        
+
+
+        </article>
+
+
 
     </main>
 

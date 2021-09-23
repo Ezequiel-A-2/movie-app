@@ -1,111 +1,82 @@
-body {
-    height: 100vh;
-    width: 100%;
-    margin: 0;
+html {
     box-sizing: border-box;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
 }
 
-main {
+body {
     width: 100%;
+    height: auto;
+    overflow-x: hidden;
+}
+
+/* === Header === */
+
+header {
+    height: auto;
+    position: sticky !important;
+    top: 0;
+    left: 0;
+    right: 0; 
+    z-index: 5;
+}
+
+*.unselectable {
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+    -ms-user-select: none;
+   user-select: none;
+}
+
+
+/* === Main === */
+
+.card .card-body {
     display: flex;
-    justify-content: space-around
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-aside .offcanvas-start {
-    width: 60%;
+.card img {
+    margin: 10px auto;
+    max-width: 50%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.delete-item {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-self: flex-end;
 }
 
-/* food section */
+/* === Footer === */
 
-.food-container {
-    height: 95vh;
-    overflow: auto;
-}
-
-.food-card {
-    padding-right: 10px;
-}
-
-.food-img-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.food-img {
-    height: 80%;
-    width: 80%;
-}
-
-.food-price {
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-.tachado {
-    font-size: .9rem;
-    font-weight: normal;
-    text-decoration: line-through;
-}
-
-/* shop-cart section (en desarrollo) */
-
-/* payment section */
-
-.payment-card {
-    width: 40rem;
-    height: 25rem;
-}
-
-.payment-card img {
-    width: 20rem;
-}
-
-.etiqueta-nombre {
-    font-size: .8rem;
-}
-
-.input-dato {
-    border: none;
-    border-bottom: 2px solid #878786;
-}
-
-.input-dato:focus-visible {
-    outline: none;
-    border-bottom: 2px solid #f5cf3c;
+footer {
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: auto;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 
-.tarjeta {
-    width: 2rem;
-    height: 2rem;
-    margin: 0 auto;
-    background-repeat: no-repeat;
-    background-size: contain;
+footer a {
+    text-decoration: none;
+    color: white;
 }
 
-#card-1 {
-    background-image: url('../resources/svg/visa-color.svg');
-}
+/* === Media Queries === */
 
-#card-2 {
-    background-image: url('../resources/svg/mastercard-color.svg');
-}
+@media (min-width: 1080px ) {
+    body {
+        height: 100vh;
+    }
 
-#card-3 {
-    background-image: url('../resources/svg/card-color.svg');
-}
-
-.margen {
-    margin-left: 25px !important;
-}
-
-#confirmacion {
-    font-size: 1.5rem;
+    footer {
+        position: absolute;
+    }
 }

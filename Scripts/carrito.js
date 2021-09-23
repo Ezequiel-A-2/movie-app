@@ -1,179 +1,191 @@
-class Producto {
-    constructor(id, nombre, precio, cantidad = 0, total = 0, enPantalla = false) {
-        this.id = id
-        this.nombre = nombre
-        this.precio = precio
-        this.cantidad = cantidad
-        this.total = total
-        this.enPantalla = false
-    }
+// Las bases de datos (arrays) vienen de otro archivo
 
-    aggCantidad () {
-        this.cantidad++
-    }
+// === Declaracion de variables ===
 
-    rmCantidad () { // futura implementacion
-        this.cantidad--
-    }
+// Nota: las variables iniciadas con el signo $ es para diferenciar entre las variables que 
+// estan relacionadas al DOM y aquellas que no.
 
-    calcTotalProducto () {
-        this.total = this.precio * this.cantidad
-    }
-
-    mostrarProducto () {
-        this.enPantalla = true
-    }
-}
-
-const BASE_DE_DATOS = []
-
-BASE_DE_DATOS.push(new Producto(0, "Balde de Pochoclos", 340))
-
-BASE_DE_DATOS.push(new Producto(1, "Bolsa de Pochoclos", 290))
-
-BASE_DE_DATOS.push(new Producto(2, "Coca Mediana", 250))
-
-BASE_DE_DATOS.push(new Producto(3, "Coca Grande", 270))
-
-BASE_DE_DATOS.push(new Producto(4, "Agua", 150))
-
-BASE_DE_DATOS.push(new Producto(5, "Combo 1", 520))
-
-BASE_DE_DATOS.push(new Producto(6, "Combo 2", 755))
-
-BASE_DE_DATOS.push(new Producto(7, "Combo 3", 840))
-
-BASE_DE_DATOS.push(new Producto(8, "Combo 4", 390))
-
-BASE_DE_DATOS.push(new Producto(9, "Combo 5", 340))
-
-BASE_DE_DATOS.push(new Producto(10, "Alfajor", 120))
-
-BASE_DE_DATOS.push(new Producto(11, "Chocolate", 250))
-
-BASE_DE_DATOS.push(new Producto(12, "Rocklets", 360))
-
-BASE_DE_DATOS.push(new Producto(13, "Sugus", 130))
-
-// === Llamados al documento === 
-
-const LISTA_PRODUCTOS = document.getElementById("product-list")
-const SUBTOTAL_TAG = document.getElementById("subtotal-tag")
-const DISCOUNT_TAG = document.getElementById("discount-tag")
-const PRICE_TAG = document.getElementById("price-tag")
-const CHECK = document.getElementById("confirmacion")
-const TAX_TAG = document.getElementById("tax-tag")
-
-// === El siguiente llamado puede variar, por eso se usara LET
-
-let CUPONES = document.getElementById("cupons")
+const $food_container = document.getElementById("food-container")
+const $category = document.querySelectorAll(".dropdown-item")
+const $show_Shop_Cart = document.getElementById("shopCart")
+const $table_Body = document.getElementById("modal-table-body")
+const $total_To_Pay = document.getElementById("totalToPay")
+const carrito = []
+let carrito_JSON = ""
 
 
-// === Declaraciones de variables ===
+// === Escuchadores de eventos ===
 
-const IVA = 0.21
-const CUPONES_DISPONIBLES = [0, 0.1, 0.2, 0.25]
-let descuento = 0
-let valorCupon = 0
-let impuestos = 0
-let subtotal = 0
-let total = 0
-let accum = 0
-let cupon = 0
-let resultado = {}
+$show_Shop_Cart.addEventListener("click", modalBody)
+$total_To_Pay.addEventListener("click", saveSelection)
 
-// === Funciones ===
 
-function confirmar() {
-    swal({
-        title: "Felicidades!",
-        text: "Te enviaremos un e-mail con tu reserva!",
-        icon: "success",
-        button: "Aceptar",
-    });
-    CHECK.innerHTML = `Ya puedes cerrar esta pestaña`
+// === Funciones === 
+
+
+// === Funciones del Body ===
+
+// Agregamos el item al array carrito
+function addToShopCart(list, itemId) {
+    let item = list.find((list) => list["id"] === itemId)
+    let { id, productName, price } = item
+    const itemOnShopCart = carrito.find(( { id } ) => id === itemId)
+
+    itemOnShopCart 
+        ? itemOnShopCart.quantity++ 
+        : carrito.push({ id, productName, price, quantity:1 })
+    
+    carrito.sort( (a , b) => a.id - b.id)
 }
 
 
+// Genero los productos a mostrar (por default se muestra COMBOS)
+function showProducts(list = COMBOS) {
+    let cards = `` // Nota: si cards no definido esta genera un objeto "undefined" al inicio
+    let $botones
 
-function applyDiscount(valorCupon) { 
-    descuento = CUPONES_DISPONIBLES[valorCupon]
-    descuento = Number((subtotal * descuento).toFixed(2))
-    return descuento
+    for (item of list) {
+
+        const cardTemplate = `<div class="col">
+            <div class="card h-100">
+                <img src="${item.image}" class="card-img-top" alt="${item.description}">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        ${item.title}
+                    </h5>
+                    <p class="card-text">
+                        ${item.description}
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted">Imagen a modo ilustrativo.</small>
+                    </p>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <p class="food-price mb-0 fw-bold">
+                            $<span class="price">${item.price}</span>
+                        </p>
+                        <button class="btn btn-primary" id="${item.id}" type="button">Comprar</button>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>`
+
+        cards += cardTemplate 
+    }
+
+    $food_container.innerHTML = cards 
+    // hacemos una sola insercion al DOM y optimizo los tiempos de carga
+    
+    // lo malo de hacer una sola insercion es que debo agregar los  
+    // eventListener luego de la insercion al DOM
+
+    list.forEach( ({ id } ) => {
+        $botones = document.getElementById(`${id}`)
+        $botones.addEventListener('click', (item) => {
+            addToShopCart(list, Number(item.target.id))
+        })
+    })
 }
 
-function applyTaxes(subtotal, impuesto) {
-    return impuestos = Number((subtotal * impuesto).toFixed(2))
+showProducts()
+
+
+// === Funciones del header ===
+
+// Usando la drop-list del header cambio los productos en pantalla
+$category.forEach((element) => {
+    element.addEventListener("click", (element) => {
+        const option = DATA_BASE.filter(( { type } ) => type === element.target.dataset.option )
+        showProducts(option)
+    })
+})
+
+
+// === Funciones del Modal ===
+
+// Quitamos items del carrito si su cantidad es 0
+function removeEmptyItems(array) {
+    let index = 0
+    while (index < array.length) {
+        if (array[index][`quantity`] === 0) {
+            array.splice(index, 1)
+        } else {
+            index++
+        }
+    }
+    return array
 }
 
+
+// Calculamos el total para mostrarse en el boton del modal
 function calcTotal() {
-    total = Number(subtotal + impuestos - descuento)
-}
-
-function saveFood(id) {
-    return BASE_DE_DATOS[id].aggCantidad(), pagar()
-}
-
-function cancelar() {
-    // Por el momento la mejor opcion que se me ocurrio fue recargar la pagina, 
-    // en el futuro pensare en otra opcion mejor
-    location.reload()
-}
-
-function agregarItem(id, nombre, cantidad, enPantalla) {
-    if (enPantalla == false) {
-        let addProduct
-        BASE_DE_DATOS[id].mostrarProducto()
-        addProduct = document.createElement("li")
-        addProduct.setAttribute("class", "list-group-item")
-        addProduct.setAttribute("id", id)
-        addProduct.innerHTML = `${cantidad} ${nombre}`
-        LISTA_PRODUCTOS.appendChild(addProduct)
-    } else {
-        let addProduct = document.getElementById(id)
-        addProduct.innerHTML = `${cantidad} ${nombre}`
-    }
+    let total = carrito.reduce(( accum, value ) => {
+        accum += (value.price * value.quantity)
+        return accum
+    }, 0) 
+    $total_To_Pay.innerHTML = `$ ${total}` 
 }
 
 
+// Agregar contenido del modal
+function modalBody() {
+    let tableContent = ``
+    let $plusButton
+    let $lessButton
 
-function items() {
-    let funcionFiltrado = BASE_DE_DATOS => BASE_DE_DATOS["total"] != 0
-    RESUMEN_COMPRA = BASE_DE_DATOS.filter(funcionFiltrado)
-
-    for (const COMPRA of RESUMEN_COMPRA) {
-        agregarItem(
-            COMPRA["id"], 
-            COMPRA["nombre"],
-            COMPRA["cantidad"],
-            COMPRA["enPantalla"]
-        )
-    }
-}
+    removeEmptyItems(carrito)
     
-function pagar() {
+    for (item of carrito) {
+        let itemTemplate = `<tr>
+                <td>${item.productName}</td>
+                <td>$ ${item.price}</td>
+                <td class="d-flex align-items-center justify-content-evenly">
+                    <span class="material-icons-round unselectable" data-suma="suma" id="plus${item.id}">
+                        add
+                    </span>
+                    <span class="unselectable"  id="quantity${item.id}">${item.quantity}</span>
+                    <span class="material-icons-round unselectable" data-resta="resta" id="minus${item.id}">
+                        remove
+                    </span>
+                </td>
+            </tr>`
 
-    subtotal = 0
-    for (let producto of BASE_DE_DATOS) {
-        producto.calcTotalProducto()
-        subtotal += producto["total"]
+        tableContent += itemTemplate
     }
     
-    items()
+    $table_Body.innerHTML = tableContent
 
-    /* Resumen del pedido */
-    SUBTOTAL_TAG.innerHTML = `$${subtotal}`
-    
-    applyTaxes(subtotal, IVA)
-    TAX_TAG.innerHTML = `$${impuestos}`
-    
-    CUPONES = document.getElementById("cupons")
-    valorCupon = Number(CUPONES.value)
-    applyDiscount(valorCupon) 
-    DISCOUNT_TAG.innerHTML = `$${descuento}`
-
+    carrito.forEach(( { id } ) => {
+        $plusButton = document.getElementById(`plus${id}`)
+        $lessButton = document.getElementById(`minus${id}`)
+        $plusButton.addEventListener("click", (event) => resumen(id, event.target.dataset.suma))
+        $lessButton.addEventListener("click", (event) => resumen(id, event.target.dataset.resta))
+    })
     calcTotal()
-    PRICE_TAG.innerHTML = `$${total}`
-
 }
 
+
+
+// "resumen" me permite variar la cantidad de productos desde el modal
+
+// Nota:
+// action = accion a realizar (sumar o restar)
+function resumen(id, action) {
+    let $quantitySpan = document.getElementById(`quantity${id}`)
+    const carritoItem = carrito.find( ( item ) => item.id === id)
+    action === "suma" 
+        ? carritoItem.quantity++ 
+        : carritoItem.quantity--
+    $quantitySpan.innerHTML = carritoItem.quantity
+    calcTotal()
+    modalBody()
+}
+
+
+// Guardamos la seleccion en el session storage
+function saveSelection() {
+    carrito_JSON = JSON.stringify(carrito)
+    sessionStorage.setItem('COMIDA' ,carrito_JSON)
+	window.location.href = '../payment.html' 
+}

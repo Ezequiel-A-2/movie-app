@@ -1,62 +1,84 @@
 // === Importacion de datos === 
 
-// Importo la base de datos desde un archivo aparte
-
-import FILMS from "./homeDB.js"
+import callApi from './homeDB.js'
+import { generateFilms } from './homeDB.js'
 
 
 // === Declaracion de constantes ===
 
-// La base de datos se trae desde un archivo aparte
+let allMovies = [], elements, selected
+const imageHTTP = 'https://image.tmdb.org/t/p/w500'
+const peliculas2D = document.getElementById("film-2d-container")
+const peliculas3D = document.getElementById("film-3d-container")
+const modalTitle = document.getElementById('modal-title')
+const modalBody = document.getElementById('modal-body')
+const modalBtn = document.getElementById('buy-tickets')
 
-const FILMS_2D = FILMS.filter(( { film2D } ) => film2D === true)
-const FILMS_3D = FILMS.filter(( { film3D } ) => film3D === true)
-const peliculas2D = document.querySelector("#film-container")
-const peliculas3D = document.querySelector("#film-3d-container")
-const viewPort = window.innerWidth
 
+// === Eventos ===
+
+modalBtn.addEventListener('click', buyTickets)
 
 
 // === Funciones ===
 
-
-// Pantallas Mobiles (celulares y tablets)
-
-function viewPortMobile(section, arrayOfFilms) {
-    section.setAttribute("class","scrolling-wrapper-flexbox")
-
-    for (let film of arrayOfFilms) {
-        const plantilla_Mobile = `
-        <a href="../asientos2.html">
-            <img src="${film.portada}" alt="">
-        </a>
-        <h2>${film.titulos}</h2>`
-
-        let pelicula = document.createElement("div")
-        pelicula.setAttribute("class", "cartas") //
-        pelicula.innerHTML = plantilla_Mobile
-        section.appendChild(pelicula)
-    }
+// Guardo los datos de la pelicula en el session Storage
+function buyTickets() {
+    let filmSelected = JSON.stringify(selected)
+    sessionStorage.setItem('PELICULA', filmSelected)
+    window.location.href = '../asientos.html' 
 }
 
-// Pantallas de Escritorio
+// === Modal ===
 
-function desktop(section, arrayOfFilms) {
+function showModal(movieId) {
+    selected = allMovies.find((el) => el["id"] === movieId)
+
+
+    let modalTemplate = `<div id="modal-img" class="pb-2 pe-md-3">
+            <img src=${imageHTTP + selected.image} alt="Portada de ${selected.title}">
+        </div>
+        <div class="container">
+            <p id="modal-info-text">
+                ${selected.description}
+            </p>
+            <div class="d-flex justify-content-end">
+                <span id="modal-info-lenguage">
+                    Idioma: 
+                    ${selected.language}
+                </span>
+            </div>
+        </div>`
+
+    modalTitle.innerText = `Detalles de la pelicula: ${selected.title}`
+    modalBody.innerHTML = modalTemplate
+}
+
+
+// === Main ===
+
+// Mostrar Peliculas en pantalla
+
+// Nota: 
+// section = section del HTML
+// arrayOfFilms = tipo de pelicula (en este caso 2D o 3D)
+
+function showMovies(section, arrayOfFilms) {
+    section.innerHTML = ''
     section.setAttribute("class","")
-    section.className = "row row-cols-auto g-4 flex-wrap pt-1"
+    section.className = "row d-flex scrolling-wrapper-flexbox flex-nowrap flex-md-wrap row-cols-auto"
 
     
     for (let film of arrayOfFilms) {
-
         const plantilla = `
             <div class="col">
                 <div class="card">
-                    <a href="./asientos2.js">
-                        <img src="${film.portada}" class="card-img-top skeleton" alt="...">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" data-movie-id=${film.id}>
+                        <img src="${imageHTTP + film.image}" class="card-img-top skeleton" alt="Portada de ${film.title}" data-movie-id=${film.id} loading="lazy">
                     </a>
                     <div class="card-body pt-2">
                         <h3 class="card-title text-center">
-                            ${film.titulos}
+                            ${film.title}
                         </h3>
                     </div>
                 </div>
@@ -67,25 +89,37 @@ function desktop(section, arrayOfFilms) {
         pelicula.innerHTML = plantilla
         section.appendChild(pelicula)
     }
+
 }
 
 
-// === Llamado a funciones ===
-
-
-// Diseño responsive usando el viewport de la pantalla (requiere actualizar para mostrar bien segun la pantalla)
-
-// Nota: La siguiente sintaxis es conocida como "Operador Ternario" que basicamente es otra forma de escribir un if
-
-// section = elemento al cual se le aplicaran las peliculas
-// arrayOfFilms =  arreglo de peliculas para mostrar en pantalla
-
-function showMovies(section, arrayOfFilms) {
-    viewPort > 780 ?  
-        desktop(section, arrayOfFilms) 
-        : 
-        viewPortMobile(section, arrayOfFilms)
+// Filtro de peliculas 2D o 3D
+function movieFilter(arrayDB) {
+    const FILMS_2D = arrayDB.filter(( { film2D } ) => film2D === true)
+    const FILMS_3D = arrayDB.filter(( { film3D } ) => film3D === true)
+    showMovies(peliculas2D, FILMS_2D)
+    showMovies(peliculas3D, FILMS_3D)
 }
 
-showMovies(peliculas2D, FILMS_2D)
-showMovies(peliculas3D, FILMS_3D)
+
+// Generador de peliculas con llamado a la API
+
+// Nota: 
+// Esta es una IIFE (Immediately Invoked Function Expression)
+// Es una funcion que se ejecuta por si sola cuando es "leida" por el navegador
+
+(async () => {
+    let apiMovies = await callApi()
+    await generateFilms(apiMovies, allMovies)
+    movieFilter(allMovies)
+
+    elements = document.querySelectorAll('section')
+    elements.forEach((el) => {
+        el.addEventListener('click', (e) => {
+            if (e.target.localName === 'img') {
+                let id = Number(e.target.attributes['data-movie-id'].value)
+                showModal(id) 
+            }
+        })
+    })
+})()

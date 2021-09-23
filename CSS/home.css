@@ -38,46 +38,20 @@ main section {
     overflow: hidden;
 }
 
-/* Section peliculas mobile */
 
-.scrolling-wrapper-flexbox {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 15px;
-    overflow-x: auto;
-    height: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+@media (max-width: 760px) {
+    .scrolling-wrapper-flexbox {
+        overflow-x: auto;
+        height: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .scrolling-wrapper-flexbox::-webkit-scrollbar {
+        display: none;
+    }
 }
 
-.scrolling-wrapper-flexbox::-webkit-scrollbar {
-    display: none;
-}
-
-.active {
-    cursor: grab;
-    transform: scale(1.01)
-}
-
-
-#film-container {
-    flex-basis: auto !important;
-}
-
-/* cartas = mobile */
-
-.cartas {
-    flex: 0 0 auto;
-    height: 100%;
-    width: 200px;
-}
-
-.cartas img {
-    width: 100%;
-    height: 300px;
-} 
-
-/* cards = desktop */
 
 .card {
     height: 100%;
@@ -91,8 +65,62 @@ main section {
     height: 350px;
 }
 
+@media (max-width: 760px) {
+    .card {
+        height: 100%;
+        width: 200px;
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: 300px;
+    }
+}
+
 .card-body {
     color: #fff;
+}
+
+/* === Modal === */
+
+.modal-content {
+    color: black;
+}
+
+.modal-body #modal-img {
+    max-width: 35%;
+    position: relative;
+}
+
+#modal-img img {
+    height: 100%;
+    width: 100%;
+}
+
+
+@media (min-width: 760px) {
+    #modal-img {
+        width: 350px;
+    }
+
+    .modal-body .container {
+        max-width: 65%;
+    }
+}
+
+#modal-img-votes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    width: 50px;
+    height: 50px;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    background-color: yellow;
+    font-weight: bold;
+    font-size: .8rem;
 }
 
 /* === Footer === */
@@ -111,25 +139,35 @@ footer a {
 
 /* === Utilidades === */
 
-*.unselectable {
-   -moz-user-select: -moz-none;
-   -khtml-user-select: none;
-   -webkit-user-select: none;
-    -ms-user-select: none;
-   user-select: none;
+/* = animacion de carga = */
+
+.card-holder {
+    height: 100%;
+    width: 240px;
+    border: none !important;
 }
 
+@media (max-width: 760px) {
+    .card-holder {
+        height: 100%;
+        width: 200px;
+    }
+}
 
-/* === animacion de carga === */
+.title-skeleton {
+    width: 100%;
+    height: 1.5rem;
+    border-radius: .75rem;
+}
 
 .esqueleto {
-    /* opacity: .7; */
+    opacity: .7;    
     animation: esqueleto 1s linear infinite alternate;
 }
 
 @keyframes esqueleto {
     0% {
-        background-color: hsl(200, 20%, 70%);
+        background-color: hsl(200, 20%, 50%);
     }
 
     100% {
