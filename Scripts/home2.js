@@ -1,19 +1,56 @@
 // === Importacion de datos === 
 
-// cambio
-
 import callApi from './homeDB.js'
-import {  generateFilms } from './homeDB.js'
+import { generateFilms } from './homeDB.js'
 
 
 // === Declaracion de constantes ===
 
-let allMovies = []
+let allMovies = [], elements
 const peliculas2D = document.getElementById("film-2d-container")
 const peliculas3D = document.getElementById("film-3d-container")
 
 
 // === Funciones ===
+
+
+// === Modal ===
+
+function showModal(movieId) {
+    let selected = FUNDED_MOVIES.find((el) => el["id"] === movieId)
+
+    console.log(selected)
+
+    let modalTemplate = `<div id="modal-img" class="pb-2 pe-md-3">
+            <img src=${imageHTTP + selected.poster_path} alt="Portada de ${selected.title}">
+            <span id="modal-img-votes">
+                ${selected.vote_average}
+            </span>
+        </div>
+        <div class="container">
+            <p id="modal-info-text">
+                ${selected.overview}
+            </p>
+            <div class="d-flex justify-content-between">
+                <span id="modal-info-lenguage">
+                    Idioma: 
+                    ${selected.original_language}
+                </span>
+                <span id="modal-info-date">
+                    Estreno: 
+                    ${selected.release_date}
+                </span>
+            </div>
+        </div>`
+
+    $('#exampleModalLabel').text(`Detalles de la pelicula: ${selected.title}`)
+    $('.modal-body').html(modalTemplate)
+}
+
+
+
+
+// === Main ===
 
 // Mostrar Peliculas en pantalla
 
@@ -31,7 +68,7 @@ function showMovies(section, arrayOfFilms) {
         const plantilla = `
             <div class="col">
                 <div class="card">
-                    <a href="../asientos2.html">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" data-movie-id=${film.id}>
                         <img src="${imageHTTP + film.image}" class="card-img-top skeleton" alt="Portada de ${film.title}" data-movie-id=${film.id} loading="lazy">
                     </a>
                     <div class="card-body pt-2">
@@ -41,6 +78,8 @@ function showMovies(section, arrayOfFilms) {
                     </div>
                 </div>
             </div>`
+
+            // <a href="../asientos2.html">
 
         let pelicula = document.createElement("div")
         pelicula.setAttribute("class", "cartas") 
@@ -69,48 +108,23 @@ function movieFilter(arrayDB) {
     let apiMovies = await callApi()
     await generateFilms(apiMovies, allMovies)
     movieFilter(allMovies)
+
+
+    // listeners
+
+
+    elements = document.querySelectorAll('section')
+    elements.forEach((el) => {
+        console.log(el)
+        el.addEventListener('click', (e) => {
+            console.log(e)
+            console.log(e.target)
+            e.target.localName === 'img' 
+                ? console.log('true')
+                : console.log('false')
+            /* let id = Number(el.dataset.movieId)
+            showModal(id) */
+        })
+    })
+
 })()
-
-
-
-
-
-// Datos desde admi (En desarrollo)
-
-if (sessionStorage.getItem('newData')) {
-    const storageMovies = JSON.parse(sessionStorage.getItem('newData'))
-    // newCard(storageMovies)
-}
-
-// generar cards adicionales
-function newCard (arrayOfNewFilms) {
-    // verificar si es 2D o 3D y hay hacer la insercion
-
-    
-    for (let film of arrayOfNewFilms) {
-        const plantilla = `
-            <div class="col">
-                <div class="card">
-                    <a href="../asientos2.html">
-                        <img src="${film.image}" class="card-img-top skeleton" alt="Portada de ${film.title}" data-movie-id=${film.id}>
-                    </a>
-                    <div class="card-body pt-2">
-                        <h3 class="card-title text-center">
-                            ${film.title}
-                        </h3>
-                    </div>
-                </div>
-            </div>`
-
-        let newMovie = document.createElement("div")
-        newMovie.setAttribute("class", "cartas") 
-        newMovie.innerHTML = plantilla
-        console.log(film)
-        /* if () {
-            _film2D
-            _film3D
-        } */
-        // section.appendChild(pelicula)
-    }
-
-}

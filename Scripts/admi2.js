@@ -4,8 +4,7 @@
 
 $('#loading-button').hide()
 const imageHTTP = 'https://image.tmdb.org/t/p/w500'
-let FUNDED_MOVIES = []
-let elements
+let FUNDED_MOVIES = [], elements
 // === Funciones ===
 
 
