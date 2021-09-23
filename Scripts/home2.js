@@ -25,7 +25,7 @@ modalBtn.addEventListener('click', buyTickets)
 // Guardo los datos de la pelicula en el session Storage
 function buyTickets() {
     let filmSelected = JSON.stringify(selected)
-    sessionStorage.setItem('MOVIE', filmSelected)
+    sessionStorage.setItem('PELICULA', filmSelected)
     window.location.href = '../asientos2.html' 
 }
 
