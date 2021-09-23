@@ -81,6 +81,48 @@ main section {
     color: #fff;
 }
 
+/* === Modal === */
+
+.modal-content {
+    color: black;
+}
+
+.modal-body #modal-img {
+    max-width: 35%;
+    position: relative;
+}
+
+#modal-img img {
+    height: 100%;
+    width: 100%;
+}
+
+
+@media (min-width: 760px) {
+    #modal-img {
+        width: 350px;
+    }
+
+    .modal-body .container {
+        max-width: 65%;
+    }
+}
+
+#modal-img-votes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    width: 50px;
+    height: 50px;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    background-color: yellow;
+    font-weight: bold;
+    font-size: .8rem;
+}
+
 /* === Footer === */
 
 footer {

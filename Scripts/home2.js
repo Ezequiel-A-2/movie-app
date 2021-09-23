@@ -6,59 +6,64 @@ import { generateFilms } from './homeDB.js'
 
 // === Declaracion de constantes ===
 
-let allMovies = [], elements
+let allMovies = [], elements, selected
+const imageHTTP = 'https://image.tmdb.org/t/p/w500'
 const peliculas2D = document.getElementById("film-2d-container")
 const peliculas3D = document.getElementById("film-3d-container")
+const modalTitle = document.getElementById('modal-title')
+const modalBody = document.getElementById('modal-body')
+const modalBtn = document.getElementById('buy-tickets')
+
+
+// === Eventos ===
+
+modalBtn.addEventListener('click', buyTickets)
 
 
 // === Funciones ===
 
+// Guardo los datos de la pelicula en el session Storage
+function buyTickets() {
+    let filmSelected = JSON.stringify(selected)
+    sessionStorage.setItem('MOVIE', filmSelected)
+    window.location.href = '../asientos2.html' 
+}
 
 // === Modal ===
 
 function showModal(movieId) {
-    let selected = FUNDED_MOVIES.find((el) => el["id"] === movieId)
+    selected = allMovies.find((el) => el["id"] === movieId)
 
-    console.log(selected)
 
     let modalTemplate = `<div id="modal-img" class="pb-2 pe-md-3">
-            <img src=${imageHTTP + selected.poster_path} alt="Portada de ${selected.title}">
-            <span id="modal-img-votes">
-                ${selected.vote_average}
-            </span>
+            <img src=${imageHTTP + selected.image} alt="Portada de ${selected.title}">
         </div>
         <div class="container">
             <p id="modal-info-text">
-                ${selected.overview}
+                ${selected.description}
             </p>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-end">
                 <span id="modal-info-lenguage">
                     Idioma: 
-                    ${selected.original_language}
-                </span>
-                <span id="modal-info-date">
-                    Estreno: 
-                    ${selected.release_date}
+                    ${selected.language}
                 </span>
             </div>
         </div>`
 
-    $('#exampleModalLabel').text(`Detalles de la pelicula: ${selected.title}`)
-    $('.modal-body').html(modalTemplate)
+    modalTitle.innerText = `Detalles de la pelicula: ${selected.title}`
+    modalBody.innerHTML = modalTemplate
 }
-
-
 
 
 // === Main ===
 
 // Mostrar Peliculas en pantalla
 
-// Nota: section = section del HTML
+// Nota: 
+// section = section del HTML
 // arrayOfFilms = tipo de pelicula (en este caso 2D o 3D)
 
 function showMovies(section, arrayOfFilms) {
-    let imageHTTP = 'https://image.tmdb.org/t/p/w500'
     section.innerHTML = ''
     section.setAttribute("class","")
     section.className = "row d-flex scrolling-wrapper-flexbox flex-nowrap flex-md-wrap row-cols-auto"
@@ -79,8 +84,6 @@ function showMovies(section, arrayOfFilms) {
                 </div>
             </div>`
 
-            // <a href="../asientos2.html">
-
         let pelicula = document.createElement("div")
         pelicula.setAttribute("class", "cartas") 
         pelicula.innerHTML = plantilla
@@ -89,8 +92,8 @@ function showMovies(section, arrayOfFilms) {
 
 }
 
-// Filtro de peliculas 2D o 3D
 
+// Filtro de peliculas 2D o 3D
 function movieFilter(arrayDB) {
     const FILMS_2D = arrayDB.filter(( { film2D } ) => film2D === true)
     const FILMS_3D = arrayDB.filter(( { film3D } ) => film3D === true)
@@ -101,7 +104,8 @@ function movieFilter(arrayDB) {
 
 // Generador de peliculas con llamado a la API
 
-// Nota: esta es una IIFE (Immediately Invoked Function Expression)
+// Nota: 
+// Esta es una IIFE (Immediately Invoked Function Expression)
 // Es una funcion que se ejecuta por si sola cuando es "leida" por el navegador
 
 (async () => {
@@ -109,22 +113,13 @@ function movieFilter(arrayDB) {
     await generateFilms(apiMovies, allMovies)
     movieFilter(allMovies)
 
-
-    // listeners
-
-
     elements = document.querySelectorAll('section')
     elements.forEach((el) => {
-        console.log(el)
         el.addEventListener('click', (e) => {
-            console.log(e)
-            console.log(e.target)
-            e.target.localName === 'img' 
-                ? console.log('true')
-                : console.log('false')
-            /* let id = Number(el.dataset.movieId)
-            showModal(id) */
+            if (e.target.localName === 'img') {
+                let id = Number(e.target.attributes['data-movie-id'].value)
+                showModal(id) 
+            }
         })
     })
-
 })()

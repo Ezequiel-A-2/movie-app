@@ -1,30 +1,17 @@
 class Film {
-    constructor(id, image, title, film2D, film3D) {
+    constructor(id, image, title, description, film2D, film3D, language) {
         this.id = id
         this.title = title
         this.film2D = film2D
         this.film3D = film3D
         this.image = image 
+        this.description = description
+        this.language = language
     }
 }
 
 // link para GitHub Pages `./movie-app/resources/img/${portada}`
 // link para imagenes locales `../resources/img/${portada}`
-
-// === Traer Data de admi usando Session Storage ===
-
-// Genero otros datos para mostrar en el index.html
-
-export function storageMovie(FilmDB) {
-    let data = JSON.parse(sessionStorage.getItem(`newData`))
-    copnsole.log(data)
-
-    for (let element of data) {
-        console.log(element)
-        let { _id, _title, _image, _film2D, _film3D }  = element
-        FilmDB.push(new Film(_id, _title, _image, _film2D, _film3D))
-    }
-}
 
 // === Funciones ===
 
@@ -47,7 +34,9 @@ export function generateFilms(API_DATA, FILM_DB_ARRAY) {
             : image = data.backdrop_path
         const is2D = generateRandom()
         const is3D = generateRandom()
-        FILM_DB_ARRAY.push(new Film(id, image, title, is2D, is3D))
+        const description = data.overview
+        const language = data.original_language
+        FILM_DB_ARRAY.push(new Film(id, image, title, description, is2D, is3D, language))
     }
     return FILM_DB_ARRAY
 }

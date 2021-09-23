@@ -214,17 +214,17 @@
 
         <!-- Vertically centered scrollable modal -->
         
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-sm-down">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">
+                        <h5 class="modal-title" id="modal-title">
                             Detalles de la pelicula:
                         </h5> 
                         <!-- Nota: cambiar color de letra del modal ya que esta en blanco! -->
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body d-flex flex-column flex-md-row align-items-center">
+                    <div class="modal-body d-flex flex-column flex-md-row align-items-center" id="modal-body">
                         
 
 
@@ -232,6 +232,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button id="buy-tickets" type="button" class="btn btn-primary">Reservar</button>
                     </div>
                     </div>
                 </div>

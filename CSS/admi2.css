@@ -107,7 +107,6 @@ main section input:focus {
     width: 100%;
 }
 
-/* Regular altura de las cards */
 
 @media (min-width: 760px) {
     #modal-img {
