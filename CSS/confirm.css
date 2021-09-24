@@ -1,0 +1,52 @@
+body {
+    background-image: linear-gradient(to right top, #051937, #001743, #00144d, #000f57, #05055e);
+    background-repeat: repeat-y;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* === header === */
+
+header {
+    width: 100%;
+    height: auto;
+    background-color: black;
+    color: white;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+/* === main === */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* === footer === */
+
+footer {
+    width: 100%;
+    height: auto;
+    background-color: black;
+    color: white;
+}
+
+
+footer a {
+    text-decoration: none;
+    color: white;
+}

@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comida</title>
+    <title>COnfirmacion</title>
 
     <!-- Archivos CSS -->
 
     <!-- Material icon -->
-    <link 
+    <!-- <link 
         href="https://fonts.googleapis.com/css2?family=Material+Icons+Round"
-        rel="stylesheet">
+        rel="stylesheet"> -->
         
     <!-- Bootstrap CSS -->
     <link 
@@ -44,10 +44,86 @@
         defer
         src="./Scripts/confirm.js">
     </script>
-
-
 </head>
-<body>
+
+<body class="d-flex flex-column justify-content-between">
     
+    <!-- Header -->
+
+    <header class="py-2">
+        
+        <nav class="navbar navbar-expand-lg navbar-dark pe-2">
+            <div class="container-fluid px-lg-5 me-lg-2">
+                <a class="navbar-brand" href="#">
+                    LOGO
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-lg-end" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./index.html">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./buscar.html">
+                                Buscador
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Reservas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Contacto
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="d-flex justify-content-center align-items-center">
+
+        <div class="card my-3" style="width: 18rem;">
+            <img src="./resources/img/placeholder_img.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Movie title</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
+
+
+    </main>
+
+    
+    <!-- Footer -->
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row text-center py-2 ">
+                    <p class="m-0 h5">Enlaces Utiles</p>
+            </div>
+            <div class="row justify-content-around flex-column align-content-center flex-sm-row pb-3"> <!-- pt-0 pb-sm-3 -->
+                <a href="#" class="col text-center py-1 mb-1 mb-sm-0">Legales</a>
+                <a href="#" class="col text-center py-1">Reclamos</a>
+            </div>
+        </div>
+    </footer>
+
+
 </body>
 </html>
