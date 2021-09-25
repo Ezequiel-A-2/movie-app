@@ -1,19 +1,19 @@
-
-
 // === Declaracion de constantes ===
 
 $('#loading-button').hide()
 const imageHTTP = 'https://image.tmdb.org/t/p/w500'
 let FUNDED_MOVIES = [], elements
+
+// Nota: usualmente aqui se ubicarian los eventListener pero 
+// estoy usando jQuery por lo cual el evento y su funcion se encuentra al final
+
+
 // === Funciones ===
 
 
-// Modal
-
+// Mostrar datos en el Modal
 function showModal(movieId) {
     let selected = FUNDED_MOVIES.find((el) => el["id"] === movieId)
-
-    console.log(selected)
 
     let modalTemplate = `<div id="modal-img" class="pb-2 pe-md-3">
             <img src=${imageHTTP + selected.poster_path} alt="Portada de ${selected.title}">
@@ -42,12 +42,7 @@ function showModal(movieId) {
 }
 
 
-
-
-
-
-
-// Generar las peliculas
+// Mostrar las peliculas en pantalla
 function showMovies(arrayOfFilms) {
     $('#film-container').empty()
 
@@ -73,8 +68,7 @@ function showMovies(arrayOfFilms) {
 }
 
 
-// Verifica que tenga una imagen para mostrar, sino tiene imagen se elimina el elemento
-
+// Esto verifica que tenga una imagen para mostrar, sino tiene imagen se elimina el elemento
 function checkData(array) {
     let index = 0
     while (index < array.length) {
@@ -88,22 +82,22 @@ function checkData(array) {
 }
 
 
+// Llamado a la api de TMDB (por defecto muestra peliculas con resultado 'furious)
 async function callApi (findMovie = 'furious') {
     let API_URL = 'https://api.themoviedb.org/3/search/movie?api_key=de72dd93dac3e3c6b2ec3687f0e1eff5&query='
     let API_SEARCH = `${API_URL + findMovie}` 
 
-        const response = await fetch(API_SEARCH)
-        const data = await response.json()
-        return data.results
-    }
-    
+    const response = await fetch(API_SEARCH)
+    const data = await response.json()
+    return data.results
+}
+  
+
+// Hacemos el llamado a la API con el dato obtenido
 async function getData(movie) {
     FUNDED_MOVIES = await callApi(movie)
     checkData(FUNDED_MOVIES)
     showMovies(FUNDED_MOVIES)
-
-
-    // console.log(FUNDED_MOVIES)
 
     elements = document.querySelectorAll('.card a')
     elements.forEach((el) => {
@@ -115,6 +109,7 @@ async function getData(movie) {
 }
 
 
+// Evento click del boton en la pantalla
 $(`#add-button`).click((event) => {
     event.preventDefault
     
@@ -127,10 +122,11 @@ $(`#add-button`).click((event) => {
 
     getData(movie)
 
+    // Ligera animacion del boton
+    // Por 2 segundos no deja usar el boton (funciona a modo de prohibir ingresar datos tan rapido)
     $('#add-button').hide()
     $('#loading-button').show()
-
-        setTimeout(() => {
+    setTimeout(() => { 
         $('#loading-button').hide()
         $('#add-button').show()
     }, 2000)

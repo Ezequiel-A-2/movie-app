@@ -38,8 +38,6 @@ main section .form-control, label {
     border: 2px solid #ced4da;
 }
 
-
-
 main section input:focus {
     box-shadow: none !important;
 }

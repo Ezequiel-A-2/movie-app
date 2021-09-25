@@ -10,13 +10,15 @@ class Film {
     }
 }
 
-// link para GitHub Pages `./movie-app/resources/img/${portada}`
-// link para imagenes locales `../resources/img/${portada}`
+
+// Nota:
+//      Exportamos las funciones "callApi" y "generateFilms" hacia index (home)
+//      Por eso vera la palabra reservada 'export' o 'export default' 
+
 
 // === Funciones ===
 
 // Generador de true o false random
-
 function generateRandom() {
     const random1 = Math.random()
     const random2 = Math.random()
@@ -50,6 +52,3 @@ export default async function callApi () {
         const data = await response.json()
         return data.results
 }
-    
-    
-// Nota: Exportamos las funciones "callApi" y "generateFilms" hacia index (home) 

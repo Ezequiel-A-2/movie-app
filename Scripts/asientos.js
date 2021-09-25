@@ -11,7 +11,6 @@ let chosenSeats = [], numRandom = 0, accum = 0, seatPrice = 50
 
 button.addEventListener('click', saveSeat)
 
-
 // === Funciones ===
 
 // Generador de asientos Ocupados 

@@ -3,7 +3,6 @@
 import callApi from './homeDB.js'
 import { generateFilms } from './homeDB.js'
 
-
 // === Declaracion de constantes ===
 
 let allMovies = [], elements, selected
@@ -14,11 +13,9 @@ const modalTitle = document.getElementById('modal-title')
 const modalBody = document.getElementById('modal-body')
 const modalBtn = document.getElementById('buy-tickets')
 
-
 // === Eventos ===
 
 modalBtn.addEventListener('click', buyTickets)
-
 
 // === Funciones ===
 
@@ -89,7 +86,6 @@ function showMovies(section, arrayOfFilms) {
         pelicula.innerHTML = plantilla
         section.appendChild(pelicula)
     }
-
 }
 
 

@@ -48,7 +48,6 @@ function showData(movie, seats, foodList) {
 showData(movie, seats, foodList)
 
 
-
 // === API de MercadoPago ===
 
 async function finalizarCompra() {
@@ -89,7 +88,6 @@ async function finalizarCompra() {
 
     const arrayMP = [movieMP, ...seatsMP, ...foodMP]
 
-
     let URL = 'https://api.mercadopago.com/checkout/preferences'
 
     const response = await fetch(URL, {
@@ -108,6 +106,9 @@ async function finalizarCompra() {
 
     const data = await response.json()
 
+
+    // La pagina de abajo se abre para que aquella persona que revise este 
+    // codigo pueda hacerlo mas sencillo, no es algo que se dejaria en el futuro.
     window.open('https://www.mercadopago.cl/developers/es/guides/online-payments/checkout-pro/test-integration', '_blank')
     window.location.href = data.init_point
     

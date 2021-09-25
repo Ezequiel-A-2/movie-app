@@ -1,5 +1,6 @@
-const DATA_BASE = []
+// === Declaracion de constantes ===
 
+const DATA_BASE = []
 
 
 class Products {
@@ -24,6 +25,8 @@ Orden de sintaxis:
     6) image: ruta a la imagen del archivo (actualmente estan en local)
     7) description: descripcion del producto para mostrar en la tarjeta
 */
+
+// Unos cuantos push a la base de datos =)
 
 DATA_BASE.push(new Products(1, "Balde de Pochoclos", `Balde de pochoclos`, `popcorn`, 340, "balde.png", `1 Balde de pochoclos.`))
 
@@ -54,14 +57,6 @@ DATA_BASE.push(new Products(13, "Rocklets", `Paquete de Rocklets`, `snack`, 360,
 DATA_BASE.push(new Products(14, "Sugus", `Paquete de Sugus`, `snack`, 130, "snack-sugus.png", `Valor por unidad.`))
 
 
-// filtros de la base de datos
+// El siguiente filtro es empleado para mostrar (por defecto) los combos en carrito.html
 
 const COMBOS = DATA_BASE.filter( ({ type }) => type === `combo` )
-
-// Las constants de abajo dejaron de cumplir su utilidad pero los dejo para debugear
-
-// const POPCORN = DATA_BASE.filter( ({ type }) => type === `popcorn` )
-
-// const DRINKS = DATA_BASE.filter( ({ type }) => type === `drink` )
-
-// const SNACKS = DATA_BASE.filter( ({ type }) => type === `snack` )
