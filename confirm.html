@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COnfirmacion</title>
+    <title>Confirmacion</title>
 
     <!-- Archivos CSS -->
 
@@ -93,16 +93,27 @@
         <div class="card my-3" style="width: 18rem;">
             <img src="./resources/img/placeholder_img.png" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Movie title</h5>
+                <h5 class="card-title" id="card-title">Nombre de la Pelicula</h5>
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
+            <div class="card-body">
+                <h5 class="card-title">Asientos</h5>
+            </div>
+            <ul class="list-group list-group-flush" id="card-seats">
+                <li class="list-group-item">Butaca: A - 2</li>
+                <li class="list-group-item">Butaca: A - 3</li>
+                <li class="list-group-item">Butaca: A - 4</li>
             </ul>
             <div class="card-body">
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
+                <h5 class="card-title">Comida</h5>
+            </div>
+            <ul class="list-group list-group-flush" id="card-food">
+                <li class="list-group-item">2 Combo 4</li>
+                <li class="list-group-item">2 Gaseosas</li>
+                <li class="list-group-item">1 Chocolate</li>
+            </ul>
+            <div class="card-body d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-secondary" id="card-btn-cancel">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="card-btn-buy">Comprar</button>
             </div>
         </div>
 
