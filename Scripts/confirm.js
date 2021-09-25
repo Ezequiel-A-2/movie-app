@@ -3,42 +3,113 @@
 const $Title = document.getElementById('card-title')
 const $Seats = document.getElementById('card-seats')
 const $Food = document.getElementById('card-food')
+const $Image = document.getElementById('card-img')
+const $btnBuy = document.getElementById('card-btn-buy')
+const movie = JSON.parse(sessionStorage.getItem('PELICULA'))
+const seats = JSON.parse(sessionStorage.getItem('BUTACAS'))
+const foodList = JSON.parse(sessionStorage.getItem('COMIDA'))
+const imageHTTP = 'https://image.tmdb.org/t/p/w500'
+
+
+// === Eventos ===
+
+$btnBuy.addEventListener('click', finalizarCompra)
 
 // === Funciones ===
 
+// Obtengo la data del storage y la muestro en pantalla
 function showData(movie, seats, foodList) {
-    $Title.innerText = movie.title
-    
-    for (let seat of seats) {
-        let template = `<li class="list-group-item">
-            Butaca: ${seat.fila} - ${seat.butaca}
-        </li>`
+    let allSeats = '', allitems = ''
 
-        // aca esta el error, quizas con el innerHTML se arregla...
-        $Seats.appendChild(template)
+
+    for (let seat of seats) {
+        let seatTemplate = `<li class="list-group-item">
+        Butaca: ${seat.fila} - ${seat.butaca}
+        </li>`
+        
+        allSeats += seatTemplate
     }
 
     for (let item of foodList) {
-        let template = `<li class="list-group-item">
-            ${item.quantity} ${item.productName}
+        let foodTemplate = `<li class="list-group-item">
+        ${item.quantity} ${item.productName}
         </li>`
-        $Food.appendChild(template)
+        
+        allitems += foodTemplate
     }
-
+    
+    $Image.src = imageHTTP + movie.image
+    $Image.alt = `Portada de la pelicula ${movie.title}`
+    $Title.innerText = movie.title
+    $Seats.innerHTML = allSeats
+    $Food.innerHTML = allitems
 }
 
+showData(movie, seats, foodList)
 
-function getData() {
-    debugger
-    const movie = JSON.parse(sessionStorage.getItem('PELICULA'))
-    const seats = JSON.parse(sessionStorage.getItem('BUTACAS'))
-    const foodList = JSON.parse(sessionStorage.getItem('COMIDA'))
 
+
+// === API de MercadoPago ===
+
+async function finalizarCompra() {
+
+    const seatsMP = seats.map( (seat) => {
+        return {
+            title: `Butaca: ${seat.fila} - ${seat.butaca}`,
+            description: "Butaca selecionada",
+            picture_url: "",
+            category_id: seat.fila + seat.butaca,
+            quantity: 1,
+            currency_id: "ARS",
+            unit_price: 50
+        }
+    })
+
+    const foodMP = foodList.map( (item) => {
+        return {
+            title: item.productName,
+            description: "Comida seleccionada",
+            picture_url: "",
+            category_id: item.id,
+            quantity: item.quantity,
+            currency_id: "ARS",
+            unit_price: item.price,
+        }
+    })
+
+    const movieMP = {
+        title: movie.title,
+        description: movie.description,
+        picture_url: imageHTTP + movie.image,
+        category_id: movie.id,
+        quantity: 1,
+        currency_id: "ARS",
+        unit_price: 100,
+    }
+
+    const arrayMP = [movieMP, ...seatsMP, ...foodMP]
+
+
+    let URL = 'https://api.mercadopago.com/checkout/preferences'
+
+    const response = await fetch(URL, {
+                        method: 'POST',
+                        headers: {
+                            Authorization: 'Bearer TEST-4866319236998389-092507-fde08151c332ac7a1f00654e2e39d442-446343185'
+                        },
+                        body: JSON.stringify({
+                            items: arrayMP,
+                            back_urls: {
+                                success: 'http://127.0.0.1:5500/index.html',
+                                failure: 'http://127.0.0.1:5500/confirm.html'
+                            },
+                        })
+                    })
+
+    const data = await response.json()
+
+    window.open('https://www.mercadopago.cl/developers/es/guides/online-payments/checkout-pro/test-integration', '_blank')
+    window.location.href = data.init_point
     
-    console.log(movie)
-    console.log(seats)
-    console.log(foodList)
-
-    showData(movie, seats, foodList)
 }
 
