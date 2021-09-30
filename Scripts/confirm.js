@@ -5,6 +5,7 @@ const $Seats = document.getElementById('card-seats')
 const $Food = document.getElementById('card-food')
 const $Image = document.getElementById('card-img')
 const $btnBuy = document.getElementById('card-btn-buy')
+const $btnCancel = document.getElementById('card-btn-cancel')
 const movie = JSON.parse(sessionStorage.getItem('PELICULA'))
 const seats = JSON.parse(sessionStorage.getItem('BUTACAS'))
 const foodList = JSON.parse(sessionStorage.getItem('COMIDA'))
@@ -14,6 +15,10 @@ const imageHTTP = 'https://image.tmdb.org/t/p/w500'
 // === Eventos ===
 
 $btnBuy.addEventListener('click', finalizarCompra)
+
+$btnCancel.addEventListener('click', () => {
+    window.location.href = "../index.html"
+})
 
 // === Funciones ===
 

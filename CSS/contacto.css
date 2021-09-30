@@ -1,25 +1,18 @@
 body {
     background-image: linear-gradient(to right top, #051937, #001743, #00144d, #000f57, #05055e);
-    background-repeat: repeat-y;
-    width: 100%;
-    height: 100%;
-    margin: 0 !important;
-    padding: 0 !important;
     box-sizing: border-box;
+    /* position: relative; */
+    height: 100vh;
+    width: 100vw;
     overflow-x: hidden;
 }
 
-/* === header === */
+/* === Header === */
 
 header {
-    width: 100%;
-    height: auto;
     background-color: black;
     color: white;
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
+    height: auto;
     z-index: 10;
 }
 
@@ -27,25 +20,33 @@ header img {
     height: 40px;
 }
 
-/* === main === */
+/* === Main === */
 
 main {
-    margin: 0 auto !important;
-    padding: 0 !important;   
+    padding: 20px 20px;
+    color: #fff;
 }
 
+main h1 {
+    margin-bottom: 25px;
+}
 
-/* === footer === */
+main p {
+    text-align: justify;
+}
+
+/* === Footer === */
 
 footer {
-    width: 100%;
-    height: auto;
     background-color: black;
     color: white;
+    width: 100%;
+    height: auto;
 }
-
 
 footer a {
     text-decoration: none;
     color: white;
 }
+
+
