@@ -34,6 +34,11 @@ header img {
 
 /* === Main === */
 
+main section {
+    width: 100%;
+    height: auto;
+}
+
 .card .card-body {
     display: flex;
     flex-direction: column;

@@ -69,7 +69,7 @@ function showMovies(section, arrayOfFilms) {
     for (let film of arrayOfFilms) {
         const plantilla = `
             <div class="col">
-                <div class="card">
+                <div class="card hvr-grow">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" data-movie-id=${film.id}>
                         <img src="${imageHTTP + film.image}" class="card-img-top skeleton" alt="Portada de ${film.title}" data-movie-id=${film.id} loading="lazy">
                     </a>
@@ -119,3 +119,5 @@ function movieFilter(arrayDB) {
         })
     })
 })()
+
+
