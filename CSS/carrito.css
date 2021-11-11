@@ -3,6 +3,9 @@ html {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
     height: auto;
     overflow-x: hidden;
@@ -34,11 +37,6 @@ header img {
 
 /* === Main === */
 
-main section {
-    width: 100%;
-    height: auto;
-}
-
 .card .card-body {
     display: flex;
     flex-direction: column;
@@ -66,10 +64,6 @@ footer {
     color: white;
     width: 100%;
     height: auto;
-    position: relative;
-    bottom: 0;
-    left: 0;
-    right: 0;
 }
 
 
@@ -80,12 +74,32 @@ footer a {
 
 /* === Media Queries === */
 
-@media (min-width: 1080px ) {
+@media (min-width: 768px ) {
     body {
         height: 100vh;
     }
+}
 
-    footer {
-        position: absolute;
+
+@media (min-width: 1080px ) {
+    main {
+        height: 75%;
+        display: flex;
+        align-items: center;
     }
+
+    main section {
+        width: 100%;
+        height: auto;
+    }
+
+    #food-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* footer {
+        position: absolute;
+        
+    } */
 }
