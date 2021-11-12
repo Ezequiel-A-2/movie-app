@@ -57,6 +57,10 @@ header img {
     justify-self: flex-end;
 }
 
+.unclickeable {
+    pointer-events: none;
+}
+
 /* === Footer === */
 
 footer {
@@ -97,9 +101,4 @@ footer a {
         display: flex;
         justify-content: center;
     }
-
-    /* footer {
-        position: absolute;
-        
-    } */
 }

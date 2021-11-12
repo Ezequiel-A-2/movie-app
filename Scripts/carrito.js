@@ -25,16 +25,40 @@ $total_To_Pay.addEventListener("click", saveSelection)
 
 // === Funciones del Body ===
 
+
+// agrega el badge al btn si es que no lo tiene
+function addBadge(itemId, btn) {
+    let spanBadge = document.createElement("span")
+    spanBadge.setAttribute("class", "")
+    spanBadge.classList.add("position-absolute", "top-0", "start-100", "translate-middle", "badge", "rounded-pill", "bg-danger", "unclickeable")
+    spanBadge.setAttribute("id", `badge${itemId}`)
+    let badgeValue = carrito.find((carrito) => carrito["id"] === itemId)
+    
+    if (btn.childNodes[1] !== undefined) btn.removeChild(btn.childNodes[1])
+
+    if (badgeValue !== undefined) {
+        spanBadge.innerText = badgeValue.quantity
+        btn.appendChild(spanBadge)
+    }
+}
+
+// incrementa la cantidad del badge
+function showCantOnBtn(itemId) {
+    const btn = document.getElementById(itemId)
+    addBadge(itemId, btn)
+}
+
+
 // Agregamos el item al array carrito
 function addToShopCart(list, itemId) {
     let item = list.find((list) => list["id"] === itemId)
     let { id, productName, price } = item
     const itemOnShopCart = carrito.find(( { id } ) => id === itemId)
-
     itemOnShopCart 
         ? itemOnShopCart.quantity++ 
         : carrito.push({ id, productName, price, quantity:1 })
-    
+
+    showCantOnBtn(itemId)
     carrito.sort( (a , b) => a.id - b.id)
 }
 
@@ -64,7 +88,9 @@ function showProducts(list = COMBOS) {
                         <p class="food-price mb-0 fw-bold">
                             $<span class="price">${item.price}</span>
                         </p>
-                        <button class="btn btn-primary" id="${item.id}" type="button">Comprar</button>
+                        <button class="btn btn-primary position-relative" id="${item.id}" type="button">
+                            Comprar
+                        </button>
                     
                     </div>
                 </div>
@@ -108,11 +134,9 @@ $category.forEach((element) => {
 function removeEmptyItems(array) {
     let index = 0
     while (index < array.length) {
-        if (array[index][`quantity`] === 0) {
-            array.splice(index, 1)
-        } else {
-            index++
-        }
+        (array[index][`quantity`] === 0)
+            ? array.splice(index, 1)
+            : index++
     }
     return array
 }
@@ -167,6 +191,7 @@ function modalBody() {
 
 
 
+
 // "resumen" me permite variar la cantidad de productos desde el modal
 
 // Nota:
@@ -180,6 +205,7 @@ function resumen(id, action) {
     $quantitySpan.innerHTML = carritoItem.quantity
     calcTotal()
     modalBody()
+    showCantOnBtn(id)
 }
 
 
@@ -189,3 +215,20 @@ function saveSelection() {
     sessionStorage.setItem('COMIDA' ,carrito_JSON)
 	window.location.href = '../confirm.html' 
 }
+
+
+/* 
+
+<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    1
+    <span class="visually-hidden">
+        unread messages
+    </span>
+</span>
+
+
+
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                
+                            </span>
+*/
