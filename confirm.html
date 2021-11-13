@@ -78,30 +78,38 @@
         </nav>
     </header>
 
-    <main class="d-flex justify-content-center align-items-center">
+    <main class="d-flex justify-content-center align-items-center align-items-md-start">
 
-        <div class="card my-3" style="width: 18rem;">
-            <img src="" class="card-img-top" alt="..." id="card-img">
-            <div class="card-body">
-                <h5 class="card-title" id="card-title">
-                    Nombre de la Pelicula
-                </h5>
+        <div class="card my-3 d-flex flex-column flex-md-row my-md-0">
+            <div class="img-container">
+                <img src="" class="card-img-top" alt="..." id="card-img">
             </div>
-            <div class="card-body">
-                <h5 class="card-title">Asientos</h5>
-            </div>
-            <ul class="list-group list-group-flush" id="card-seats">
-
-            </ul>
-            <div class="card-body">
-                <h5 class="card-title">Comida</h5>
-            </div>
-            <ul class="list-group list-group-flush" id="card-food">
-
-            </ul>
-            <div class="card-body d-flex justify-content-between">
-                <button type="button" class="btn btn-outline-secondary" id="card-btn-cancel">Volver</button>
-                <button type="button" class="btn btn-primary" id="card-btn-buy">Comprar</button>
+            <div>
+                <div class="card-body pt-md-2 pb-md-0">
+                    <h5 class="card-title" id="card-title">
+                        Nombre de la Pelicula
+                    </h5>
+                </div>
+                <div class="card-body pt-md-2 pb-md-0">
+                    <h5 class="card-title">Asientos</h5>
+                </div>
+                <div class="list">
+                    <ul class="list-group list-group-flush" id="card-seats">
+    
+                    </ul>
+                </div>
+                <div class="card-body pt-md-2 pb-md-0">
+                    <h5 class="card-title">Comida</h5>
+                </div>
+                <div class="list">
+                    <ul class="list-group list-group-flush" id="card-food">
+    
+                    </ul>
+                </div>
+                <div class="card-body padding pb-md-0 d-flex justify-content-between">
+                    <button type="button" class="btn btn-outline-secondary text-center" id="card-btn-cancel">Volver</button>
+                    <button type="button" class="btn btn-primary" id="card-btn-buy">Comprar</button>
+                </div>
             </div>
         </div>
 
