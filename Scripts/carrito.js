@@ -26,26 +26,19 @@ $total_To_Pay.addEventListener("click", saveSelection)
 // === Funciones del Body ===
 
 
-// agrega el badge al btn si es que no lo tiene
-function addBadge(itemId, btn) {
-    let spanBadge = document.createElement("span")
-    spanBadge.setAttribute("class", "")
-    spanBadge.classList.add("position-absolute", "top-0", "start-100", "translate-middle", "badge", "rounded-pill", "bg-danger", "unclickeable")
-    spanBadge.setAttribute("id", `badge${itemId}`)
-    let badgeValue = carrito.find((carrito) => carrito["id"] === itemId)
+// Cambia el valor del badge (si badge = 0, este desaparece)
+function showCantOnBtn(itemId, carrito) {    
+    // Detalle, se requiere hacer un for each para que esto se muestre cuando se generan las cards al llamara a la funcion show products
+    // se puede usar un ciclo for o algo similar
     
-    if (btn.childNodes[1] !== undefined) btn.removeChild(btn.childNodes[1])
+    const badge = document.getElementById(`badge${itemId}`)
+    const itemOnShopCart = carrito.find(( { id } ) => id === itemId)
 
-    if (badgeValue !== undefined) {
-        spanBadge.innerText = badgeValue.quantity
-        btn.appendChild(spanBadge)
-    }
-}
+    if (badge === null) return
 
-// incrementa la cantidad del badge
-function showCantOnBtn(itemId) {
-    const btn = document.getElementById(itemId)
-    addBadge(itemId, btn)
+    itemOnShopCart !== undefined
+        ? badge.innerText = itemOnShopCart.quantity
+        : badge.innerText = ""
 }
 
 
@@ -58,7 +51,7 @@ function addToShopCart(list, itemId) {
         ? itemOnShopCart.quantity++ 
         : carrito.push({ id, productName, price, quantity:1 })
 
-    showCantOnBtn(itemId)
+    showCantOnBtn(itemId, carrito)
     carrito.sort( (a , b) => a.id - b.id)
 }
 
@@ -90,6 +83,7 @@ function showProducts(list = COMBOS) {
                         </p>
                         <button class="btn btn-primary position-relative" id="${item.id}" type="button">
                             Comprar
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger unclickeable" id="badge${item.id}"></span>
                         </button>
                     
                     </div>
@@ -112,6 +106,10 @@ function showProducts(list = COMBOS) {
             addToShopCart(list, Number(item.target.id))
         })
     })
+
+    for (item of list) {
+        showCantOnBtn(item.id, carrito)
+    }
 }
 
 showProducts()
@@ -148,7 +146,10 @@ function calcTotal() {
         accum += (value.price * value.quantity)
         return accum
     }, 0) 
-    $total_To_Pay.innerHTML = `$ ${total}` 
+
+    total !== 0 
+        ? $total_To_Pay.innerHTML = `$ ${total}` 
+        : $total_To_Pay.innerHTML = `Continuar`
 }
 
 
@@ -161,7 +162,7 @@ function modalBody() {
     removeEmptyItems(carrito)
     
     for (item of carrito) {
-        let itemTemplate = `<tr>
+        let itemTemplate = `<tr class="col">
                 <td>${item.productName}</td>
                 <td>$ ${item.price}</td>
                 <td class="d-flex align-items-center justify-content-evenly">
@@ -203,9 +204,8 @@ function resumen(id, action) {
         ? carritoItem.quantity++ 
         : carritoItem.quantity--
     $quantitySpan.innerHTML = carritoItem.quantity
-    calcTotal()
     modalBody()
-    showCantOnBtn(id)
+    showCantOnBtn(id, carrito)
 }
 
 
@@ -215,20 +215,3 @@ function saveSelection() {
     sessionStorage.setItem('COMIDA' ,carrito_JSON)
 	window.location.href = '../confirm.html' 
 }
-
-
-/* 
-
-<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-    1
-    <span class="visually-hidden">
-        unread messages
-    </span>
-</span>
-
-
-
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                
-                            </span>
-*/

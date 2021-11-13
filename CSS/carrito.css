@@ -61,6 +61,16 @@ header img {
     pointer-events: none;
 }
 
+/* === Modal === */
+
+/* Los "pochoclos" al tener un texto largo causan problemas si hay padding a los lados */
+
+@media (max-width: 330px) {
+    .table>:not(caption)>*>* {
+        padding: .5rem .1rem !important;
+    }
+}
+
 /* === Footer === */
 
 footer {
