@@ -6,6 +6,8 @@ const $Food = document.getElementById('card-food')
 const $Image = document.getElementById('card-img')
 const $btnBuy = document.getElementById('card-btn-buy')
 const $btnCancel = document.getElementById('card-btn-cancel')
+const $seatBtn = document.getElementById('seatBtn')
+const $foodBtn = document.getElementById('foodBtn')
 const movie = JSON.parse(sessionStorage.getItem('PELICULA'))
 const seats = JSON.parse(sessionStorage.getItem('BUTACAS'))
 const foodList = JSON.parse(sessionStorage.getItem('COMIDA'))
@@ -20,6 +22,14 @@ $btnCancel.addEventListener('click', () => {
     window.location.href = "../index.html"
 })
 
+/* $seatBtn.addEventListener('click', () => {
+    window.location.href = "../asientos.html"
+})
+
+$foodBtn.addEventListener('click', () => {
+    window.location.href = "../carrito.html"
+}) */
+
 // === Funciones ===
 
 // Obtengo la data del storage y la muestro en pantalla
@@ -28,15 +38,20 @@ function showData(movie, seats, foodList) {
 
 
     for (let seat of seats) {
-        let seatTemplate = `<li class="list-group-item">
-        Butaca: ${seat.fila} - ${seat.butaca}
+        let seatTemplate = `<li class="list-group-item d-flex justify-content-between">
+        <span>
+            Butaca: ${seat.fila} - ${seat.butaca}
+        </span>
+        <span class="pe-3">
+            $ 50
+        </span>
         </li>`
         
         allSeats += seatTemplate
     }
 
-    for (let item of foodList) {
-        let foodTemplate = `<li class="list-group-item">
+    for (let item of foodList) { // agregar aqui el span para el precio del producto
+        let foodTemplate = `<li class="list-group-item">  
         ${item.quantity} ${item.productName}
         </li>`
         

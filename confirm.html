@@ -84,22 +84,24 @@
             <div class="img-container">
                 <img src="" class="card-img-top" alt="..." id="card-img">
             </div>
-            <div>
-                <div class="card-body pt-md-2 pb-md-0">
+            <div class="details-container d-flex flex-column justify-content-md-evenly">
+                <div class="card-body pt-md-2 pb-md-0 justify-content-md-center">
                     <h5 class="card-title" id="card-title">
                         Nombre de la Pelicula
                     </h5>
                 </div>
-                <div class="card-body pt-md-2 pb-md-0">
-                    <h5 class="card-title">Asientos</h5>
+                <div class="card-body pt-md-2 pb-md-0 d-flex justify-content-between align-items-start">
+                    <h5 class="card-title height d-flex justify-content-center align-items-center">Asientos</h5>
+                    <button type="button" class="btn btn-outline-dark height d-flex justify-content-center align-items-center" id="seatBtn">Modificar</button>
                 </div>
                 <div class="list">
                     <ul class="list-group list-group-flush" id="card-seats">
     
                     </ul>
                 </div>
-                <div class="card-body pt-md-2 pb-md-0">
-                    <h5 class="card-title">Comida</h5>
+                <div class="card-body pt-md-2 pb-md-0 d-flex justify-content-between">
+                    <h5 class="card-title d-flex justify-content-center align-items-center height">Comida</h5>
+                    <button type="button" class="btn btn-outline-dark height d-flex justify-content-center align-items-center" id="foodBtn">Modificar</button>
                 </div>
                 <div class="list">
                     <ul class="list-group list-group-flush" id="card-food">
@@ -121,10 +123,10 @@
 
     <footer>
         <div class="container-fluid">
-            <div class="row text-center py-3 ">
+            <div class="row text-center py-2">
                     <p class="m-0 h5">Enlaces Utiles</p>
             </div>
-            <div class="row justify-content-around flex-column align-content-center flex-sm-row pb-3">
+            <div class="row justify-content-around flex-column align-content-center flex-sm-row pb-2">
                 <a href="./legales.html" class="col text-center py-1 mb-1 mb-sm-0">Legales</a>
                 <a href="./legales.html" class="col text-center py-1">Reclamos</a>
             </div>

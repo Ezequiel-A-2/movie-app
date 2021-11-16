@@ -38,10 +38,19 @@ main {
     width: 18rem;
 }
 
+.card-title {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
 
 .list-group-item {
     border: 1px solid rgba(0,0,0,.125) !important;
     padding: 11px 15px;
+}
+
+.card .height {
+    height: 2rem;
 }
 
 /* === footer === */
@@ -67,8 +76,8 @@ footer a {
     }
     
     .card {
-        width: 30rem;
-        height: 25rem;
+        width: 35rem;
+        height: 27rem;
         border: 0px !important;
         border-radius: 0.5rem !important;
     }
@@ -84,6 +93,10 @@ footer a {
         border-bottom-left-radius: 0.40rem;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
+    }
+
+    .details-container {
+        width: 50%;
     }
 
     .list {
@@ -104,9 +117,5 @@ footer a {
     ::-webkit-scrollbar-thumb {
         background-color: darkgrey;
         outline: 1px solid slategrey;
-    }
-
-    .padding {
-        padding-top: 13px;
     }
 }
