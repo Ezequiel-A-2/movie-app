@@ -14,6 +14,14 @@ const foodList = JSON.parse(sessionStorage.getItem('COMIDA'))
 const imageHTTP = 'https://image.tmdb.org/t/p/w500'
 
 
+// === Initialize  Boostrap Tooltips ===
+
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+
+
 // === Eventos ===
 
 $btnBuy.addEventListener('click', finalizarCompra)
@@ -22,13 +30,13 @@ $btnCancel.addEventListener('click', () => {
     window.location.href = "../index.html"
 })
 
-/* $seatBtn.addEventListener('click', () => {
+$seatBtn.addEventListener('click', () => {
     window.location.href = "../asientos.html"
 })
 
 $foodBtn.addEventListener('click', () => {
     window.location.href = "../carrito.html"
-}) */
+})
 
 // === Funciones ===
 
