@@ -47,11 +47,13 @@ main section input:focus {
     box-shadow: none !important;
 }
 
+/* 
+    Fragmento de codigo Obsoleto, explicacion en buscar.js
 .wrong {
     border: 2px solid red !important;
-}
+} */
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
     .scrolling-wrapper-flexbox {
         overflow-x: auto;
         height: auto;
@@ -77,7 +79,7 @@ main section input:focus {
     width: 100%;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 816px) {
     .card {
         height: 100%;
         width: 200px;
@@ -110,7 +112,7 @@ main section input:focus {
 }
 
 
-@media (min-width: 760px) {
+@media (min-width: 768px) {
     #modal-img {
         width: 350px;
     }

@@ -7,7 +7,6 @@ let FUNDED_MOVIES = [], elements
 // Nota: usualmente aqui se ubicarian los eventListener pero 
 // estoy usando jQuery por lo cual el evento y su funcion se encuentra al final
 
-
 // === Funciones ===
 
 
@@ -108,16 +107,7 @@ async function getData(movie) {
     })
 }
 
-
-// Evento click del boton en la pantalla
-$(`#add-button`).click((event) => {
-    event.preventDefault
-    
-    if ($(`#title`).val() === '') {
-        return $(`#title`).addClass('wrong')
-    } else {
-        $(`#title`).removeClass('wrong')
-    }
+function search() {
     let movie = `${$(`#title`).val()}`
 
     getData(movie)
@@ -130,7 +120,36 @@ $(`#add-button`).click((event) => {
         $('#loading-button').hide()
         $('#add-button').show()
     }, 2000)
+}
+
+// === Event Listeners ===
+
+// Evento click del boton
+$(`#add-button`).click((event)=> {
+    event.preventDefault()
+    search()
+    
 })
+
+// Evento Enter del input
+
+$("#title").keydown((event) => {
+    if (event.code === "Enter") {
+        event.preventDefault()
+        search()
+    }
+})
+
 
 getData('furious')
 
+// Fragmento de codigo obsoleto
+// Quedo obsoleto debido a que el atributo "require" del input ya me valida que el "title" no este vacio.
+// Pero lo dejo por si es util a futuro
+
+
+// if ($(`#title`).val() === '') {
+//     return $(`#title`).addClass('wrong')
+// } else {
+//     $(`#title`).removeClass('wrong')
+// }

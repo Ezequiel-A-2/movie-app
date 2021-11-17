@@ -26,17 +26,11 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 
 $btnBuy.addEventListener('click', finalizarCompra)
 
-$btnCancel.addEventListener('click', () => {
-    window.location.href = "../index.html"
-})
+$btnCancel.addEventListener('click', () => window.location.href = "../index.html")
 
-$seatBtn.addEventListener('click', () => {
-    window.location.href = "../asientos.html"
-})
+$seatBtn.addEventListener('click', () => window.location.href = "../asientos.html")
 
-$foodBtn.addEventListener('click', () => {
-    window.location.href = "../carrito.html"
-})
+$foodBtn.addEventListener('click', () => window.location.href = "../carrito.html")
 
 // === Funciones ===
 
@@ -47,20 +41,25 @@ function showData(movie, seats, foodList) {
 
     for (let seat of seats) {
         let seatTemplate = `<li class="list-group-item d-flex justify-content-between">
-        <span>
-            Butaca: ${seat.fila} - ${seat.butaca}
-        </span>
-        <span class="pe-3">
-            $ 50
-        </span>
+            <span>
+                Butaca: ${seat.fila} - ${seat.butaca}
+            </span>
+            <span class="pe-3">
+                $ 50
+            </span>
         </li>`
         
         allSeats += seatTemplate
     }
 
-    for (let item of foodList) { // agregar aqui el span para el precio del producto
-        let foodTemplate = `<li class="list-group-item">  
-        ${item.quantity} ${item.productName}
+    for (let item of foodList) { 
+        let foodTemplate = `<li class="list-group-item d-flex justify-content-between">
+            <span>
+                ${item.quantity} ${item.productName}
+            </span>
+            <span class="pe-3">
+                $ ${item.price}
+            <span>
         </li>`
         
         allitems += foodTemplate
