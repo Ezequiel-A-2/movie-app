@@ -43,7 +43,7 @@ main section {
 }
 
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
     .scrolling-wrapper-flexbox {
         overflow-x: auto;
         height: auto;
@@ -68,7 +68,7 @@ main section {
     height: 350px;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 816px) {
     .card {
         height: 100%;
         width: 200px;
@@ -101,7 +101,7 @@ main section {
 }
 
 
-@media (min-width: 760px) {
+@media (min-width: 768px) {
     #modal-img {
         width: 350px;
     }
@@ -170,7 +170,7 @@ footer a {
     border: none !important;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
     .card-holder {
         height: 100%;
         width: 200px;

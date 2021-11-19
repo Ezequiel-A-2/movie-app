@@ -11,6 +11,17 @@ Muchas gracias por su atencion!
 
 # Tags 
 
+- Tag v1.1.0 New Version: 
+  
+    Actualizacion:
+
+    En las secciones de home y buscador se modifico ligeramente el display de las cards para usar mejor el espacio disponible en pantalla.
+
+    En la seccion de carrito se implemento un elemento para mostrar la cantidad de productos comprados de un elemento.
+
+    En la seccion de confirmacion se cambio el display de la card para usar mejor el espacio en pantalla en dispositivos de mayor tamaño.
+
+
 - Tag v1.0.0 Final:
 
     Actualizacion:

@@ -63,7 +63,7 @@ function showModal(movieId) {
 function showMovies(section, arrayOfFilms) {
     section.innerHTML = ''
     section.setAttribute("class","")
-    section.className = "row d-flex scrolling-wrapper-flexbox flex-nowrap flex-md-wrap row-cols-auto"
+    section.className = "row d-flex scrolling-wrapper-flexbox flex-nowrap flex-md-wrap row-cols-auto justify-content-md-evenly"
 
     
     for (let film of arrayOfFilms) {
