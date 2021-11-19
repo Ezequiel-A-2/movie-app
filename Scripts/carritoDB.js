@@ -4,19 +4,19 @@ const DATA_BASE = []
 
 
 class Products {
-    constructor(id, productName, title, type, price, image, description) {
+    constructor({ id, productName, title, type, price, image, description }) {
         this.id = id
         this.productName = productName
         this.title = title
         this.type = type
         this.price = price
-        this.image = `../resources/img/${image}`
+        this.image = `/resources/img/${image}`
         this.description = description
     }
 }
 
 /* 
-Orden de sintaxis:
+Sintaxis:
     1) id: numero identificador del producto
     2) productName: nombre del producto delntro de la base de datos
     3) title: nombre a mostrar al cliente en la tarjeta
@@ -28,33 +28,143 @@ Orden de sintaxis:
 
 // Unos cuantos push a la base de datos =)
 
-DATA_BASE.push(new Products(1, "Balde de Pochoclos", `Balde de pochoclos`, `popcorn`, 340, "balde.png", `1 Balde de pochoclos.`))
+DATA_BASE.push(new Products({
+    id: 1, 
+    productName: "Balde de Pochoclos", 
+    title: `Balde de pochoclos`, 
+    type: `popcorn`, 
+    price: 340, 
+    image: "balde.png", 
+    description: `1 Balde de pochoclos.`
+}))
 
-DATA_BASE.push(new Products(2, "Bolsa de Pochoclos", `Bolsa de Pochoclos`, `popcorn`, 290, "bolsa.png", `1 Bolsa de pochoclos mediana.`))
+DATA_BASE.push(new Products({
+    id: 2, 
+    productName: "Bolsa de Pochoclos", 
+    title: `Bolsa de Pochoclos`, 
+    type: `popcorn`, 
+    price: 290, 
+    image: "bolsa.png", 
+    description: `1 Bolsa de pochoclos mediana.`
+}))
 
-DATA_BASE.push(new Products(3, "Coca Mediana", `Vaso de Coca Mediano`, `drink`, 250, "bebida-coca.png", `1 Gaseosa tamaño medio 500 ml`))
+DATA_BASE.push(new Products({
+    id: 3, 
+    productName: "Coca Mediana", 
+    title: `Vaso de Coca Mediano`, 
+    type: `drink`, 
+    price: 250, 
+    image: "bebida-coca.png", 
+    description: `1 Gaseosa tamaño medio 500 ml`
+}))
 
-DATA_BASE.push(new Products(4, "Coca Grande", `Vaso de Coca Grande`, `drink`, 270, "bebida-coca.png", `1 Gaseosa tamaño grande 750 ml`))
+DATA_BASE.push(new Products({
+    id: 4, 
+    productName: "Coca Grande", 
+    title: `Vaso de Coca Grande`, 
+    type: `drink`, 
+    price: 270, 
+    image: "bebida-coca.png", 
+    description: `1 Gaseosa tamaño grande 750 ml`
+}))
 
-DATA_BASE.push(new Products(5, "Agua", `Botella de Agua`, `drink`, 150, "bebida-agua.png", `Botella de Agua`))
+DATA_BASE.push(new Products({
+    id: 5, 
+    productName: "Agua", 
+    title: `Botella de Agua`, 
+    type: `drink`, 
+    price: 150, 
+    image: "bebida-agua.png", 
+    description: `Botella de Agua`
+}))
 
-DATA_BASE.push(new Products(6, "Combo 1", `Combo 1`, `combo`, 520, "combo-1p.png", `1 balde de pochoclos + 1 gaseosa grande. `))
+DATA_BASE.push(new Products({
+    id: 6, 
+    productName: "Combo 1", 
+    title: `Combo 1`, 
+    type: `combo`, 
+    price: 520, 
+    image: "combo-1p.png", 
+    description: `1 balde de pochoclos + 1 gaseosa grande.`
+}))
 
-DATA_BASE.push(new Products(7, "Combo 2", `Combo 2`, `combo`, 755, "combo-2p.png", `Balde de pochoclos + 2 gaseosas grandes + 1 golosina.`))
+DATA_BASE.push(new Products({
+    id: 7, 
+    productName: "Combo 2", 
+    title: `Combo 2`, 
+    type: `combo`, 
+    price: 755, 
+    image: "combo-2p.png", 
+    description: `Balde de pochoclos + 2 gaseosas grandes + 1 golosina.`
+}))
 
-DATA_BASE.push(new Products(8, "Combo 3", `Combo 3`, `combo`, 840, "combo-4p.png", `2 Bolsas de pochoclos medianas + 4 gaseosas medianas + 1 golosinas.`))
+DATA_BASE.push(new Products({
+    id: 8, 
+    productName: "Combo 3", 
+    title: `Combo 3`, 
+    type: `combo`, 
+    price: 840, 
+    image: "combo-4p.png", 
+    description: `2 Bolsas de pochoclos medianas + 4 gaseosas medianas + 1 golosinas.`
+}))
 
-DATA_BASE.push(new Products(9, "Combo 4", `Combo 4`, `combo`, 390, "combo-nachos.png", `Nachos con queso + 1 gaseosa grande.`))
+DATA_BASE.push(new Products({
+    id: 9, 
+    productName: "Combo 4", 
+    title: `Combo 4`, 
+    type: `combo`, 
+    price: 390, 
+    image: "combo-nachos.png", 
+    description: `Nachos con queso + 1 gaseosa grande.`}))
 
-DATA_BASE.push(new Products(10, "Combo 5", `Combo 5`, `combo`, 340, "como-pancho.png", `1 Pancho + 1 gaseosa grande. `))
+DATA_BASE.push(new Products({
+    id: 10, 
+    productName: "Combo 5", 
+    title: `Combo 5`, 
+    type: `combo`, 
+    price: 340, 
+    image: "como-pancho.png", 
+    description: `1 Pancho + 1 gaseosa grande.`
+}))
 
-DATA_BASE.push(new Products(11, "Alfajor", `Alfajor`, `snack`, 120, "snack-alfajor.png", `Valor por unidad.`))
+DATA_BASE.push(new Products({
+    id: 11, 
+    productName: "Alfajor", 
+    title: `Alfajor`, 
+    type: `snack`, 
+    price: 120, 
+    image: "snack-alfajor.png", 
+    description: `Valor por unidad.`}))
 
-DATA_BASE.push(new Products(12, "Chocolate", `Chocolate`, `snack`, 250, "snack-milka.png", `Valor por unidad.`))
+DATA_BASE.push(new Products({
+    id: 12, 
+    productName: "Chocolate", 
+    title: `Chocolate`, 
+    type: `snack`, 
+    price: 250, 
+    image: "snack-milka.png", 
+    description: `Valor por unidad.`
+}))
 
-DATA_BASE.push(new Products(13, "Rocklets", `Paquete de Rocklets`, `snack`, 360, "snack-rocklets.png", `Valor por unidad.`))
+DATA_BASE.push(new Products({
+    id: 13, 
+    productName: "Rocklets", 
+    title: `Paquete de Rocklets`, 
+    type: `snack`, 
+    price: 360, 
+    image: "snack-rocklets.png", 
+    description: `Valor por unidad.`
+}))
 
-DATA_BASE.push(new Products(14, "Sugus", `Paquete de Sugus`, `snack`, 130, "snack-sugus.png", `Valor por unidad.`))
+DATA_BASE.push(new Products({
+    id: 14, 
+    productName: "Sugus", 
+    title: `Paquete de Sugus`, 
+    type: `snack`, 
+    price: 130, 
+    image: "snack-sugus.png", 
+    description: `Valor por unidad.`
+}))
 
 
 // El siguiente filtro es empleado para mostrar (por defecto) los combos en carrito.html

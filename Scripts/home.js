@@ -23,7 +23,7 @@ modalBtn.addEventListener('click', buyTickets)
 function buyTickets() {
     let filmSelected = JSON.stringify(selected)
     sessionStorage.setItem('PELICULA', filmSelected)
-    window.location.href = '../asientos.html' 
+    window.location.href = '..//asientos.html' 
 }
 
 // === Modal ===
