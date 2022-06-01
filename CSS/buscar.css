@@ -1,8 +1,9 @@
 body {
     background-image: linear-gradient(to right top, #051937, #001743, #00144d, #000f57, #05055e);
     background-repeat: repeat-y;
-    width: 100vw;
-    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
+    height: auto !important;
     box-sizing: border-box;
     overflow-x: hidden;
 }
@@ -47,11 +48,16 @@ main section input:focus {
     box-shadow: none !important;
 }
 
-/* 
-    Fragmento de codigo Obsoleto, explicacion en buscar.js
-.wrong {
-    border: 2px solid red !important;
-} */
+@media (min-width: 768px) {
+    main #film-container {
+        margin: 0 10px;
+        justify-content: flex-start !important;
+        align-items: flex-start;
+        gap: 20px
+    }
+}
+
+
 
 @media (max-width: 768px) {
     .scrolling-wrapper-flexbox {

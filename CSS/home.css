@@ -1,5 +1,6 @@
 body {
     background-image: linear-gradient(to right top, #051937, #001743, #00144d, #000f57, #05055e);
+    background-size: cover;
     box-sizing: border-box;
     position: relative;
     height: 100%;
@@ -34,6 +35,15 @@ main {
     width: 100%;
     height: auto;
 }
+
+@media (min-width: 768px) {
+    main #film-2d-container,
+    main #film-3d-container {
+        justify-content: flex-start !important;
+        gap: 20px;
+    }
+}
+
 
 main section {
     color: white;

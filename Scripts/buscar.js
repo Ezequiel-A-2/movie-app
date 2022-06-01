@@ -142,14 +142,3 @@ $("#title").keydown((event) => {
 
 
 getData('furious')
-
-// Fragmento de codigo obsoleto
-// Quedo obsoleto debido a que el atributo "require" del input ya me valida que el "title" no este vacio.
-// Pero lo dejo por si es util a futuro
-
-
-// if ($(`#title`).val() === '') {
-//     return $(`#title`).addClass('wrong')
-// } else {
-//     $(`#title`).removeClass('wrong')
-// }
